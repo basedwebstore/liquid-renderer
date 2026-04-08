@@ -18,7 +18,7 @@ Important: npm packages always ship executable JavaScript to consumers. That mea
 
 ## Package Scope
 
-This package is intended for private/internal distribution.
+This package is only intended for private/internal distribution.
 
 ## Exports
 
