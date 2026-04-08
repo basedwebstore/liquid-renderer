@@ -1,0 +1,8 @@
+# Require maintainer review on all changes.
+# Replace with your actual GitHub user/team handles.
+* @basedweb/maintainers
+
+# Keep release controls explicitly owned by maintainers.
+/.github/workflows/* @basedweb/maintainers
+/.changeset/* @basedweb/maintainers
+/package.json @basedweb/maintainers
