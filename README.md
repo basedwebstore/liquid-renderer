@@ -2,9 +2,9 @@
 
 Reusable Liquid UI rendering engine package.
 
-## Closed-Source Distribution Notes
+## Public Distribution Notes
 
-This package is configured for private npm distribution under a scope with restricted access.
+This package is configured for public npm distribution under a scoped package name.
 
 Important: npm packages always ship executable JavaScript to consumers. That means code can be inspected by anyone who can install the package. This setup prevents accidental source leakage (for example raw `src/*` and internal docs), but no npm setup can provide mathematically perfect secrecy once clients execute the code.
 
@@ -18,7 +18,7 @@ Important: npm packages always ship executable JavaScript to consumers. That mea
 
 ## Package Scope
 
-This package is just intended for private/internal distribution.
+This package is intended for public distribution, but only compiled artifacts are published.
 
 ## Exports
 
@@ -42,18 +42,18 @@ This package is just intended for private/internal distribution.
 - `AI_BLUEPRINT_GUIDE.md`
 - `AI_COMPONENT_REQUEST_INSTRUCTIONS.md`
 
-## Publish Strategy (Private)
+## Publish Strategy (Public)
 
-Use a private npm scope/registry and publish with restricted access.
+Use the public npm registry and publish with public access.
 
 ## One-Time Setup
 
-1. Ensure the npm org/scope exists and supports private packages.
+1. Ensure the npm org/scope exists and supports public packages.
 2. In npm, create an automation token with publish rights.
 3. In GitHub repo settings, add secret `NPM_TOKEN` with that token value.
 4. Ensure your default branch is `main` (or update workflow branch filters).
-5. Create GitHub Environment `npm-publish` and add required reviewers (maintainers only).
-6. Add branch protection on `main`:
+
+5. Create branch protection on `main`:
 	- Require a pull request before merging
 	- Require approvals (recommended: 1 or 2)
 	- Require review from Code Owners
