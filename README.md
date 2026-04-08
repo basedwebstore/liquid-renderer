@@ -14,7 +14,7 @@ Important: npm packages always ship executable JavaScript to consumers. That mea
 - Exclude `src/` and internal docs from the npm tarball via the `files` allowlist
 - Disable source maps in the build output
 - Run CI validation (`typecheck`, `build`, `npm pack --dry-run`)
-- Publish via GitHub Actions with npm provenance and a repo secret token
+- Publish via GitHub Actions with a repo secret token (`NPM_TOKEN`)
 
 ## Package Scope
 
