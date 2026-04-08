@@ -74,23 +74,17 @@ npm run check:pack
 
 ## Release Options
 
-### Option A: Changesets Flow (recommended)
+### Option A: npm-publish Workflow (recommended)
 
-1. Create a changeset for your code change:
-
-```bash
-npm run changeset
-```
-
-2. Commit the generated `.changeset/*.md` file with your code changes.
-3. Merge to `main`.
-4. Workflow `.github/workflows/changesets.yml` will either:
-	- open/update a release PR with version bumps and changelog, or
-	- publish automatically when a release PR is merged.
+1. Bump version in package.json.
+2. Commit and push to main.
+3. Trigger publish by either:
+   - creating a GitHub Release (published), or
+   - running workflow npm-publish manually from the Actions tab.
 
 Required GitHub secret:
 
-- `NPM_TOKEN` (npm automation token with publish rights)
+- NPM_TOKEN (npm automation token with publish rights)
 
 ## Extra Hardening You Can Add
 
