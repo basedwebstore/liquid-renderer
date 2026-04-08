@@ -1,68 +1,92 @@
-# basedweb-liquid-renderer
+# liquid-renderer
 
-Reusable Liquid UI rendering engine package.
+A schema-driven React renderer for building dashboard-like UIs from a JSON blueprint.
 
-## Public Distribution Notes
+The library turns structured widget data into composable React output using a registry-based rendering system.
 
-This package is configured for public npm distribution under a scoped package name.
+## Features
 
-Important: npm packages always ship executable JavaScript to consumers. That means code can be inspected by anyone who can install the package. This setup prevents accidental source leakage (for example raw `src/*` and internal docs), but no npm setup can provide mathematically perfect secrecy once clients execute the code.
+- Blueprint-driven rendering via LiquidRenderer
+- Built-in widget registry for container, button, and stat card primitives
+- Theme and color token support (light and dark)
+- TypeScript-first API with exported blueprint and widget types
+- Safe fallback UI for unknown or invalid widget entries
 
-## What This Repo Now Enforces
+## Installation
 
-- Publish only compiled output from `dist/`
-- Exclude `src/` and internal docs from the npm tarball via the `files` allowlist
-- Disable source maps in the build output
-- Minify and mangle all emitted `dist/*.js` files during build
-- Run CI validation (`typecheck`, `build`, `npm pack --dry-run`)
-- Publish via GitHub Actions with a repo secret token (`NPM_TOKEN`)
+```bash
+npm install liquid-renderer
+```
 
-## Package Scope
+Peer dependencies:
 
-This package is intended for public distribution, but only compiled artifacts are published.
+- react 18 or 19
+- react-dom 18 or 19
 
-## Exports
+## Quick Start
 
-- `LiquidRenderer`
-- `ComponentRegistry`
-- Liquid schema and theme types
+```tsx
+import { LiquidRenderer, type LiquidBlueprint } from 'liquid-renderer';
 
-## Source Layout
+const blueprint: LiquidBlueprint = {
+	theme: 'light',
+	layout: {
+		columns: 2,
+		gap: 16,
+	},
+	widgets: [
+		{
+			id: 'card-1',
+			type: 'stat_card',
+			props: {
+				title: 'Revenue',
+				value: '$42,180',
+			},
+		},
+		{
+			id: 'button-1',
+			type: 'button',
+			props: {
+				label: 'View Report',
+			},
+		},
+	],
+};
 
-- `src/LiquidRenderer.tsx`
-- `src/liquid.registry.tsx`
-- `src/liquid.types.ts`
-- `src/color-scheme.ts`
-- `src/components/liquid/*`
+export function Demo() {
+	return <LiquidRenderer blueprint={blueprint} />;
+}
+```
 
-## Internal Docs
+## Public API
 
-- `REGISTRY_DOCS.md`
-- `STYLING_OVERRIDES_DOCS.md`
-- `ACTION_DISPATCHER_DOCS.md`
-- `AI_BLUEPRINT_GUIDE.md`
-- `AI_COMPONENT_REQUEST_INSTRUCTIONS.md`
+Exports from this package:
 
-## Publish Strategy (Public)
+- LiquidRenderer
+- ComponentRegistry
+- LiquidBlueprint
+- LiquidWidget
+- LiquidWidgetProps
+- LiquidThemeMode
+- LiquidColorScheme
+- LiquidColorTokens
+- LiquidLayout
+- LiquidPrimitive
+- LiquidStyleMap
 
-Use the public npm registry and publish with public access.
+## Extending the Registry
 
-## One-Time Setup
+The renderer resolves components from ComponentRegistry by widget type.
 
-1. Ensure the npm org/scope exists and supports public packages.
-2. In npm, create an automation token with publish rights.
-3. In GitHub repo settings, add secret `NPM_TOKEN` with that token value.
-4. Ensure your default branch is `main` (or update workflow branch filters).
+Built-in mappings currently include:
 
-5. Create branch protection on `main`:
-	- Require a pull request before merging
-	- Require approvals (recommended: 1 or 2)
-	- Require review from Code Owners
-	- Require status checks to pass (`CI / validate`)
+- stat_card
+- button
+- container
 
-## Local Verification
+You can extend or wrap registry usage in your application layer to support additional widget types and custom props.
 
-Run these before releasing:
+## Development
 
 ```bash
 npm ci
@@ -71,24 +95,30 @@ npm run build
 npm run check:pack
 ```
 
-`npm run check:pack` shows exactly what files would be published. You should only see `dist/*` and package metadata files.
+Build output is emitted to dist.
 
-## Release Options
+## Publishing
 
-### Option A: npm-publish Workflow (recommended)
+Publishing is automated via GitHub Actions workflow npm-publish.
+
+Before publishing:
 
 1. Bump version in package.json.
-2. Commit and push to main.
+2. Merge to main.
 3. Trigger publish by either:
-   - creating a GitHub Release (published), or
-   - running workflow npm-publish manually from the Actions tab.
+	 - creating a GitHub Release, or
+	 - manually running npm-publish from Actions.
 
-Required GitHub secret:
+## Contributing
 
-- NPM_TOKEN (npm automation token with publish rights)
+Contributions are welcome.
 
-## Extra Hardening You Can Add
+Please open an issue or pull request with:
 
-- Use npm organization teams so only approved users can install.
-- Rotate `NPM_TOKEN` regularly.
-- If you need stronger IP protection, move sensitive logic behind an API and keep only rendering adapters in the client package.
+- problem statement
+- proposed approach
+- tests or validation notes
+
+## License
+
+MIT. See LICENSE.

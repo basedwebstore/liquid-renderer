@@ -1,8 +1,8 @@
 {
-  "name": "liquid-renderer",
+  "name": "@basedweb.store/liquid-renderer",
   "version": "0.1.0",
   "private": false,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
