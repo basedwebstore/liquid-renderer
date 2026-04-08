@@ -14,6 +14,10 @@
       "default": "./dist/index.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basedwebstore/liquid-renderer.git"
+  },
   "files": [
     "dist"
   ],
