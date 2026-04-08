@@ -1,4 +1,4 @@
-# @basedweb/liquid-renderer
+# basedweb-liquid-renderer
 
 Reusable Liquid UI rendering engine package.
 
