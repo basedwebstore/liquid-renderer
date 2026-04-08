@@ -27,6 +27,8 @@ export function LiquidContainer({
     border: `1px solid ${tokens.border}`,
     borderRadius: 16,
     backgroundColor: tokens.surface,
+    backgroundClip: 'padding-box',
+    overflow: 'hidden',
     color: tokens.text,
     padding: 16,
     boxShadow: `0 1px 2px ${tokens.shadow}`,

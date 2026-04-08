@@ -7,7 +7,7 @@ The library turns structured widget data into composable React output using a re
 ## Features
 
 - Blueprint-driven rendering via LiquidRenderer
-- Built-in widget registry for container, button, and stat card primitives
+- Built-in widget registry for container, button, and stat card primitives	
 - Theme and color token support (light and dark)
 - TypeScript-first API with exported blueprint and widget types
 - Safe fallback UI for unknown or invalid widget entries
