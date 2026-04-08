@@ -20,18 +20,16 @@ export function LiquidContainer({
 }: LiquidContainerProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
   const isDark = theme === 'dark';
-  const defaultClassName = isDark
-    ? 'rounded-2xl border border-slate-700 bg-slate-900 p-4 shadow-sm'
-    : 'rounded-2xl border border-slate-200 bg-white p-4 shadow-sm';
+  const defaultClassName = 'p-4';
   const defaultStyle: CSSProperties = {
-    border: `1px solid ${tokens.border}`,
-    borderRadius: 16,
-    backgroundColor: tokens.surface,
+    border: isDark ? '1px solid transparent' : `1px solid ${tokens.border}`,
+    borderRadius: 20,
+    backgroundColor: isDark ? tokens.surfaceAlt : tokens.surface,
     backgroundClip: 'padding-box',
     overflow: 'hidden',
     color: tokens.text,
     padding: 16,
-    boxShadow: `0 1px 2px ${tokens.shadow}`,
+    boxShadow: isDark ? 'none' : `0 1px 2px ${tokens.shadow}`,
   };
 
   return (

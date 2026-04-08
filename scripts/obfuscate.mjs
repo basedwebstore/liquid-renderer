@@ -31,8 +31,20 @@ async function main() {
 
   const jsFiles = await collectJsFiles(DIST_DIR);
 
+  let processedCount = 0;
+
   for (const filePath of jsFiles) {
-    const source = await readFile(filePath, 'utf8');
+    let source;
+    try {
+      source = await readFile(filePath, 'utf8');
+    } catch (error) {
+      // npm lifecycle hooks can re-run builds; skip files that disappear mid-pass.
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+        continue;
+      }
+      throw error;
+    }
+
     const result = await minify(source, {
       module: true,
       compress: true,
@@ -48,10 +60,18 @@ async function main() {
       throw new Error(`Failed to obfuscate ${filePath}`);
     }
 
-    await writeFile(filePath, result.code, 'utf8');
+    try {
+      await writeFile(filePath, result.code, 'utf8');
+      processedCount += 1;
+    } catch (error) {
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+        continue;
+      }
+      throw error;
+    }
   }
 
-  console.log(`Obfuscated ${jsFiles.length} files in dist/`);
+  console.log(`Obfuscated ${processedCount} files in dist/`);
 }
 
 main().catch((error) => {
