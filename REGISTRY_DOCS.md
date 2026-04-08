@@ -1,267 +1,181 @@
 # ComponentRegistry Reference
 
-This document defines the exact component keys and props currently supported by `ComponentRegistry`.
-
-Use these definitions when generating JSON blueprints.
-
-For strict `button.props.actionId` conventions, also use `ACTION_DISPATCHER_DOCS.md`.
+This document defines all component keys and prop contracts currently supported by ComponentRegistry.
 
 ## Registry Map
 
-- `stat_card` -> `LiquidStatCard`
-- `button` -> `LiquidButton`
-- `container` -> `LiquidContainer`
+- alert -> LiquidAlert
+- avatar_chip -> LiquidAvatarChip
+- badge -> LiquidBadge
+- button -> LiquidButton
+- container -> LiquidContainer
+- divider -> LiquidDivider
+- empty_state -> LiquidEmptyState
+- icon_label -> LiquidIconLabel
+- input -> LiquidInput
+- key_value_list -> LiquidKeyValueList
+- list -> LiquidList
+- metric_grid -> LiquidMetricGrid
+- progress_card -> LiquidProgressCard
+- section_header -> LiquidSectionHeader
+- select -> LiquidSelect
+- stat_card -> LiquidStatCard
+- stat_group -> LiquidStatGroup
+- table -> LiquidTable
+- tabs -> LiquidTabs
+- text_block -> LiquidTextBlock
+- timeline -> LiquidTimeline
+- toolbar -> LiquidToolbar
+- trend_card -> LiquidTrendCard
 
-## Blueprint Rules
+## Shared Widget Props
 
-- Every widget must include:
-  - `id` (string)
-  - `type` (string key from the registry map)
-  - `props` (object)
-- `children` is optional and must be an array of widgets.
-- Blueprint-level theme is supported:
-  - `theme`: `light` | `dark` (optional)
-- `props` values are limited to:
-  - `string`
-  - `number`
-  - `boolean`
-  - `style` object with CSS property keys and `string | number` values
-  - `colorScheme` object with `light` and `dark` palette overrides
+Every component also supports:
 
-## Theme and Color Scheme Contract
-
-The renderer resolves theme and palette values before rendering widgets.
-
-- `theme`: `light` | `dark`
-- `colorScheme`: object with optional `light` and `dark` entries
-
-Color scheme tokens:
-
-- `pageBackground`
-- `surface`
-- `surfaceAlt`
-- `text`
-- `mutedText`
-- `border`
-- `accent`
-- `accentText`
-- `success`
-- `warning`
-- `danger`
-- `shadow`
-
-Renderer precedence:
-
-1. `themeMode` passed to `LiquidRenderer`
-2. `blueprint.theme`
-3. `layout.theme`
-4. `light` fallback
-
-Palette inheritance:
-
-1. `blueprint.colorScheme`
-2. `layout.colorScheme`
-3. `widget.props.colorScheme`
-4. renderer default palette for the active theme
-
-The renderer injects resolved `colorTokens` internally. Blueprint authors should set `colorScheme`, not `colorTokens`.
-
-## Layout Styling Contract
-
-`layout` supports both required grid parameters and optional styling overrides:
-
-- `columns`: number (required)
-- `gap`: number (required)
-- `theme`: `light` | `dark` (optional)
-- `colorScheme`: object (optional, same shape as the blueprint color scheme)
-- `className`: string (optional)
-- `style`: object (optional, CSS properties with `string | number` values)
-
-Precedence:
-
-- Engine defaults are applied first.
-- JSON `layout.className` and `layout.style` are applied second.
-- If both define the same style property, JSON wins.
+- theme: light | dark
+- colorScheme: palette override object
+- className: string
+- style: CSS style object
 
 ## Component Prop Contracts
 
-### `stat_card` (`LiquidStatCard`)
+### alert
+- required: title (string), message (string)
+- optional: tone (info | success | warning | danger)
 
-Required props:
+### avatar_chip
+- required: name (string)
+- optional: subtitle (string), imageUrl (string)
 
-- `title`: string
-- `value`: string | number
+### badge
+- required: label (string)
+- optional: tone (neutral | success | warning | danger)
 
-Optional props:
+### button
+- required: label (string), actionId (string)
+- optional: variant (primary | secondary), disabled (boolean)
 
-- `trend`: number
-- `theme`: `light` | `dark`
-- `colorScheme`: object (optional, inherited palette override for this widget subtree)
-- `className`: string
-- `style`: object (`{ [cssProperty: string]: string | number }`)
+### container
+- required: none
+- optional: children via widget.children
 
-Example:
+### divider
+- required: none
+- optional: label (string)
 
-```json
-{
-  "id": "revenue-card",
-  "type": "stat_card",
-  "props": {
-    "title": "Revenue",
-    "value": 128400,
-    "trend": 8.2,
-    "className": "md:col-span-1"
-  }
-}
-```
+### empty_state
+- required: title (string)
+- optional: description (string), actionLabel (string)
 
-### `button` (`LiquidButton`)
+### icon_label
+- required: label (string)
+- optional: icon (string), tone (neutral | success | warning | danger)
 
-Required props:
+### input
+- required: label (string)
+- optional: value (string), placeholder (string), inputType (text | email | number | password), readOnly (boolean)
 
-- `label`: string
-- `actionId`: string
+### key_value_list
+- required: entries (Array<{ key: string; value: string | number }>)
 
-Optional props:
+### list
+- required: items (Array<{ title: string; subtitle?: string; meta?: string }>)
 
-- `variant`: `primary` | `secondary`
-- `theme`: `light` | `dark`
-- `colorScheme`: object (optional, inherited palette override for this widget subtree)
-- `className`: string
-- `style`: object (`{ [cssProperty: string]: string | number }`)
-- `disabled`: boolean
+### metric_grid
+- required: items (Array<{ label: string; value: string | number; tone?: neutral | success | warning | danger }>)
+- optional: columns (number)
 
-Example:
+### progress_card
+- required: title (string), value (number)
+- optional: max (number), tone (neutral | success | warning | danger)
 
-```json
-{
-  "id": "refresh-button",
-  "type": "button",
-  "props": {
-    "label": "Refresh Metrics",
-    "actionId": "refresh_dashboard_metrics",
-    "variant": "primary",
-    "disabled": false
-  }
-}
-```
+### section_header
+- required: title (string)
+- optional: subtitle (string), actionLabel (string)
 
-### `container` (`LiquidContainer`)
+### select
+- required: label (string), options (Array<{ label: string; value: string }>)
+- optional: value (string), disabled (boolean)
 
-Required props:
+### stat_card
+- required: title (string), value (string | number)
+- optional: trend (number)
 
-- None
+### stat_group
+- required: stats (Array<{ label: string; value: string | number }>)
+- optional: title (string)
 
-Optional props:
+### table
+- required: columns (string[]), rows (Array<Record<string, string | number | boolean>>)
 
-- `theme`: `light` | `dark`
-- `colorScheme`: object (optional, inherited palette override for this widget subtree)
-- `className`: string
-- `style`: object (`{ [cssProperty: string]: string | number }`)
+### tabs
+- required: items (Array<{ id: string; label: string }>)
+- optional: activeId (string)
 
-Children behavior:
+### text_block
+- required: body (string)
+- optional: heading (string), align (left | center | right)
 
-- `container` is intended to hold nested widgets via the widget `children` field.
+### timeline
+- required: items (Array<{ title: string; description?: string; time?: string; tone?: neutral | success | warning | danger }>)
 
-Example:
+### toolbar
+- required: none
+- optional: title (string), actions (Array<{ label: string; tone?: neutral | primary }>)
 
-```json
-{
-  "id": "root-container",
-  "type": "container",
-  "props": {
-    "className": "grid grid-cols-1 gap-4 md:grid-cols-3"
-  },
-  "children": []
-}
-```
+### trend_card
+- required: title (string), current (number), previous (number)
+- optional: suffix (string)
 
-## Full Blueprint Example
+## Example Blueprint Snippet
 
 ```json
 {
   "version": "1.0.0",
   "theme": "dark",
-  "colorScheme": {
-    "light": {
-      "pageBackground": "#f8fafc",
-      "surface": "#ffffff",
-      "surfaceAlt": "#f1f5f9",
-      "text": "#0f172a",
-      "mutedText": "#64748b",
-      "border": "#e2e8f0",
-      "accent": "#0f172a",
-      "accentText": "#ffffff",
-      "success": "#059669",
-      "warning": "#d97706",
-      "danger": "#b91c1c",
-      "shadow": "rgba(15, 23, 42, 0.08)"
-    },
-    "dark": {
-      "pageBackground": "#020617",
-      "surface": "#0f172a",
-      "surfaceAlt": "#1e293b",
-      "text": "#e2e8f0",
-      "mutedText": "#94a3b8",
-      "border": "#334155",
-      "accent": "#22d3ee",
-      "accentText": "#020617",
-      "success": "#34d399",
-      "warning": "#fbbf24",
-      "danger": "#fda4af",
-      "shadow": "rgba(2, 6, 23, 0.5)"
-    }
-  },
   "layout": {
     "columns": 1,
-    "gap": 16,
-    "theme": "dark",
-    "colorScheme": {
-      "dark": {
-        "surface": "#111827"
-      }
-    }
+    "gap": 16
   },
   "widgets": [
     {
-      "id": "root-container",
+      "id": "root",
       "type": "container",
       "props": {
-        "theme": "dark",
-        "colorScheme": {
-          "dark": {
-            "surface": "#111827"
-          }
-        },
-        "className": "grid grid-cols-1 gap-4 md:grid-cols-3"
+        "className": "grid grid-cols-1 gap-4 md:grid-cols-2"
       },
       "children": [
         {
-          "id": "revenue-card",
-          "type": "stat_card",
+          "id": "toolbar",
+          "type": "toolbar",
           "props": {
-            "title": "Revenue",
-            "value": 128400,
-            "trend": 8.2
+            "title": "Dashboard",
+            "actions": [
+              { "label": "Refresh" },
+              { "label": "Export", "tone": "primary" }
+            ]
           }
         },
         {
-          "id": "users-card",
-          "type": "stat_card",
+          "id": "trend",
+          "type": "trend_card",
           "props": {
-            "title": "Active Users",
-            "value": 9421,
-            "trend": -2.4
+            "title": "MRR",
+            "current": 92000,
+            "previous": 87300,
+            "suffix": "$"
           }
         },
         {
-          "id": "refresh-button",
-          "type": "button",
+          "id": "grid",
+          "type": "metric_grid",
           "props": {
-            "label": "Refresh Metrics",
-            "actionId": "refresh_dashboard_metrics",
-            "variant": "primary",
-            "disabled": false
+            "columns": 3,
+            "items": [
+              { "label": "Users", "value": 9421 },
+              { "label": "Conversion", "value": "3.8%", "tone": "success" },
+              { "label": "Errors", "value": 12, "tone": "warning" }
+            ]
           }
         }
       ]

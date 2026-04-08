@@ -2,6 +2,14 @@ export type LiquidPrimitive = string | number | boolean;
 export type LiquidThemeMode = 'light' | 'dark';
 
 export type LiquidStyleValue = string | number;
+export type LiquidJsonValue =
+  | LiquidPrimitive
+  | LiquidStyleMap
+  | LiquidColorScheme
+  | LiquidColorTokens
+  | LiquidJsonValue[]
+  | { [key: string]: LiquidJsonValue | undefined }
+  | null;
 
 export interface LiquidColorTokens {
   pageBackground: string;
@@ -33,7 +41,7 @@ export interface LiquidWidgetProps {
   colorTokens?: LiquidColorTokens;
   className?: string;
   style?: LiquidStyleMap;
-  [key: string]: LiquidPrimitive | LiquidStyleMap | LiquidColorScheme | LiquidColorTokens | undefined;
+  [key: string]: LiquidJsonValue | undefined;
 }
 
 export interface LiquidWidget {
