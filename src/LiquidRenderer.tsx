@@ -2,10 +2,12 @@ import type { CSSProperties, ReactElement, ReactNode } from 'react';
 
 import { ComponentRegistry } from './liquid.registry';
 import { resolveLiquidColorTokens } from './color-scheme';
+import { resolveLiquidValue } from './runtime';
 import type {
   LiquidBlueprint,
   LiquidColorScheme,
   LiquidColorTokens,
+  LiquidRendererRuntime,
   LiquidThemeMode,
   LiquidWidget,
   LiquidWidgetProps,
@@ -14,6 +16,7 @@ import type {
 export interface LiquidRendererProps {
   blueprint?: LiquidBlueprint | null;
   themeMode?: LiquidThemeMode;
+  runtime?: LiquidRendererRuntime;
 }
 
 function UnknownWidgetFallback({
@@ -53,10 +56,12 @@ function renderWidget(
   key: string,
   theme: LiquidThemeMode,
   colorScheme: LiquidColorScheme | undefined,
+  runtime?: LiquidRendererRuntime,
 ): ReactElement {
   const RegisteredComponent = ComponentRegistry[widget.type];
-  const widgetTheme = widget.props?.theme ?? theme;
-  const widgetColorScheme = widget.props?.colorScheme ?? colorScheme;
+  const resolvedProps = resolveLiquidValue(widget.props ?? {}, runtime) as LiquidWidgetProps;
+  const widgetTheme = resolvedProps.theme ?? theme;
+  const widgetColorScheme = resolvedProps.colorScheme ?? colorScheme;
   const widgetColorTokens = resolveLiquidColorTokens(widgetTheme, widgetColorScheme);
 
   if (!RegisteredComponent) {
@@ -72,14 +77,16 @@ function renderWidget(
   }
 
   const props: LiquidWidgetProps = {
-    ...(widget.props ?? {}),
+    ...resolvedProps,
     theme: widgetTheme,
     colorTokens: widgetColorTokens,
+    widgetId: widget.id,
+    dispatch: runtime?.dispatch,
   };
   const hasChildren = Array.isArray(widget.children) && widget.children.length > 0;
   const children: ReactNode = hasChildren
     ? widget.children!.map((child, index) =>
-        renderWidget(child, `${widget.id || 'widget'}-child-${index}`, widgetTheme, widgetColorScheme),
+        renderWidget(child, `${widget.id || 'widget'}-child-${index}`, widgetTheme, widgetColorScheme, runtime),
       )
     : undefined;
 
@@ -90,7 +97,7 @@ function renderWidget(
   );
 }
 
-export function LiquidRenderer({ blueprint, themeMode }: LiquidRendererProps) {
+export function LiquidRenderer({ blueprint, themeMode, runtime }: LiquidRendererProps) {
   const widgets = Array.isArray(blueprint?.widgets) ? blueprint.widgets : [];
   const layout = blueprint?.layout;
   const resolvedTheme: LiquidThemeMode = themeMode ?? blueprint?.theme ?? layout?.theme ?? 'light';
@@ -143,7 +150,7 @@ export function LiquidRenderer({ blueprint, themeMode }: LiquidRendererProps) {
           );
         }
 
-        return renderWidget(widget, key, resolvedTheme, resolvedColorScheme);
+        return renderWidget(widget, key, resolvedTheme, resolvedColorScheme, runtime);
       })}
     </div>
   );

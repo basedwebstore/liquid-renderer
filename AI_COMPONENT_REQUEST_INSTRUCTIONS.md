@@ -25,10 +25,11 @@ Ask AI to do all items below in one pass:
 5. Support `colorScheme`-driven palette overrides when the component is color-aware.
 6. Use Tailwind classes plus inline fallback default styles.
 7. Register the component in `ComponentRegistry` with a new string key.
-8. Document exact props (required/optional) in `REGISTRY_DOCS.md`.
-9. Add a JSON widget example.
-10. Keep renderer compatibility with recursive children behavior.
-11. Run a build/type check after edits.
+8. If the component is interactive, accept `dispatch` and `widgetId` props and emit normalized events instead of owning business logic.
+9. Document exact props (required/optional) in `REGISTRY_DOCS.md`.
+10. Add a JSON widget example.
+11. Keep renderer compatibility with recursive children behavior.
+12. Run a build/type check after edits.
 
 ## Copy/Paste Prompt Template
 
@@ -42,6 +43,7 @@ Requirements:
 - Support `className?: string` and `style?: LiquidStyleMap` overrides.
 - Support `theme?: 'light' | 'dark'` with different dark/light defaults.
 - If the component uses color-sensitive UI, consume the renderer-provided palette tokens and be compatible with JSON `colorScheme` inputs.
+- If the component is interactive, accept `dispatch` and `widgetId` props and call `dispatch({ type, widgetId, payload })` rather than wiring host behavior directly.
 - Leave `theme` unset in example JSON unless you intentionally want a fixed subtree that ignores the global theme toggle.
 - Keep component clean and minimal.
 - Register it in LiquidRenderer/liquid.registry.tsx with key `<registry_key>`.

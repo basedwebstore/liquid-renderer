@@ -23,6 +23,8 @@ export function LiquidButton({
   className = '',
   style,
   disabled = false,
+  dispatch,
+  widgetId,
 }: LiquidButtonProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
   const isDark = theme === 'dark';
@@ -64,6 +66,13 @@ export function LiquidButton({
       type="button"
       data-action-id={actionId}
       disabled={disabled}
+      onClick={() => {
+        void dispatch?.({
+          type: 'action',
+          widgetId,
+          payload: { actionId, label, variant },
+        });
+      }}
       style={{ ...defaultStyle, ...variantStyle, ...(style as CSSProperties | undefined) }}
       className={`${baseStyles} ${variantStyles} disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
     >

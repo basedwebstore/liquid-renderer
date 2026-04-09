@@ -1,4 +1,5 @@
 export { LiquidRenderer } from './LiquidRenderer';
+export type { LiquidRendererRuntime, LiquidDispatch, LiquidDispatchEvent, LiquidDataPointer, LiquidDispatchType } from './liquid.types';
 
 export type {
   LiquidBlueprint,

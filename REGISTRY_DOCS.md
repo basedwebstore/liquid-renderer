@@ -36,6 +36,8 @@ Every component also supports:
 - colorScheme: palette override object
 - className: string
 - style: CSS style object
+- widgetId: originating widget ID passed by the renderer
+- dispatch: host runtime dispatch function
 
 ## Component Prop Contracts
 
@@ -54,6 +56,7 @@ Every component also supports:
 ### button
 - required: label (string), actionId (string)
 - optional: variant (primary | secondary), disabled (boolean)
+- emits: `action` dispatch events on click when a runtime is provided
 
 ### container
 - required: none
@@ -74,6 +77,7 @@ Every component also supports:
 ### input
 - required: label (string)
 - optional: value (string), placeholder (string), inputType (text | email | number | password), readOnly (boolean)
+- emits: `input` dispatch events on change when a runtime is provided and `readOnly` is not true
 
 ### key_value_list
 - required: entries (Array<{ key: string; value: string | number }>)
@@ -96,6 +100,7 @@ Every component also supports:
 ### select
 - required: label (string), options (Array<{ label: string; value: string }>)
 - optional: value (string), disabled (boolean)
+- emits: `change` dispatch events on selection changes when a runtime is provided
 
 ### stat_card
 - required: title (string), value (string | number)
@@ -111,6 +116,7 @@ Every component also supports:
 ### tabs
 - required: items (Array<{ id: string; label: string }>)
 - optional: activeId (string)
+- emits: `change` dispatch events when a tab is clicked and a runtime is provided
 
 ### text_block
 - required: body (string)
@@ -183,3 +189,15 @@ Every component also supports:
   ]
 }
 ```
+
+## Runtime Notes
+
+The renderer may resolve pointer-shaped values before passing props to components.
+
+Supported pointer prefixes:
+
+- `$global.`
+- `$input.`
+- `$page.`
+
+When you want a component to stay static, pass literal values instead of pointers.

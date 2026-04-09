@@ -12,6 +12,8 @@ The engine supports both light mode and dark mode defaults.
 
 Projects can also define explicit color palettes for both modes through a `colorScheme` object.
 
+Styling behavior is independent from runtime pointer resolution and dispatch wiring. A widget can remain visually identical whether it is static or wired to host state.
+
 ## Styling Model
 
 ### 1. Default styles (always applied)

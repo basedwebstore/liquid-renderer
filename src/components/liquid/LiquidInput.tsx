@@ -20,13 +20,16 @@ export function LiquidInput({
   value,
   placeholder,
   inputType = 'text',
-  readOnly = true,
+  readOnly,
   theme = 'light',
   colorTokens,
   className = '',
   style,
+  dispatch,
+  widgetId,
 }: LiquidInputProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const isEditable = Boolean(dispatch) && readOnly !== true;
   const inputStyle: CSSProperties = {
     width: '100%',
     border: `1px solid ${tokens.border}`,
@@ -42,7 +45,28 @@ export function LiquidInput({
       <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
         {label}
       </span>
-      <input type={inputType} value={value ?? ''} placeholder={placeholder} readOnly={readOnly} style={inputStyle} />
+      <input
+        type={inputType}
+        value={value ?? ''}
+        placeholder={placeholder}
+        readOnly={!isEditable}
+        onChange={(event) => {
+          if (!isEditable) {
+            return;
+          }
+
+          void dispatch?.({
+            type: 'input',
+            widgetId,
+            payload: {
+              value: event.target.value,
+              inputType,
+              label,
+            },
+          });
+        }}
+        style={inputStyle}
+      />
     </label>
   );
 }

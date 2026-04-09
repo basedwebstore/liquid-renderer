@@ -25,6 +25,8 @@ export function LiquidTabs({
   colorTokens,
   className = '',
   style,
+  dispatch,
+  widgetId,
 }: LiquidTabsProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
   const selectedId = activeId ?? items[0]?.id;
@@ -42,16 +44,28 @@ export function LiquidTabs({
       {items.map((item) => {
         const selected = item.id === selectedId;
         return (
-          <span
+          <button
+            type="button"
             key={item.id}
+            onClick={() => {
+              void dispatch?.({
+                type: 'change',
+                widgetId,
+                payload: {
+                  value: item.id,
+                  label: item.label,
+                },
+              });
+            }}
             className="rounded-lg px-3 py-1.5 text-sm font-medium"
             style={{
               backgroundColor: selected ? tokens.accent : tokens.surfaceAlt,
               color: selected ? tokens.accentText : tokens.text,
+              cursor: 'pointer',
             }}
           >
             {item.label}
-          </span>
+          </button>
         );
       })}
     </div>

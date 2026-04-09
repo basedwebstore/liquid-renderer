@@ -2,6 +2,8 @@
 
 Use this guide to generate valid JSON blueprints for the Liquid renderer.
 
+If you are new to the package, read [GET_STARTED_GUIDE.md](GET_STARTED_GUIDE.md) first.
+
 ## Allowed Widget Types
 
 - alert
@@ -74,6 +76,18 @@ Optional:
 - className: string
 - style: CSS object
 
+## Runtime Conventions
+
+The renderer can resolve data pointers at runtime when the host provides a runtime resolver.
+
+Supported pointer prefixes:
+
+- `$global.*` for shared context data
+- `$input.*` for live input state
+- `$page.*` for page-scoped runtime data
+
+Use pointers only for values that must be hydrated at runtime. Keep static text, labels, and structural config as plain JSON values.
+
 ## Quick Prop Guide
 
 - alert: { title, message, tone? }
@@ -99,6 +113,13 @@ Optional:
 - timeline: { items: [{ title, description?, time?, tone? }] }
 - toolbar: { title?, actions?: [{ label, tone? }] }
 - trend_card: { title, current, previous, suffix? }
+
+## Interaction Model
+
+- `button` widgets emit dispatch events containing their `actionId` and widget metadata.
+- `input`, `select`, and `tabs` widgets emit value-change events through the host runtime when a dispatcher is present.
+- The renderer itself does not fetch data, mutate global state, or call LLM endpoints.
+- Host controllers decide how to handle `action`, `change`, `input`, `navigation`, `refresh`, and `intent` event types.
 
 ## Example
 

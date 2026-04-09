@@ -2,11 +2,14 @@
 
 A schema-driven React renderer for building dashboard-like UIs from a JSON blueprint.
 
-The library turns structured widget data into composable React output using a registry-based rendering system.
+The library turns structured widget data into composable React output using a registry-based rendering system. It also supports a host-provided runtime for resolving data pointers and dispatching interactions back to the app layer.
+
+Start here if you are new: [GET_STARTED_GUIDE.md](GET_STARTED_GUIDE.md)
 
 ## Features
 
 - Blueprint-driven rendering via LiquidRenderer
+- Host runtime support for resolved data pointers and dispatch events
 - Built-in widget registry for container, button, and stat card primitives	
 - Theme and color token support (light and dark)
 - TypeScript-first API with exported blueprint and widget types
@@ -26,7 +29,7 @@ Peer dependencies:
 ## Quick Start
 
 ```tsx
-import { LiquidRenderer, type LiquidBlueprint } from 'liquid-renderer';
+import { LiquidRenderer, type LiquidBlueprint, type LiquidRendererRuntime } from 'liquid-renderer';
 
 const blueprint: LiquidBlueprint = {
 	theme: 'light',
@@ -53,8 +56,21 @@ const blueprint: LiquidBlueprint = {
 	],
 };
 
+const runtime: LiquidRendererRuntime = {
+	resolveDataPointer: (pointer) => {
+		if (pointer === '$global.revenue') {
+			return '$42,180';
+		}
+
+		return undefined;
+	},
+	dispatch: (event) => {
+		console.log(event.type, event.payload, event.widgetId);
+	},
+};
+
 export function Demo() {
-	return <LiquidRenderer blueprint={blueprint} />;
+	return <LiquidRenderer blueprint={blueprint} runtime={runtime} />;
 }
 ```
 
@@ -73,10 +89,23 @@ Exports from this package:
 - LiquidLayout
 - LiquidPrimitive
 - LiquidStyleMap
+- LiquidRendererRuntime
+- LiquidDispatch
+- LiquidDispatchEvent
+- LiquidDataPointer
+- LiquidDispatchType
 
 ## Extending the Registry
 
 The renderer resolves components from ComponentRegistry by widget type.
+
+When a host runtime is provided, the renderer also resolves data pointers inside widget props before rendering:
+
+- `$global.*` for global context data
+- `$input.*` for live input state
+- `$page.*` for page-scoped runtime data
+
+Interactive widgets emit normalized dispatch events through the injected runtime. The host app decides whether to update state, fetch data, navigate, or trigger intent generation.
 
 Built-in mappings currently include:
 

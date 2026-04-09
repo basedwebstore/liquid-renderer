@@ -29,6 +29,8 @@ export function LiquidSelect({
   colorTokens,
   className = '',
   style,
+  dispatch,
+  widgetId,
 }: LiquidSelectProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
   const selectStyle: CSSProperties = {
@@ -46,7 +48,21 @@ export function LiquidSelect({
       <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
         {label}
       </span>
-      <select value={value ?? options[0]?.value ?? ''} disabled={disabled} style={selectStyle}>
+      <select
+        value={value ?? options[0]?.value ?? ''}
+        disabled={disabled}
+        onChange={(event) => {
+          void dispatch?.({
+            type: 'change',
+            widgetId,
+            payload: {
+              value: event.target.value,
+              label,
+            },
+          });
+        }}
+        style={selectStyle}
+      >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

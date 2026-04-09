@@ -11,6 +11,22 @@ export type LiquidJsonValue =
   | { [key: string]: LiquidJsonValue | undefined }
   | null;
 
+export type LiquidDataPointer = `$global.${string}` | `$input.${string}` | `$page.${string}`;
+export type LiquidDispatchType = 'action' | 'change' | 'input' | 'navigation' | 'refresh' | 'intent' | (string & {});
+
+export interface LiquidDispatchEvent {
+  type: LiquidDispatchType;
+  payload?: LiquidJsonValue;
+  widgetId?: string;
+}
+
+export type LiquidDispatch = (event: LiquidDispatchEvent) => void | Promise<void>;
+
+export interface LiquidRendererRuntime {
+  resolveDataPointer?: (pointer: LiquidDataPointer) => LiquidJsonValue | undefined;
+  dispatch?: LiquidDispatch;
+}
+
 export interface LiquidColorTokens {
   pageBackground: string;
   surface: string;
@@ -41,7 +57,9 @@ export interface LiquidWidgetProps {
   colorTokens?: LiquidColorTokens;
   className?: string;
   style?: LiquidStyleMap;
-  [key: string]: LiquidJsonValue | undefined;
+  widgetId?: string;
+  dispatch?: LiquidDispatch;
+  [key: string]: LiquidJsonValue | LiquidDispatch | undefined;
 }
 
 export interface LiquidWidget {
