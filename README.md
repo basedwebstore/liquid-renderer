@@ -1,24 +1,18 @@
-# liquid-renderer
+# @basedweb.store/liquid-renderer
 
-A schema-driven React renderer for building dashboard-like UIs from a JSON blueprint.
+[![npm version](https://img.shields.io/npm/v/@basedweb.store/liquid-renderer)](https://www.npmjs.com/package/@basedweb.store/liquid-renderer)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Docs](https://img.shields.io/badge/docs-live-0f172a)](https://basedwebstore.github.io/liquid-renderer/)
 
-The library turns structured widget data into composable React output using a registry-based rendering system. It also supports a host-provided runtime for resolving data pointers and dispatching interactions back to the app layer.
+Schema-driven React renderer for dashboard-style interfaces.
 
-Start here if you are new: [GET_STARTED_GUIDE.md](GET_STARTED_GUIDE.md)
+It converts JSON blueprints into React UI through a widget registry, resolves runtime data pointers, and emits normalized interaction events to a host dispatcher.
 
-## Features
-
-- Blueprint-driven rendering via LiquidRenderer
-- Host runtime support for resolved data pointers and dispatch events
-- Built-in widget registry for container, button, and stat card primitives	
-- Theme and color token support (light and dark)
-- TypeScript-first API with exported blueprint and widget types
-- Safe fallback UI for unknown or invalid widget entries
-
-## Installation
+## Install
 
 ```bash
-npm install liquid-renderer
+npm install @basedweb.store/liquid-renderer
 ```
 
 Peer dependencies:
@@ -29,9 +23,10 @@ Peer dependencies:
 ## Quick Start
 
 ```tsx
-import { LiquidRenderer, type LiquidBlueprint, type LiquidRendererRuntime } from 'liquid-renderer';
+import { LiquidRenderer, type LiquidBlueprint, type LiquidRendererRuntime } from '@basedweb.store/liquid-renderer';
 
 const blueprint: LiquidBlueprint = {
+	version: '1.0.0',
 	theme: 'light',
 	layout: {
 		columns: 2,
@@ -39,18 +34,20 @@ const blueprint: LiquidBlueprint = {
 	},
 	widgets: [
 		{
-			id: 'card-1',
+			id: 'users',
 			type: 'stat_card',
 			props: {
-				title: 'Revenue',
-				value: '$42,180',
+				title: 'Active Users',
+				value: '$global.activeUsers',
 			},
 		},
 		{
-			id: 'button-1',
-			type: 'button',
+			id: 'search',
+			type: 'input',
 			props: {
-				label: 'View Report',
+				label: 'Search',
+				value: '$input.query',
+				placeholder: 'Type to filter',
 			},
 		},
 	],
@@ -58,25 +55,48 @@ const blueprint: LiquidBlueprint = {
 
 const runtime: LiquidRendererRuntime = {
 	resolveDataPointer: (pointer) => {
-		if (pointer === '$global.revenue') {
-			return '$42,180';
+		if (pointer === '$global.activeUsers') {
+			return 9421;
+		}
+
+		if (pointer === '$input.query') {
+			return '';
 		}
 
 		return undefined;
 	},
 	dispatch: (event) => {
-		console.log(event.type, event.payload, event.widgetId);
+		console.log(event.type, event.widgetId, event.payload);
 	},
 };
 
-export function Demo() {
+export function DemoPage() {
 	return <LiquidRenderer blueprint={blueprint} runtime={runtime} />;
 }
 ```
 
-## Public API
+## Runtime Boundaries
 
-Exports from this package:
+The renderer is responsible for:
+
+- widget rendering from blueprint schema
+- runtime pointer resolution (`$global.*`, `$input.*`, `$page.*`)
+- normalized dispatch events from interactive widgets
+
+Your host app is responsible for:
+
+- state storage and mutation
+- API/network operations
+- routing and navigation behavior
+- LLM or intent generation flows
+
+## Documentation
+
+- Local docs app: `npm run docs:dev`
+- Production docs build: `npm run docs:build`
+- Live docs: https://basedwebstore.github.io/liquid-renderer/
+
+## Public API
 
 - LiquidRenderer
 - ComponentRegistry
@@ -95,61 +115,27 @@ Exports from this package:
 - LiquidDataPointer
 - LiquidDispatchType
 
-## Extending the Registry
-
-The renderer resolves components from ComponentRegistry by widget type.
-
-When a host runtime is provided, the renderer also resolves data pointers inside widget props before rendering:
-
-- `$global.*` for global context data
-- `$input.*` for live input state
-- `$page.*` for page-scoped runtime data
-
-Interactive widgets emit normalized dispatch events through the injected runtime. The host app decides whether to update state, fetch data, navigate, or trigger intent generation.
-
-Built-in mappings currently include:
-
-- stat_card
-- button
-- container
-
-You can extend or wrap registry usage in your application layer to support additional widget types and custom props.
-
 ## Development
 
 ```bash
 npm ci
+npm run docs:generate
 npm run typecheck
 npm run build
-npm run check:pack
-npm run docs:dev
+npm run docs:build
 ```
 
-Build output is emitted to dist.
+Build output: `dist`.
 
-Docs app output is emitted to docs-dist.
+Docs output: `docs-dist`.
 
 ## Publishing
 
-Publishing is automated via GitHub Actions workflow npm-publish.
+Publishing is automated through GitHub Actions.
 
-Before publishing:
-
-1. Bump version in package.json.
+1. Bump the version in package.json.
 2. Merge to main.
-3. Trigger publish by either:
-	 - creating a GitHub Release, or
-	 - manually running npm-publish from Actions.
-
-## Contributing
-
-Contributions are welcome.
-
-Please open an issue or pull request with:
-
-- problem statement
-- proposed approach
-- tests or validation notes
+3. Trigger release workflow (GitHub Release or manual workflow run).
 
 ## License
 
