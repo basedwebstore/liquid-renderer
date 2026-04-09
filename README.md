@@ -122,9 +122,12 @@ npm ci
 npm run typecheck
 npm run build
 npm run check:pack
+npm run docs:dev
 ```
 
 Build output is emitted to dist.
+
+Docs app output is emitted to docs-dist.
 
 ## Publishing
 

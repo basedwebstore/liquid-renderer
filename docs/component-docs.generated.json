@@ -1,0 +1,452 @@
+[
+  {
+    "key": "alert",
+    "componentName": "LiquidAlert",
+    "fileName": "LiquidAlert.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tone",
+        "type": "'info' | 'success' | 'warning' | 'danger'",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "avatar_chip",
+    "componentName": "LiquidAvatarChip",
+    "fileName": "LiquidAvatarChip.tsx",
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "imageUrl",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "badge",
+    "componentName": "LiquidBadge",
+    "fileName": "LiquidBadge.tsx",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tone",
+        "type": "'neutral' | 'success' | 'warning' | 'danger'",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "button",
+    "componentName": "LiquidButton",
+    "fileName": "LiquidButton.tsx",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "variant",
+        "type": "'primary' | 'secondary'",
+        "required": false
+      },
+      {
+        "name": "actionId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "container",
+    "componentName": "LiquidContainer",
+    "fileName": "LiquidContainer.tsx",
+    "props": []
+  },
+  {
+    "key": "divider",
+    "componentName": "LiquidDivider",
+    "fileName": "LiquidDivider.tsx",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "empty_state",
+    "componentName": "LiquidEmptyState",
+    "fileName": "LiquidEmptyState.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "actionLabel",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "icon_label",
+    "componentName": "LiquidIconLabel",
+    "fileName": "LiquidIconLabel.tsx",
+    "props": [
+      {
+        "name": "icon",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tone",
+        "type": "'neutral' | 'success' | 'warning' | 'danger'",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "input",
+    "componentName": "LiquidInput",
+    "fileName": "LiquidInput.tsx",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "inputType",
+        "type": "'text' | 'email' | 'number' | 'password'",
+        "required": false
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "key_value_list",
+    "componentName": "LiquidKeyValueList",
+    "fileName": "LiquidKeyValueList.tsx",
+    "props": [
+      {
+        "name": "entries",
+        "type": "LiquidKeyValueEntry[]",
+        "required": true
+      }
+    ]
+  },
+  {
+    "key": "list",
+    "componentName": "LiquidList",
+    "fileName": "LiquidList.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "LiquidListItem[]",
+        "required": true
+      }
+    ]
+  },
+  {
+    "key": "metric_grid",
+    "componentName": "LiquidMetricGrid",
+    "fileName": "LiquidMetricGrid.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "LiquidMetricGridItem[]",
+        "required": true
+      },
+      {
+        "name": "columns",
+        "type": "number",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "progress_card",
+    "componentName": "LiquidProgressCard",
+    "fileName": "LiquidProgressCard.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "tone",
+        "type": "'neutral' | 'success' | 'warning' | 'danger'",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "section_header",
+    "componentName": "LiquidSectionHeader",
+    "fileName": "LiquidSectionHeader.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "actionLabel",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "select",
+    "componentName": "LiquidSelect",
+    "fileName": "LiquidSelect.tsx",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "options",
+        "type": "LiquidSelectOption[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "stat_card",
+    "componentName": "LiquidStatCard",
+    "fileName": "LiquidStatCard.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "string | number",
+        "required": true
+      },
+      {
+        "name": "trend",
+        "type": "number",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "stat_group",
+    "componentName": "LiquidStatGroup",
+    "fileName": "LiquidStatGroup.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "stats",
+        "type": "LiquidStatGroupItem[]",
+        "required": true
+      }
+    ]
+  },
+  {
+    "key": "table",
+    "componentName": "LiquidTable",
+    "fileName": "LiquidTable.tsx",
+    "props": [
+      {
+        "name": "columns",
+        "type": "string[]",
+        "required": true
+      },
+      {
+        "name": "rows",
+        "type": "Array<Record<string, LiquidPrimitive>>",
+        "required": true
+      }
+    ]
+  },
+  {
+    "key": "tabs",
+    "componentName": "LiquidTabs",
+    "fileName": "LiquidTabs.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "LiquidTabItem[]",
+        "required": true
+      },
+      {
+        "name": "activeId",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "text_block",
+    "componentName": "LiquidTextBlock",
+    "fileName": "LiquidTextBlock.tsx",
+    "props": [
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "align",
+        "type": "'left' | 'center' | 'right'",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "timeline",
+    "componentName": "LiquidTimeline",
+    "fileName": "LiquidTimeline.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "LiquidTimelineItem[]",
+        "required": true
+      }
+    ]
+  },
+  {
+    "key": "toolbar",
+    "componentName": "LiquidToolbar",
+    "fileName": "LiquidToolbar.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "actions",
+        "type": "LiquidToolbarAction[]",
+        "required": false
+      }
+    ]
+  },
+  {
+    "key": "trend_card",
+    "componentName": "LiquidTrendCard",
+    "fileName": "LiquidTrendCard.tsx",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "current",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "previous",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "suffix",
+        "type": "string",
+        "required": false
+      }
+    ]
+  }
+]

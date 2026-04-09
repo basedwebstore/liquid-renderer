@@ -26,6 +26,10 @@
     "clean": "node -e \"const fs=require('fs'); fs.rmSync('dist',{recursive:true,force:true});\"",
     "build": "npm run clean && tsc -p tsconfig.build.json && npm run obfuscate",
     "obfuscate": "node scripts/obfuscate.mjs",
+    "docs:dev": "vite --config docs/vite.config.ts",
+    "docs:build": "vite build --config docs/vite.config.ts",
+    "docs:preview": "vite preview --config docs/vite.config.ts",
+    "docs:generate": "node scripts/generate-docs-manifest.mjs",
     "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "prepack": "npm run build",
     "check:pack": "npm pack --dry-run",
@@ -44,9 +48,11 @@
     "@changesets/cli": "^2.30.0",
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^6.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "terser": "^5.44.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vite": "^8.0.8"
   }
 }
