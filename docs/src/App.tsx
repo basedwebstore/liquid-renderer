@@ -5,10 +5,11 @@ import { BlueprintGuidePage } from './pages/BlueprintGuidePage';
 import { ComponentsPage } from './pages/ComponentsPage';
 import { DispatchGuidePage } from './pages/DispatchGuidePage';
 import { HomePage } from './pages/HomePage';
+import { LayoutingPage } from './pages/LayoutingPage';
 import { PlaygroundPage } from './pages/PlaygroundPage';
 import { StylingPage } from './pages/StylingPage';
 
-type RouteKey = 'home' | 'playground' | 'components' | 'blueprint' | 'dispatch' | 'styling' | 'ai';
+type RouteKey = 'home' | 'playground' | 'components' | 'blueprint' | 'dispatch' | 'styling' | 'ai' | 'layouting';
 
 export function App() {
   const [route, setRoute] = useState<RouteKey>('home');
@@ -42,6 +43,9 @@ export function App() {
           <button type="button" className={route === 'ai' ? 'active' : ''} onClick={() => setRoute('ai')}>
             AI Authoring
           </button>
+          <button type="button" className={route === 'layouting' ? 'active' : ''} onClick={() => setRoute('layouting')}>
+            Layouting
+          </button>
         </nav>
       </header>
 
@@ -53,6 +57,7 @@ export function App() {
         {route === 'dispatch' ? <DispatchGuidePage /> : null}
         {route === 'styling' ? <StylingPage /> : null}
         {route === 'ai' ? <AIAuthoringPage /> : null}
+        {route === 'layouting' ? <LayoutingPage /> : null}
       </main>
     </div>
   );

@@ -47,7 +47,11 @@ const blueprint: LiquidBlueprint = {
     {
       id: 'search',
       type: 'input',
-      props: { label: 'Search', value: '$input.searchQuery', placeholder: 'Type to filter' },
+      props: {
+        label: 'Search',
+        value: '$input.searchQuery',
+        placeholder: 'Type to filter',
+      },
     },
   ],
 };

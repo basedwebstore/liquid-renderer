@@ -87,1359 +87,1365 @@ toolbar: { title?, actions? }`}),(0,b.jsx)(`h3`,{children:`Blueprint Example`}),
       ]
     }
   ]
-}`})]})})}var x={pageBackground:`#f8fafc`,surface:`#ffffff`,surfaceAlt:`#f1f5f9`,text:`#0f172a`,mutedText:`#64748b`,border:`#e2e8f0`,accent:`#0f172a`,accentText:`#ffffff`,success:`#059669`,warning:`#d97706`,danger:`#b91c1c`,shadow:`rgba(15, 23, 42, 0.08)`},ne={pageBackground:`#020617`,surface:`#0f172a`,surfaceAlt:`#1e293b`,text:`#e2e8f0`,mutedText:`#94a3b8`,border:`#334155`,accent:`#22d3ee`,accentText:`#020617`,success:`#34d399`,warning:`#fbbf24`,danger:`#fda4af`,shadow:`rgba(2, 6, 23, 0.5)`};function S(e,t){let n=e===`dark`?ne:x,r=t?.[e]??{};return{...n,...r}}function re({title:e,message:t,tone:n=`info`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=n===`success`?s.success:n===`warning`?s.warning:n===`danger`?s.danger:s.accent,l={border:`1px solid ${s.border}`,borderLeft:`4px solid ${c}`,borderRadius:12,backgroundColor:s.surface,color:s.text,padding:14};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-3 ${a}`,style:{...l,...o},children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:s.text},children:e}),(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:s.mutedText},children:t})]})}function ie(e){return e.split(` `).filter(Boolean).slice(0,2).map(e=>e[0]?.toUpperCase()).join(``)}function ae({name:e,subtitle:t,imageUrl:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`inline-flex items-center gap-3 rounded-xl border px-3 py-2 ${a}`,style:{border:`1px solid ${s.border}`,backgroundColor:s.surface,...o},children:[n?(0,b.jsx)(`img`,{src:n,alt:e,style:{width:32,height:32,borderRadius:`50%`,objectFit:`cover`}}):(0,b.jsx)(`span`,{style:{width:32,height:32,borderRadius:`50%`,display:`grid`,placeItems:`center`,backgroundColor:s.accent,color:s.accentText,fontSize:12,fontWeight:700},children:ie(e)}),(0,b.jsxs)(`span`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`text-xs`,style:{color:s.mutedText},children:t}):null]})]})}function oe({label:e,tone:t=`neutral`,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0),s=t===`success`?o.success:t===`warning`?o.warning:t===`danger`?o.danger:o.accent;return(0,b.jsx)(`span`,{className:`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ${i}`,style:{backgroundColor:o.surfaceAlt,color:s,border:`1px solid ${o.border}`,...a},children:e})}function se({label:e,variant:t=`primary`,actionId:n,theme:r=`light`,colorTokens:i,className:a=``,style:o,disabled:s=!1,dispatch:c,widgetId:l}){let u=i??S(r,void 0),d=r===`dark`,f=t===`primary`?d?`bg-cyan-400 text-slate-950 hover:bg-cyan-300 focus:ring-cyan-300`:`bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900`:d?`bg-slate-800 text-slate-100 hover:bg-slate-700 focus:ring-slate-500`:`bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-400`,p={display:`inline-flex`,alignItems:`center`,justifyContent:`center`,borderRadius:12,padding:`8px 16px`,fontSize:14,fontWeight:500,border:`1px solid transparent`,cursor:s?`not-allowed`:`pointer`,opacity:s?.5:1,transition:`background-color 150ms ease, color 150ms ease`,boxShadow:`0 1px 2px ${u.shadow}`},m=t===`primary`?{backgroundColor:u.accent,color:u.accentText}:{backgroundColor:u.surfaceAlt,color:u.text,borderColor:u.border};return(0,b.jsx)(`button`,{type:`button`,"data-action-id":n,disabled:s,onClick:()=>{c?.({type:`action`,widgetId:l,payload:{actionId:n,label:e,variant:t}})},style:{...p,...m,...o},className:`inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${f} disabled:cursor-not-allowed disabled:opacity-50 ${a}`,children:e})}function ce({children:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0),o=t===`dark`,s={border:o?`1px solid transparent`:`1px solid ${a.border}`,borderRadius:20,backgroundColor:o?a.surfaceAlt:a.surface,backgroundClip:`padding-box`,overflow:`hidden`,color:a.text,padding:16,boxShadow:o?`none`:`0 1px 2px ${a.shadow}`};return(0,b.jsx)(`div`,{className:`p-4 ${r}`,style:{...s,...i},children:e})}function le({label:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center gap-3 ${r}`,style:i,children:[(0,b.jsx)(`span`,{style:{height:1,backgroundColor:a.border,flex:1}}),e?(0,b.jsx)(`span`,{className:`text-xs font-medium`,style:{color:a.mutedText},children:e}):null,(0,b.jsx)(`span`,{style:{height:1,backgroundColor:a.border,flex:1}})]})}function ue({title:e,description:t,actionLabel:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`rounded-xl border p-6 text-center ${a}`,style:{border:`1px dashed ${s.border}`,borderRadius:12,backgroundColor:s.surface,...o},children:[(0,b.jsx)(`p`,{className:`text-base font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`mt-2 text-sm`,style:{color:s.mutedText},children:t}):null,n?(0,b.jsx)(`span`,{className:`mt-4 inline-flex rounded-lg px-3 py-1.5 text-sm font-medium`,style:{backgroundColor:s.accent,color:s.accentText},children:n}):null]})}function C({icon:e=`•`,label:t,tone:n=`neutral`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=n===`success`?s.success:n===`warning`?s.warning:n===`danger`?s.danger:s.text;return(0,b.jsxs)(`div`,{className:`inline-flex items-center gap-2 rounded-lg px-2 py-1 ${a}`,style:{backgroundColor:s.surfaceAlt,...o},children:[(0,b.jsx)(`span`,{style:{color:c,fontWeight:700},children:e}),(0,b.jsx)(`span`,{className:`text-sm font-medium`,style:{color:s.text},children:t})]})}function de({label:e,value:t,placeholder:n,inputType:r=`text`,readOnly:i,theme:a=`light`,colorTokens:o,className:s=``,style:c,dispatch:l,widgetId:u}){let d=o??S(a,void 0),f=!!l&&i!==!0,p={width:`100%`,border:`1px solid ${d.border}`,borderRadius:10,backgroundColor:d.surface,color:d.text,padding:`10px 12px`,outline:`none`};return(0,b.jsxs)(`label`,{className:`block ${s}`,style:c,children:[(0,b.jsx)(`span`,{className:`mb-2 block text-sm font-medium`,style:{color:d.text},children:e}),(0,b.jsx)(`input`,{type:r,value:t??``,placeholder:n,readOnly:!f,onChange:t=>{f&&l?.({type:`input`,widgetId:u,payload:{value:t.target.value,inputType:r,label:e}})},style:p})]})}function fe({entries:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border p-4 ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:(0,b.jsx)(`div`,{style:{display:`grid`,gap:10},children:e.map(e=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`minmax(0, 1fr) auto`,gap:12,borderBottom:`1px solid ${a.border}`,paddingBottom:8},children:[(0,b.jsx)(`span`,{style:{color:a.mutedText,fontSize:13},children:e.key}),(0,b.jsx)(`span`,{style:{color:a.text,fontWeight:600},children:e.value})]},e.key))})})}function pe({items:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:e.map((t,n)=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`1fr auto`,gap:10,padding:`12px 14px`,borderBottom:n<e.length-1?`1px solid ${a.border}`:`none`},children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:a.text},children:t.title}),t.subtitle?(0,b.jsx)(`p`,{className:`text-xs`,style:{color:a.mutedText},children:t.subtitle}):null]}),t.meta?(0,b.jsx)(`span`,{style:{color:a.mutedText,fontSize:12},children:t.meta}):null]},`${t.title}-${n}`))})}function me({items:e,columns:t=3,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsx)(`div`,{className:i,style:{display:`grid`,gridTemplateColumns:`repeat(${Math.max(1,t)}, minmax(0, 1fr))`,gap:10,...a},children:e.map((e,t)=>{let n=e.tone===`success`?o.success:e.tone===`warning`?o.warning:e.tone===`danger`?o.danger:o.text;return(0,b.jsxs)(`div`,{style:{border:`1px solid ${o.border}`,borderRadius:10,backgroundColor:o.surface,padding:12},children:[(0,b.jsx)(`p`,{className:`text-xs`,style:{color:o.mutedText},children:e.label}),(0,b.jsx)(`p`,{className:`mt-1 text-lg font-semibold`,style:{color:n},children:e.value})]},`${e.label}-${t}`)})})}function w({title:e,value:t,max:n=100,tone:r=`neutral`,theme:i=`light`,colorTokens:a,className:o=``,style:s}){let c=a??S(i,void 0),l=Math.max(0,Math.min(100,t/Math.max(1,n)*100)),u=r===`success`?c.success:r===`warning`?c.warning:r===`danger`?c.danger:c.accent,d={border:`1px solid ${c.border}`,borderRadius:12,backgroundColor:c.surface,color:c.text,padding:16,boxShadow:`0 1px 2px ${c.shadow}`};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${o}`,style:{...d,...s},children:[(0,b.jsxs)(`div`,{className:`mb-3 flex items-center justify-between gap-3`,children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:c.mutedText},children:e}),(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:c.text},children:`${Math.round(l)}%`})]}),(0,b.jsx)(`div`,{className:`h-2 w-full rounded-full`,style:{backgroundColor:c.surfaceAlt},children:(0,b.jsx)(`div`,{className:`h-full rounded-full`,style:{width:`${l}%`,backgroundColor:u,transition:`width 200ms ease`}})}),(0,b.jsx)(`p`,{className:`mt-3 text-xs`,style:{color:c.mutedText},children:`${t} / ${n}`})]})}function he({title:e,subtitle:t,actionLabel:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center justify-between gap-3 ${a}`,style:o,children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`h3`,{className:`text-lg font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:s.mutedText},children:t}):null]}),n?(0,b.jsx)(`span`,{className:`rounded-lg border px-3 py-1.5 text-sm`,style:{border:`1px solid ${s.border}`,color:s.text,backgroundColor:s.surfaceAlt},children:n}):null]})}function ge({label:e,options:t,value:n,disabled:r=!1,theme:i=`light`,colorTokens:a,className:o=``,style:s,dispatch:c,widgetId:l}){let u=a??S(i,void 0),d={width:`100%`,border:`1px solid ${u.border}`,borderRadius:10,backgroundColor:u.surface,color:u.text,padding:`10px 12px`,outline:`none`};return(0,b.jsxs)(`label`,{className:`block ${o}`,style:s,children:[(0,b.jsx)(`span`,{className:`mb-2 block text-sm font-medium`,style:{color:u.text},children:e}),(0,b.jsx)(`select`,{value:n??t[0]?.value??``,disabled:r,onChange:t=>{c?.({type:`change`,widgetId:l,payload:{value:t.target.value,label:e}})},style:d,children:t.map(e=>(0,b.jsx)(`option`,{value:e.value,children:e.label},e.value))})]})}function _e({title:e,value:t,trend:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=r===`dark`,l=n==null?null:`${n>0?`+`:``}${n}%`,u=n==null?`text-slate-400`:n>=0?`text-emerald-600`:`text-rose-600`,d=n==null?{color:s.mutedText}:n>=0?{color:s.success}:{color:s.danger},f={border:c?`1px solid transparent`:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,backgroundClip:`padding-box`,overflow:`hidden`,position:`relative`,color:s.text,padding:20,boxShadow:c?`none`:`0 1px 2px ${s.shadow}`};return(0,b.jsx)(`div`,{className:`p-5 transition-shadow hover:shadow-md ${a}`,style:{...f,...o},children:(0,b.jsxs)(`div`,{className:`flex items-center justify-center`,style:{minHeight:64},children:[(0,b.jsxs)(`div`,{style:{textAlign:`center`},children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:s.mutedText},children:e}),(0,b.jsx)(`p`,{className:`mt-2 text-3xl font-semibold tracking-tight`,style:{color:s.text},children:t})]}),l?(0,b.jsx)(`span`,{className:`rounded-full px-2.5 py-1 text-sm font-medium ${u}`,style:{position:`absolute`,right:20,top:`50%`,transform:`translateY(-50%)`,backgroundColor:s.surfaceAlt,borderRadius:9999,padding:`4px 10px`,fontSize:14,fontWeight:500,...d},children:l}):null]})})}function ve({title:e,stats:t,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:[e?(0,b.jsx)(`p`,{className:`mb-3 text-sm font-semibold`,style:{color:o.text},children:e}):null,(0,b.jsx)(`div`,{style:{display:`grid`,gap:10},children:t.map((e,t)=>(0,b.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,justifyContent:`space-between`},children:[(0,b.jsx)(`span`,{style:{color:o.mutedText,fontSize:13},children:e.label}),(0,b.jsx)(`span`,{style:{color:o.text,fontWeight:600},children:e.value})]},`${e.label}-${t}`))})]})}function ye({columns:e,rows:t,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsx)(`div`,{className:`overflow-hidden rounded-xl border ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:(0,b.jsxs)(`table`,{style:{width:`100%`,borderCollapse:`collapse`},children:[(0,b.jsx)(`thead`,{children:(0,b.jsx)(`tr`,{children:e.map(e=>(0,b.jsx)(`th`,{style:{textAlign:`left`,padding:`10px 12px`,fontSize:12,color:o.mutedText,borderBottom:`1px solid ${o.border}`},children:e},e))})}),(0,b.jsx)(`tbody`,{children:t.map((t,n)=>(0,b.jsx)(`tr`,{children:e.map(e=>(0,b.jsx)(`td`,{style:{padding:`10px 12px`,borderBottom:`1px solid ${o.border}`},children:(0,b.jsx)(`span`,{style:{color:o.text,fontSize:14},children:String(t[e]??``)})},`${n}-${e}`))},`row-${n}`))})]})})}function be({items:e,activeId:t,theme:n=`light`,colorTokens:r,className:i=``,style:a,dispatch:o,widgetId:s}){let c=r??S(n,void 0),l=t??e[0]?.id;return(0,b.jsx)(`div`,{className:`inline-flex w-full flex-wrap items-center gap-2 rounded-xl border p-2 ${i}`,style:{border:`1px solid ${c.border}`,borderRadius:12,backgroundColor:c.surface,...a},children:e.map(e=>{let t=e.id===l;return(0,b.jsx)(`button`,{type:`button`,onClick:()=>{o?.({type:`change`,widgetId:s,payload:{value:e.id,label:e.label}})},className:`rounded-lg px-3 py-1.5 text-sm font-medium`,style:{backgroundColor:t?c.accent:c.surfaceAlt,color:t?c.accentText:c.text,cursor:`pointer`},children:e.label},e.id)})})}function xe({heading:e,body:t,align:n=`left`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c={border:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,color:s.text,padding:16,textAlign:n};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${a}`,style:{...c,...o},children:[e?(0,b.jsx)(`p`,{className:`text-base font-semibold`,style:{color:s.text},children:e}):null,(0,b.jsx)(`p`,{className:e?`mt-2 text-sm`:`text-sm`,style:{color:s.mutedText,whiteSpace:`pre-wrap`},children:t})]})}function Se({items:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border p-4 ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:(0,b.jsx)(`div`,{style:{display:`grid`,gap:14},children:e.map((t,n)=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`20px 1fr`,gap:10},children:[(0,b.jsxs)(`div`,{style:{display:`grid`,justifyItems:`center`},children:[(0,b.jsx)(`span`,{style:{width:10,height:10,borderRadius:`50%`,backgroundColor:t.tone===`success`?a.success:t.tone===`warning`?a.warning:t.tone===`danger`?a.danger:a.accent,marginTop:4}}),n<e.length-1?(0,b.jsx)(`span`,{style:{width:2,flex:1,minHeight:22,backgroundColor:a.border,marginTop:4}}):null]}),(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:a.text},children:t.title}),t.description?(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:a.mutedText},children:t.description}):null,t.time?(0,b.jsx)(`p`,{className:`mt-1 text-xs`,style:{color:a.mutedText},children:t.time}):null]})]},`${t.title}-${n}`))})})}function Ce({title:e,actions:t=[],theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center justify-between gap-3 rounded-xl border p-3 ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:o.text},children:e}),(0,b.jsx)(`div`,{className:`flex items-center gap-2`,children:t.map((e,t)=>{let n=e.tone===`primary`;return(0,b.jsx)(`span`,{className:`rounded-lg px-3 py-1.5 text-xs font-medium`,style:{border:n?`none`:`1px solid ${o.border}`,backgroundColor:n?o.accent:o.surfaceAlt,color:n?o.accentText:o.text},children:e.label},`${e.label}-${t}`)})})]})}function we({title:e,current:t,previous:n,suffix:r=``,theme:i=`light`,colorTokens:a,className:o=``,style:s}){let c=a??S(i,void 0),l=n===0?0:(t-n)/Math.abs(n)*100,u=l>=0;return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${o}`,style:{border:`1px solid ${c.border}`,backgroundColor:c.surface,...s},children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:c.mutedText},children:e}),(0,b.jsx)(`p`,{className:`mt-2 text-2xl font-semibold`,style:{color:c.text},children:`${t}${r}`}),(0,b.jsx)(`p`,{className:`mt-2 text-sm font-medium`,style:{color:u?c.success:c.danger},children:`${u?`+`:``}${l.toFixed(1)}% vs previous`})]})}var Te={alert:re,avatar_chip:ae,badge:oe,stat_card:_e,button:se,container:ce,divider:le,empty_state:ue,icon_label:C,input:de,key_value_list:fe,list:pe,metric_grid:me,progress_card:w,section_header:he,select:ge,stat_group:ve,table:ye,tabs:be,text_block:xe,timeline:Se,toolbar:Ce,trend_card:we},Ee=[`$global.`,`$input.`,`$page.`];function De(e){return typeof e==`string`&&Ee.some(t=>e.startsWith(t))}function Oe(e,t){return De(e)?t?.resolveDataPointer?.(e):Array.isArray(e)?e.map(e=>Oe(e,t)):e&&typeof e==`object`?Object.fromEntries(Object.entries(e).map(([e,n])=>[e,Oe(n,t)])):e}function ke(e,t){return Oe(e,t)}function Ae({type:e,id:t,theme:n,colorTokens:r}){let i=n===`dark`;return(0,b.jsxs)(`div`,{className:`rounded-xl border-2 border-red-400 bg-red-50 p-3 text-sm text-red-700`,style:{border:`2px solid ${r.danger}`,borderRadius:12,backgroundColor:i?r.surfaceAlt:`#fef2f2`,padding:12,fontSize:14,color:r.danger},children:[(0,b.jsx)(`p`,{className:`font-semibold`,children:`Unknown component type`}),(0,b.jsxs)(`p`,{className:`mt-1`,children:[`type: `,e??`undefined`]}),(0,b.jsxs)(`p`,{children:[`id: `,t??`undefined`]})]})}function je(e,t,n,r,i){let a=Te[e.type],o=ke(e.props??{},i),s=o.theme??n,c=o.colorScheme??r,l=S(s,c);if(!a)return(0,b.jsx)(Ae,{type:e.type,id:e.id,theme:s,colorTokens:l},t);let u={...o,theme:s,colorTokens:l,widgetId:e.id,dispatch:i?.dispatch},d=Array.isArray(e.children)&&e.children.length>0?e.children.map((t,n)=>je(t,`${e.id||`widget`}-child-${n}`,s,c,i)):void 0;return(0,b.jsx)(a,{...u,children:d},t)}function Me({blueprint:e,themeMode:t,runtime:n}){let r=Array.isArray(e?.widgets)?e.widgets:[],i=e?.layout,a=t??e?.theme??i?.theme??`light`,o=e?.colorScheme??i?.colorScheme,s=S(a,o),c=i?.columns??1,l=i?.gap??16,u=`grid auto-rows-fr items-start ${i?.className??``}`,d={gridTemplateColumns:`repeat(${Math.max(1,c)}, minmax(0, 1fr))`,gap:`${Math.max(0,l)}px`,backgroundColor:s.pageBackground,color:s.text,...i?.style};return r.length===0?(0,b.jsx)(`div`,{className:`rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500`,style:{border:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,padding:16,fontSize:14,color:s.mutedText},children:`No widgets to render.`}):(0,b.jsx)(`div`,{className:u,style:d,children:r.map((e,t)=>{let r=e?.id||`widget-${t}`;return!e||typeof e.type!=`string`?(0,b.jsx)(Ae,{type:e?.type,id:e?.id,theme:a,colorTokens:s},r):je(e,r,a,o,n)})})}function Ne(e){let t=e.match(/'([^']+)'/);return t?t[1]:null}function Pe(e,t){return e.name===`actionId`?`${t}_action`:e.name===`label`?`Sample Label`:e.name===`title`?`Sample Title`:e.name===`body`?`Sample body text generated from source props.`:e.name===`value`?e.type.includes(`number`)?42:`Sample Value`:e.name===`options`?[{label:`Option A`,value:`a`},{label:`Option B`,value:`b`}]:e.name===`items`?t===`tabs`?[{id:`tab_overview`,label:`Overview`},{id:`tab_activity`,label:`Activity`}]:t===`list`?[{title:`List Item A`,subtitle:`Subtitle A`,meta:`Meta`},{title:`List Item B`,subtitle:`Subtitle B`,meta:`Meta`}]:t===`metric_grid`?[{label:`Users`,value:9421,tone:`success`},{label:`Errors`,value:12,tone:`warning`}]:t===`timeline`?[{title:`Created`,time:`09:00`},{title:`Updated`,time:`09:15`,tone:`success`}]:[{label:`Item A`,value:`Value A`},{label:`Item B`,value:`Value B`}]:e.name===`entries`?[{key:`CPU`,value:`42%`},{key:`RAM`,value:`68%`}]:e.name===`stats`?[{label:`Users`,value:9421},{label:`Revenue`,value:`$128k`}]:e.name===`columns`?[`Name`,`Status`]:e.name===`rows`?[{Name:`Pipeline A`,Status:`Healthy`},{Name:`Pipeline B`,Status:`Warning`}]:e.type.includes(`boolean`)?!1:e.type.includes(`number`)?1:e.type.includes(`string`)?Ne(e.type)??`Sample ${e.name}`:e.type.includes(`[]`)||e.type.includes(`Array<`)?[]:e.type.includes(`Record<`)||e.type.includes(`{`)?{}:null}function Fe(e){let t={};for(let n of e.props)!n.required&&n.name!==`value`&&n.name!==`items`&&n.name!==`options`||(t[n.name]=Pe(n,e.key));return e.key===`button`&&typeof t.actionId!=`string`&&(t.actionId=`sample_action`),t}function Ie(e){return{version:`1.0.0`,theme:`light`,layout:{columns:1,gap:16},widgets:[{id:`${e.key}_preview`,type:e.key,props:Fe(e)}]}}var Le=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidAlertProps extends LiquidWidgetProps {\r
-  title: string;\r
-  message: string;\r
-  tone?: 'info' | 'success' | 'warning' | 'danger';\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidAlert({\r
-  title,\r
-  message,\r
-  tone = 'info',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidAlertProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const accent = tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;\r
-\r
-  const defaultStyle: CSSProperties = {\r
-    border: \`1px solid \${tokens.border}\`,\r
-    borderLeft: \`4px solid \${accent}\`,\r
-    borderRadius: 12,\r
-    backgroundColor: tokens.surface,\r
-    color: tokens.text,\r
-    padding: 14,\r
-  };\r
-\r
-  return (\r
-    <div className={\`rounded-xl border p-3 \${className}\`} style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}>\r
-      <p className="text-sm font-semibold" style={{ color: tokens.text }}>{title}</p>\r
-      <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>{message}</p>\r
-    </div>\r
-  );\r
-}\r
-`,Re=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidAvatarChipProps extends LiquidWidgetProps {\r
-  name: string;\r
-  subtitle?: string;\r
-  imageUrl?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-function initials(name: string) {\r
-  return name\r
-    .split(' ')\r
-    .filter(Boolean)\r
-    .slice(0, 2)\r
-    .map((part) => part[0]?.toUpperCase())\r
-    .join('');\r
-}\r
-\r
-export function LiquidAvatarChip({\r
-  name,\r
-  subtitle,\r
-  imageUrl,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidAvatarChipProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`inline-flex items-center gap-3 rounded-xl border px-3 py-2 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      {imageUrl ? (\r
-        <img src={imageUrl} alt={name} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />\r
-      ) : (\r
-        <span\r
-          style={{\r
-            width: 32,\r
-            height: 32,\r
-            borderRadius: '50%',\r
-            display: 'grid',\r
-            placeItems: 'center',\r
-            backgroundColor: tokens.accent,\r
-            color: tokens.accentText,\r
-            fontSize: 12,\r
-            fontWeight: 700,\r
-          }}\r
-        >\r
-          {initials(name)}\r
-        </span>\r
-      )}\r
-      <span>\r
-        <p className="text-sm font-semibold" style={{ color: tokens.text }}>\r
-          {name}\r
-        </p>\r
-        {subtitle ? (\r
-          <p className="text-xs" style={{ color: tokens.mutedText }}>\r
-            {subtitle}\r
-          </p>\r
-        ) : null}\r
-      </span>\r
-    </div>\r
-  );\r
-}\r
-`,ze=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidBadgeProps extends LiquidWidgetProps {\r
-  label: string;\r
-  tone?: 'neutral' | 'success' | 'warning' | 'danger';\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidBadge({\r
-  label,\r
-  tone = 'neutral',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidBadgeProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const toneColor =\r
-    tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;\r
-\r
-  return (\r
-    <span\r
-      className={\`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold \${className}\`}\r
-      style={{\r
-        backgroundColor: tokens.surfaceAlt,\r
-        color: toneColor,\r
-        border: \`1px solid \${tokens.border}\`,\r
-        ...(style as CSSProperties | undefined),\r
-      }}\r
-    >\r
-      {label}\r
-    </span>\r
-  );\r
-}\r
-`,Be=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidButtonProps extends LiquidWidgetProps {\r
-  label: string;\r
-  variant?: 'primary' | 'secondary';\r
-  actionId: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-  disabled?: boolean;\r
-}\r
-\r
-export function LiquidButton({\r
-  label,\r
-  variant = 'primary',\r
-  actionId,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-  disabled = false,\r
-  dispatch,\r
-  widgetId,\r
-}: LiquidButtonProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const isDark = theme === 'dark';\r
-  const baseStyles =\r
-    'inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';\r
-  const variantStyles =\r
-    variant === 'primary'\r
-      ? isDark\r
-        ? 'bg-cyan-400 text-slate-950 hover:bg-cyan-300 focus:ring-cyan-300'\r
-        : 'bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900'\r
-      : isDark\r
-        ? 'bg-slate-800 text-slate-100 hover:bg-slate-700 focus:ring-slate-500'\r
-        : 'bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-400';\r
-  const defaultStyle: CSSProperties = {\r
-    display: 'inline-flex',\r
-    alignItems: 'center',\r
-    justifyContent: 'center',\r
-    borderRadius: 12,\r
-    padding: '8px 16px',\r
-    fontSize: 14,\r
-    fontWeight: 500,\r
-    border: '1px solid transparent',\r
-    cursor: disabled ? 'not-allowed' : 'pointer',\r
-    opacity: disabled ? 0.5 : 1,\r
-    transition: 'background-color 150ms ease, color 150ms ease',\r
-    boxShadow: \`0 1px 2px \${tokens.shadow}\`,\r
-  };\r
-  const variantStyle: CSSProperties =\r
-    variant === 'primary'\r
-      ? isDark\r
-        ? { backgroundColor: tokens.accent, color: tokens.accentText }\r
-        : { backgroundColor: tokens.accent, color: tokens.accentText }\r
-      : isDark\r
-        ? { backgroundColor: tokens.surfaceAlt, color: tokens.text, borderColor: tokens.border }\r
-        : { backgroundColor: tokens.surfaceAlt, color: tokens.text, borderColor: tokens.border };\r
-\r
-  return (\r
-    <button\r
-      type="button"\r
-      data-action-id={actionId}\r
-      disabled={disabled}\r
-      onClick={() => {\r
-        void dispatch?.({\r
-          type: 'action',\r
-          widgetId,\r
-          payload: { actionId, label, variant },\r
-        });\r
-      }}\r
-      style={{ ...defaultStyle, ...variantStyle, ...(style as CSSProperties | undefined) }}\r
-      className={\`\${baseStyles} \${variantStyles} disabled:cursor-not-allowed disabled:opacity-50 \${className}\`}\r
-    >\r
-      {label}\r
-    </button>\r
-  );\r
-}\r
-`,Ve=`import type { CSSProperties, ReactNode } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode } from '../../liquid.types';\r
-\r
-export interface LiquidContainerProps {\r
-  children: ReactNode;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidContainer({\r
-  children,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidContainerProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const isDark = theme === 'dark';\r
-  const defaultClassName = 'p-4';\r
-  const defaultStyle: CSSProperties = {\r
-    border: isDark ? '1px solid transparent' : \`1px solid \${tokens.border}\`,\r
-    borderRadius: 20,\r
-    backgroundColor: isDark ? tokens.surfaceAlt : tokens.surface,\r
-    backgroundClip: 'padding-box',\r
-    overflow: 'hidden',\r
-    color: tokens.text,\r
-    padding: 16,\r
-    boxShadow: isDark ? 'none' : \`0 1px 2px \${tokens.shadow}\`,\r
-  };\r
-\r
-  return (\r
-    <div\r
-      className={\`\${defaultClassName} \${className}\`}\r
-      style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      {children}\r
-    </div>\r
-  );\r
-}\r
-`,He=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidDividerProps extends LiquidWidgetProps {\r
-  label?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidDivider({ label, theme = 'light', colorTokens, className = '', style }: LiquidDividerProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div className={\`flex items-center gap-3 \${className}\`} style={style as CSSProperties | undefined}>\r
-      <span style={{ height: 1, backgroundColor: tokens.border, flex: 1 }} />\r
-      {label ? (\r
-        <span className="text-xs font-medium" style={{ color: tokens.mutedText }}>\r
-          {label}\r
-        </span>\r
-      ) : null}\r
-      <span style={{ height: 1, backgroundColor: tokens.border, flex: 1 }} />\r
-    </div>\r
-  );\r
-}\r
-`,Ue=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidEmptyStateProps extends LiquidWidgetProps {\r
-  title: string;\r
-  description?: string;\r
-  actionLabel?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidEmptyState({\r
-  title,\r
-  description,\r
-  actionLabel,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidEmptyStateProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border p-6 text-center \${className}\`}\r
-      style={{ border: \`1px dashed \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <p className="text-base font-semibold" style={{ color: tokens.text }}>\r
-        {title}\r
-      </p>\r
-      {description ? (\r
-        <p className="mt-2 text-sm" style={{ color: tokens.mutedText }}>\r
-          {description}\r
-        </p>\r
-      ) : null}\r
-      {actionLabel ? (\r
-        <span\r
-          className="mt-4 inline-flex rounded-lg px-3 py-1.5 text-sm font-medium"\r
-          style={{ backgroundColor: tokens.accent, color: tokens.accentText }}\r
-        >\r
-          {actionLabel}\r
-        </span>\r
-      ) : null}\r
-    </div>\r
-  );\r
-}\r
-`,We=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidIconLabelProps extends LiquidWidgetProps {\r
-  icon?: string;\r
-  label: string;\r
-  tone?: 'neutral' | 'success' | 'warning' | 'danger';\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidIconLabel({\r
-  icon = '•',\r
-  label,\r
-  tone = 'neutral',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidIconLabelProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const color = tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.text;\r
-\r
-  return (\r
-    <div className={\`inline-flex items-center gap-2 rounded-lg px-2 py-1 \${className}\`} style={{ backgroundColor: tokens.surfaceAlt, ...(style as CSSProperties | undefined) }}>\r
-      <span style={{ color, fontWeight: 700 }}>{icon}</span>\r
-      <span className="text-sm font-medium" style={{ color: tokens.text }}>\r
-        {label}\r
-      </span>\r
-    </div>\r
-  );\r
-}\r
-`,Ge=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidInputProps extends LiquidWidgetProps {\r
-  label: string;\r
-  value?: string;\r
-  placeholder?: string;\r
-  inputType?: 'text' | 'email' | 'number' | 'password';\r
-  readOnly?: boolean;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidInput({\r
-  label,\r
-  value,\r
-  placeholder,\r
-  inputType = 'text',\r
-  readOnly,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-  dispatch,\r
-  widgetId,\r
-}: LiquidInputProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const isEditable = Boolean(dispatch) && readOnly !== true;\r
-  const inputStyle: CSSProperties = {\r
-    width: '100%',\r
-    border: \`1px solid \${tokens.border}\`,\r
-    borderRadius: 10,\r
-    backgroundColor: tokens.surface,\r
-    color: tokens.text,\r
-    padding: '10px 12px',\r
-    outline: 'none',\r
-  };\r
-\r
-  return (\r
-    <label className={\`block \${className}\`} style={style as CSSProperties | undefined}>\r
-      <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>\r
-        {label}\r
-      </span>\r
-      <input\r
-        type={inputType}\r
-        value={value ?? ''}\r
-        placeholder={placeholder}\r
-        readOnly={!isEditable}\r
-        onChange={(event) => {\r
-          if (!isEditable) {\r
-            return;\r
-          }\r
-\r
-          void dispatch?.({\r
-            type: 'input',\r
-            widgetId,\r
-            payload: {\r
-              value: event.target.value,\r
-              inputType,\r
-              label,\r
-            },\r
-          });\r
-        }}\r
-        style={inputStyle}\r
-      />\r
-    </label>\r
-  );\r
-}\r
-`,Ke=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidKeyValueEntry {\r
-  key: string;\r
-  value: string | number;\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidKeyValueListProps extends LiquidWidgetProps {\r
-  entries: LiquidKeyValueEntry[];\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidKeyValueList({\r
-  entries,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidKeyValueListProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border p-4 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <div style={{ display: 'grid', gap: 10 }}>\r
-        {entries.map((entry) => (\r
-          <div\r
-            key={entry.key}\r
-            style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 12, borderBottom: \`1px solid \${tokens.border}\`, paddingBottom: 8 }}\r
-          >\r
-            <span style={{ color: tokens.mutedText, fontSize: 13 }}>{entry.key}</span>\r
-            <span style={{ color: tokens.text, fontWeight: 600 }}>{entry.value}</span>\r
-          </div>\r
-        ))}\r
-      </div>\r
-    </div>\r
-  );\r
-}\r
-`,qe=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidListItem {\r
-  title: string;\r
-  subtitle?: string;\r
-  meta?: string;\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidListProps extends LiquidWidgetProps {\r
-  items: LiquidListItem[];\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidList({ items, theme = 'light', colorTokens, className = '', style }: LiquidListProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      {items.map((item, index) => (\r
-        <div\r
-          key={\`\${item.title}-\${index}\`}\r
-          style={{\r
-            display: 'grid',\r
-            gridTemplateColumns: '1fr auto',\r
-            gap: 10,\r
-            padding: '12px 14px',\r
-            borderBottom: index < items.length - 1 ? \`1px solid \${tokens.border}\` : 'none',\r
-          }}\r
-        >\r
-          <div>\r
-            <p className="text-sm font-medium" style={{ color: tokens.text }}>\r
-              {item.title}\r
-            </p>\r
-            {item.subtitle ? (\r
-              <p className="text-xs" style={{ color: tokens.mutedText }}>\r
-                {item.subtitle}\r
-              </p>\r
-            ) : null}\r
-          </div>\r
-          {item.meta ? <span style={{ color: tokens.mutedText, fontSize: 12 }}>{item.meta}</span> : null}\r
-        </div>\r
-      ))}\r
-    </div>\r
-  );\r
-}\r
-`,Je=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidMetricGridItem {\r
-  label: string;\r
-  value: string | number;\r
-  tone?: 'neutral' | 'success' | 'warning' | 'danger';\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidMetricGridProps extends LiquidWidgetProps {\r
-  items: LiquidMetricGridItem[];\r
-  columns?: number;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidMetricGrid({\r
-  items,\r
-  columns = 3,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidMetricGridProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const gridStyle: CSSProperties = {\r
-    display: 'grid',\r
-    gridTemplateColumns: \`repeat(\${Math.max(1, columns)}, minmax(0, 1fr))\`,\r
-    gap: 10,\r
-    ...(style as CSSProperties | undefined),\r
-  };\r
-\r
-  return (\r
-    <div className={className} style={gridStyle}>\r
-      {items.map((item, index) => {\r
-        const color =\r
-          item.tone === 'success' ? tokens.success : item.tone === 'warning' ? tokens.warning : item.tone === 'danger' ? tokens.danger : tokens.text;\r
-        return (\r
-          <div key={\`\${item.label}-\${index}\`} style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 10, backgroundColor: tokens.surface, padding: 12 }}>\r
-            <p className="text-xs" style={{ color: tokens.mutedText }}>\r
-              {item.label}\r
-            </p>\r
-            <p className="mt-1 text-lg font-semibold" style={{ color }}>\r
-              {item.value}\r
-            </p>\r
-          </div>\r
-        );\r
-      })}\r
-    </div>\r
-  );\r
-}\r
-`,Ye=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidProgressCardProps extends LiquidWidgetProps {\r
-  title: string;\r
-  value: number;\r
-  max?: number;\r
-  tone?: 'neutral' | 'success' | 'warning' | 'danger';\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidProgressCard({\r
-  title,\r
-  value,\r
-  max = 100,\r
-  tone = 'neutral',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidProgressCardProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const percent = Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100));\r
-  const toneColor =\r
-    tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;\r
-\r
-  const containerStyle: CSSProperties = {\r
-    border: \`1px solid \${tokens.border}\`,\r
-    borderRadius: 12,\r
-    backgroundColor: tokens.surface,\r
-    color: tokens.text,\r
-    padding: 16,\r
-    boxShadow: \`0 1px 2px \${tokens.shadow}\`,\r
-  };\r
-\r
-  return (\r
-    <div className={\`rounded-xl border p-4 \${className}\`} style={{ ...containerStyle, ...(style as CSSProperties | undefined) }}>\r
-      <div className="mb-3 flex items-center justify-between gap-3">\r
-        <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>\r
-          {title}\r
-        </p>\r
-        <p className="text-sm font-semibold" style={{ color: tokens.text }}>{\`\${Math.round(percent)}%\`}</p>\r
-      </div>\r
-      <div className="h-2 w-full rounded-full" style={{ backgroundColor: tokens.surfaceAlt }}>\r
-        <div\r
-          className="h-full rounded-full"\r
-          style={{ width: \`\${percent}%\`, backgroundColor: toneColor, transition: 'width 200ms ease' }}\r
-        />\r
-      </div>\r
-      <p className="mt-3 text-xs" style={{ color: tokens.mutedText }}>{\`\${value} / \${max}\`}</p>\r
-    </div>\r
-  );\r
-}\r
-`,Xe=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidSectionHeaderProps extends LiquidWidgetProps {\r
-  title: string;\r
-  subtitle?: string;\r
-  actionLabel?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidSectionHeader({\r
-  title,\r
-  subtitle,\r
-  actionLabel,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidSectionHeaderProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div className={\`flex items-center justify-between gap-3 \${className}\`} style={style as CSSProperties | undefined}>\r
-      <div>\r
-        <h3 className="text-lg font-semibold" style={{ color: tokens.text }}>\r
-          {title}\r
-        </h3>\r
-        {subtitle ? (\r
-          <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>\r
-            {subtitle}\r
-          </p>\r
-        ) : null}\r
-      </div>\r
-      {actionLabel ? (\r
-        <span\r
-          className="rounded-lg border px-3 py-1.5 text-sm"\r
-          style={{ border: \`1px solid \${tokens.border}\`, color: tokens.text, backgroundColor: tokens.surfaceAlt }}\r
-        >\r
-          {actionLabel}\r
-        </span>\r
-      ) : null}\r
-    </div>\r
-  );\r
-}\r
-`,Ze=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidSelectOption {\r
-  label: string;\r
-  value: string;\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidSelectProps extends LiquidWidgetProps {\r
-  label: string;\r
-  options: LiquidSelectOption[];\r
-  value?: string;\r
-  disabled?: boolean;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidSelect({\r
-  label,\r
-  options,\r
-  value,\r
-  disabled = false,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-  dispatch,\r
-  widgetId,\r
-}: LiquidSelectProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const selectStyle: CSSProperties = {\r
-    width: '100%',\r
-    border: \`1px solid \${tokens.border}\`,\r
-    borderRadius: 10,\r
-    backgroundColor: tokens.surface,\r
-    color: tokens.text,\r
-    padding: '10px 12px',\r
-    outline: 'none',\r
-  };\r
-\r
-  return (\r
-    <label className={\`block \${className}\`} style={style as CSSProperties | undefined}>\r
-      <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>\r
-        {label}\r
-      </span>\r
-      <select\r
-        value={value ?? options[0]?.value ?? ''}\r
-        disabled={disabled}\r
-        onChange={(event) => {\r
-          void dispatch?.({\r
-            type: 'change',\r
-            widgetId,\r
-            payload: {\r
-              value: event.target.value,\r
-              label,\r
-            },\r
-          });\r
-        }}\r
-        style={selectStyle}\r
-      >\r
-        {options.map((option) => (\r
-          <option key={option.value} value={option.value}>\r
-            {option.label}\r
-          </option>\r
-        ))}\r
-      </select>\r
-    </label>\r
-  );\r
-}\r
-`,Qe=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidStatCardProps extends LiquidWidgetProps {\r
-  title: string;\r
-  value: string | number;\r
-  trend?: number;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidStatCard({\r
-  title,\r
-  value,\r
-  trend,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidStatCardProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const isDark = theme === 'dark';\r
-  const trendLabel = trend == null ? null : \`\${trend > 0 ? '+' : ''}\${trend}%\`;\r
-  const trendTone = trend == null ? 'text-slate-400' : trend >= 0 ? 'text-emerald-600' : 'text-rose-600';\r
-  const trendToneStyle =\r
-    trend == null ? { color: tokens.mutedText } : trend >= 0 ? { color: tokens.success } : { color: tokens.danger };\r
-  const defaultStyle: CSSProperties = {\r
-    border: isDark ? '1px solid transparent' : \`1px solid \${tokens.border}\`,\r
-    borderRadius: 12,\r
-    backgroundColor: tokens.surface,\r
-    backgroundClip: 'padding-box',\r
-    overflow: 'hidden',\r
-    position: 'relative',\r
-    color: tokens.text,\r
-    padding: 20,\r
-    boxShadow: isDark ? 'none' : \`0 1px 2px \${tokens.shadow}\`,\r
-  };\r
-\r
-  return (\r
-    <div\r
-      className={\`p-5 transition-shadow hover:shadow-md \${className}\`}\r
-      style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <div className="flex items-center justify-center" style={{ minHeight: 64 }}>\r
-        <div style={{ textAlign: 'center' }}>\r
-          <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>\r
-            {title}\r
-          </p>\r
-          <p className="mt-2 text-3xl font-semibold tracking-tight" style={{ color: tokens.text }}>\r
-            {value}\r
-          </p>\r
-        </div>\r
-        {trendLabel ? (\r
-          <span\r
-            className={\`rounded-full px-2.5 py-1 text-sm font-medium \${trendTone}\`}\r
-            style={{\r
-              position: 'absolute',\r
-              right: 20,\r
-              top: '50%',\r
-              transform: 'translateY(-50%)',\r
-              backgroundColor: tokens.surfaceAlt,\r
-              borderRadius: 9999,\r
-              padding: '4px 10px',\r
-              fontSize: 14,\r
-              fontWeight: 500,\r
-              ...trendToneStyle,\r
-            }}\r
-          >\r
-            {trendLabel}\r
-          </span>\r
-        ) : null}\r
-      </div>\r
-    </div>\r
-  );\r
-}\r
-`,$e=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidStatGroupItem {\r
-  label: string;\r
-  value: string | number;\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidStatGroupProps extends LiquidWidgetProps {\r
-  title?: string;\r
-  stats: LiquidStatGroupItem[];\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidStatGroup({\r
-  title,\r
-  stats,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidStatGroupProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border p-4 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      {title ? (\r
-        <p className="mb-3 text-sm font-semibold" style={{ color: tokens.text }}>\r
-          {title}\r
-        </p>\r
-      ) : null}\r
-      <div style={{ display: 'grid', gap: 10 }}>\r
-        {stats.map((stat, index) => (\r
-          <div key={\`\${stat.label}-\${index}\`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>\r
-            <span style={{ color: tokens.mutedText, fontSize: 13 }}>{stat.label}</span>\r
-            <span style={{ color: tokens.text, fontWeight: 600 }}>{stat.value}</span>\r
-          </div>\r
-        ))}\r
-      </div>\r
-    </div>\r
-  );\r
-}\r
-`,et=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidPrimitive, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidTableProps extends LiquidWidgetProps {\r
-  columns: string[];\r
-  rows: Array<Record<string, LiquidPrimitive>>;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidTable({\r
-  columns,\r
-  rows,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidTableProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`overflow-hidden rounded-xl border \${className}\`}\r
-      style={{\r
-        border: \`1px solid \${tokens.border}\`,\r
-        borderRadius: 12,\r
-        backgroundColor: tokens.surface,\r
-        ...(style as CSSProperties | undefined),\r
-      }}\r
-    >\r
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>\r
-        <thead>\r
-          <tr>\r
-            {columns.map((column) => (\r
-              <th\r
-                key={column}\r
-                style={{\r
-                  textAlign: 'left',\r
-                  padding: '10px 12px',\r
-                  fontSize: 12,\r
-                  color: tokens.mutedText,\r
-                  borderBottom: \`1px solid \${tokens.border}\`,\r
-                }}\r
-              >\r
-                {column}\r
-              </th>\r
-            ))}\r
-          </tr>\r
-        </thead>\r
-        <tbody>\r
-          {rows.map((row, index) => (\r
-            <tr key={\`row-\${index}\`}>\r
-              {columns.map((column) => (\r
-                <td key={\`\${index}-\${column}\`} style={{ padding: '10px 12px', borderBottom: \`1px solid \${tokens.border}\` }}>\r
-                  <span style={{ color: tokens.text, fontSize: 14 }}>{String(row[column] ?? '')}</span>\r
-                </td>\r
-              ))}\r
-            </tr>\r
-          ))}\r
-        </tbody>\r
-      </table>\r
-    </div>\r
-  );\r
-}\r
-`,tt=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidTabItem {\r
-  id: string;\r
-  label: string;\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidTabsProps extends LiquidWidgetProps {\r
-  items: LiquidTabItem[];\r
-  activeId?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidTabs({\r
-  items,\r
-  activeId,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-  dispatch,\r
-  widgetId,\r
-}: LiquidTabsProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const selectedId = activeId ?? items[0]?.id;\r
-\r
-  return (\r
-    <div\r
-      className={\`inline-flex w-full flex-wrap items-center gap-2 rounded-xl border p-2 \${className}\`}\r
-      style={{\r
-        border: \`1px solid \${tokens.border}\`,\r
-        borderRadius: 12,\r
-        backgroundColor: tokens.surface,\r
-        ...(style as CSSProperties | undefined),\r
-      }}\r
-    >\r
-      {items.map((item) => {\r
-        const selected = item.id === selectedId;\r
-        return (\r
-          <button\r
-            type="button"\r
-            key={item.id}\r
-            onClick={() => {\r
-              void dispatch?.({\r
-                type: 'change',\r
-                widgetId,\r
-                payload: {\r
-                  value: item.id,\r
-                  label: item.label,\r
-                },\r
-              });\r
-            }}\r
-            className="rounded-lg px-3 py-1.5 text-sm font-medium"\r
-            style={{\r
-              backgroundColor: selected ? tokens.accent : tokens.surfaceAlt,\r
-              color: selected ? tokens.accentText : tokens.text,\r
-              cursor: 'pointer',\r
-            }}\r
-          >\r
-            {item.label}\r
-          </button>\r
-        );\r
-      })}\r
-    </div>\r
-  );\r
-}\r
-`,nt=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidTextBlockProps extends LiquidWidgetProps {\r
-  heading?: string;\r
-  body: string;\r
-  align?: 'left' | 'center' | 'right';\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidTextBlock({\r
-  heading,\r
-  body,\r
-  align = 'left',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidTextBlockProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const defaultStyle: CSSProperties = {\r
-    border: \`1px solid \${tokens.border}\`,\r
-    borderRadius: 12,\r
-    backgroundColor: tokens.surface,\r
-    color: tokens.text,\r
-    padding: 16,\r
-    textAlign: align,\r
-  };\r
-\r
-  return (\r
-    <div className={\`rounded-xl border p-4 \${className}\`} style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}>\r
-      {heading ? (\r
-        <p className="text-base font-semibold" style={{ color: tokens.text }}>\r
-          {heading}\r
-        </p>\r
-      ) : null}\r
-      <p className={heading ? 'mt-2 text-sm' : 'text-sm'} style={{ color: tokens.mutedText, whiteSpace: 'pre-wrap' }}>\r
-        {body}\r
-      </p>\r
-    </div>\r
-  );\r
-}\r
-`,rt=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidTimelineItem {\r
-  title: string;\r
-  description?: string;\r
-  time?: string;\r
-  tone?: 'neutral' | 'success' | 'warning' | 'danger';\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidTimelineProps extends LiquidWidgetProps {\r
-  items: LiquidTimelineItem[];\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidTimeline({\r
-  items,\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidTimelineProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border p-4 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <div style={{ display: 'grid', gap: 14 }}>\r
-        {items.map((item, index) => {\r
-          const dotColor =\r
-            item.tone === 'success'\r
-              ? tokens.success\r
-              : item.tone === 'warning'\r
-                ? tokens.warning\r
-                : item.tone === 'danger'\r
-                  ? tokens.danger\r
-                  : tokens.accent;\r
-\r
-          return (\r
-            <div key={\`\${item.title}-\${index}\`} style={{ display: 'grid', gridTemplateColumns: '20px 1fr', gap: 10 }}>\r
-              <div style={{ display: 'grid', justifyItems: 'center' }}>\r
-                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: dotColor, marginTop: 4 }} />\r
-                {index < items.length - 1 ? (\r
-                  <span style={{ width: 2, flex: 1, minHeight: 22, backgroundColor: tokens.border, marginTop: 4 }} />\r
-                ) : null}\r
-              </div>\r
-              <div>\r
-                <p className="text-sm font-semibold" style={{ color: tokens.text }}>\r
-                  {item.title}\r
-                </p>\r
-                {item.description ? (\r
-                  <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>\r
-                    {item.description}\r
-                  </p>\r
-                ) : null}\r
-                {item.time ? (\r
-                  <p className="mt-1 text-xs" style={{ color: tokens.mutedText }}>\r
-                    {item.time}\r
-                  </p>\r
-                ) : null}\r
-              </div>\r
-            </div>\r
-          );\r
-        })}\r
-      </div>\r
-    </div>\r
-  );\r
-}\r
-`,it=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidToolbarAction {\r
-  label: string;\r
-  tone?: 'neutral' | 'primary';\r
-  [key: string]: LiquidJsonValue | undefined;\r
-}\r
-\r
-export interface LiquidToolbarProps extends LiquidWidgetProps {\r
-  title?: string;\r
-  actions?: LiquidToolbarAction[];\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidToolbar({\r
-  title,\r
-  actions = [],\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidToolbarProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-\r
-  return (\r
-    <div\r
-      className={\`flex items-center justify-between gap-3 rounded-xl border p-3 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <p className="text-sm font-semibold" style={{ color: tokens.text }}>\r
-        {title}\r
-      </p>\r
-      <div className="flex items-center gap-2">\r
-        {actions.map((action, index) => {\r
-          const primary = action.tone === 'primary';\r
-          return (\r
-            <span\r
-              key={\`\${action.label}-\${index}\`}\r
-              className="rounded-lg px-3 py-1.5 text-xs font-medium"\r
-              style={{\r
-                border: primary ? 'none' : \`1px solid \${tokens.border}\`,\r
-                backgroundColor: primary ? tokens.accent : tokens.surfaceAlt,\r
-                color: primary ? tokens.accentText : tokens.text,\r
-              }}\r
-            >\r
-              {action.label}\r
-            </span>\r
-          );\r
-        })}\r
-      </div>\r
-    </div>\r
-  );\r
-}\r
-`,at=`import type { CSSProperties } from 'react';\r
-\r
-import { resolveLiquidColorTokens } from '../../color-scheme';\r
-import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';\r
-\r
-export interface LiquidTrendCardProps extends LiquidWidgetProps {\r
-  title: string;\r
-  current: number;\r
-  previous: number;\r
-  suffix?: string;\r
-  theme?: LiquidThemeMode;\r
-  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;\r
-  className?: string;\r
-  style?: LiquidStyleMap;\r
-}\r
-\r
-export function LiquidTrendCard({\r
-  title,\r
-  current,\r
-  previous,\r
-  suffix = '',\r
-  theme = 'light',\r
-  colorTokens,\r
-  className = '',\r
-  style,\r
-}: LiquidTrendCardProps) {\r
-  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);\r
-  const delta = previous === 0 ? 0 : ((current - previous) / Math.abs(previous)) * 100;\r
-  const positive = delta >= 0;\r
-\r
-  return (\r
-    <div\r
-      className={\`rounded-xl border p-4 \${className}\`}\r
-      style={{ border: \`1px solid \${tokens.border}\`, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}\r
-    >\r
-      <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>\r
-        {title}\r
-      </p>\r
-      <p className="mt-2 text-2xl font-semibold" style={{ color: tokens.text }}>{\`\${current}\${suffix}\`}</p>\r
-      <p className="mt-2 text-sm font-medium" style={{ color: positive ? tokens.success : tokens.danger }}>\r
-        {\`\${positive ? '+' : ''}\${delta.toFixed(1)}% vs previous\`}\r
-      </p>\r
-    </div>\r
-  );\r
-}\r
-`,ot=`import type { ComponentType } from 'react';\r
-\r
-import { LiquidAlert } from './components/liquid/LiquidAlert';\r
-import { LiquidAvatarChip } from './components/liquid/LiquidAvatarChip';\r
-import { LiquidBadge } from './components/liquid/LiquidBadge';\r
-import { LiquidButton } from './components/liquid/LiquidButton';\r
-import { LiquidContainer } from './components/liquid/LiquidContainer';\r
-import { LiquidDivider } from './components/liquid/LiquidDivider';\r
-import { LiquidEmptyState } from './components/liquid/LiquidEmptyState';\r
-import { LiquidIconLabel } from './components/liquid/LiquidIconLabel';\r
-import { LiquidInput } from './components/liquid/LiquidInput';\r
-import { LiquidKeyValueList } from './components/liquid/LiquidKeyValueList';\r
-import { LiquidList } from './components/liquid/LiquidList';\r
-import { LiquidMetricGrid } from './components/liquid/LiquidMetricGrid';\r
-import { LiquidProgressCard } from './components/liquid/LiquidProgressCard';\r
-import { LiquidSectionHeader } from './components/liquid/LiquidSectionHeader';\r
-import { LiquidSelect } from './components/liquid/LiquidSelect';\r
-import { LiquidStatCard } from './components/liquid/LiquidStatCard';\r
-import { LiquidStatGroup } from './components/liquid/LiquidStatGroup';\r
-import { LiquidTable } from './components/liquid/LiquidTable';\r
-import { LiquidTabs } from './components/liquid/LiquidTabs';\r
-import { LiquidTextBlock } from './components/liquid/LiquidTextBlock';\r
-import { LiquidTimeline } from './components/liquid/LiquidTimeline';\r
-import { LiquidToolbar } from './components/liquid/LiquidToolbar';\r
-import { LiquidTrendCard } from './components/liquid/LiquidTrendCard';\r
-\r
-export const ComponentRegistry: Record<string, ComponentType<any>> = {\r
-  alert: LiquidAlert,\r
-  avatar_chip: LiquidAvatarChip,\r
-  badge: LiquidBadge,\r
-  stat_card: LiquidStatCard,\r
-  button: LiquidButton,\r
-  container: LiquidContainer,\r
-  divider: LiquidDivider,\r
-  empty_state: LiquidEmptyState,\r
-  icon_label: LiquidIconLabel,\r
-  input: LiquidInput,\r
-  key_value_list: LiquidKeyValueList,\r
-  list: LiquidList,\r
-  metric_grid: LiquidMetricGrid,\r
-  progress_card: LiquidProgressCard,\r
-  section_header: LiquidSectionHeader,\r
-  select: LiquidSelect,\r
-  stat_group: LiquidStatGroup,\r
-  table: LiquidTable,\r
-  tabs: LiquidTabs,\r
-  text_block: LiquidTextBlock,\r
-  timeline: LiquidTimeline,\r
-  toolbar: LiquidToolbar,\r
-  trend_card: LiquidTrendCard,\r
+}`})]})})}var x={pageBackground:`#f8fafc`,surface:`#ffffff`,surfaceAlt:`#f1f5f9`,text:`#0f172a`,mutedText:`#64748b`,border:`#e2e8f0`,accent:`#0f172a`,accentText:`#ffffff`,success:`#059669`,warning:`#d97706`,danger:`#b91c1c`,shadow:`rgba(15, 23, 42, 0.08)`},ne={pageBackground:`#020617`,surface:`#0f172a`,surfaceAlt:`#1e293b`,text:`#e2e8f0`,mutedText:`#94a3b8`,border:`#334155`,accent:`#22d3ee`,accentText:`#020617`,success:`#34d399`,warning:`#fbbf24`,danger:`#fda4af`,shadow:`rgba(2, 6, 23, 0.5)`};function S(e,t){let n=e===`dark`?ne:x,r=t?.[e]??{};return{...n,...r}}function re({title:e,message:t,tone:n=`info`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=n===`success`?s.success:n===`warning`?s.warning:n===`danger`?s.danger:s.accent,l={border:`1px solid ${s.border}`,borderLeft:`4px solid ${c}`,borderRadius:12,backgroundColor:s.surface,color:s.text,padding:14};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-3 ${a}`,style:{...l,...o},children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:s.text},children:e}),(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:s.mutedText},children:t})]})}function ie(e){return e.split(` `).filter(Boolean).slice(0,2).map(e=>e[0]?.toUpperCase()).join(``)}function ae({name:e,subtitle:t,imageUrl:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`inline-flex items-center gap-3 rounded-xl border px-3 py-2 ${a}`,style:{border:`1px solid ${s.border}`,backgroundColor:s.surface,...o},children:[n?(0,b.jsx)(`img`,{src:n,alt:e,style:{width:32,height:32,borderRadius:`50%`,objectFit:`cover`}}):(0,b.jsx)(`span`,{style:{width:32,height:32,borderRadius:`50%`,display:`grid`,placeItems:`center`,backgroundColor:s.accent,color:s.accentText,fontSize:12,fontWeight:700},children:ie(e)}),(0,b.jsxs)(`span`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`text-xs`,style:{color:s.mutedText},children:t}):null]})]})}function oe({label:e,tone:t=`neutral`,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0),s=t===`success`?o.success:t===`warning`?o.warning:t===`danger`?o.danger:o.accent;return(0,b.jsx)(`span`,{className:`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ${i}`,style:{backgroundColor:o.surfaceAlt,color:s,border:`1px solid ${o.border}`,...a},children:e})}function se({label:e,variant:t=`primary`,actionId:n,theme:r=`light`,colorTokens:i,className:a=``,style:o,disabled:s=!1,dispatch:c,widgetId:l}){let u=i??S(r,void 0),d=r===`dark`,f=t===`primary`?d?`bg-cyan-400 text-slate-950 hover:bg-cyan-300 focus:ring-cyan-300`:`bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900`:d?`bg-slate-800 text-slate-100 hover:bg-slate-700 focus:ring-slate-500`:`bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-400`,p={display:`inline-flex`,alignItems:`center`,justifyContent:`center`,borderRadius:12,padding:`8px 16px`,fontSize:14,fontWeight:500,border:`1px solid transparent`,cursor:s?`not-allowed`:`pointer`,opacity:s?.5:1,transition:`background-color 150ms ease, color 150ms ease`,boxShadow:`0 1px 2px ${u.shadow}`},m=t===`primary`?{backgroundColor:u.accent,color:u.accentText}:{backgroundColor:u.surfaceAlt,color:u.text,borderColor:u.border};return(0,b.jsx)(`button`,{type:`button`,"data-action-id":n,disabled:s,onClick:()=>{c?.({type:`action`,widgetId:l,payload:{actionId:n,label:e,variant:t}})},style:{...p,...m,...o},className:`inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${f} disabled:cursor-not-allowed disabled:opacity-50 ${a}`,children:e})}function ce({children:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0),o=t===`dark`,s={border:o?`1px solid transparent`:`1px solid ${a.border}`,borderRadius:20,backgroundColor:o?a.surfaceAlt:a.surface,backgroundClip:`padding-box`,overflow:`hidden`,color:a.text,padding:16,boxShadow:o?`none`:`0 1px 2px ${a.shadow}`};return(0,b.jsx)(`div`,{className:`p-4 ${r}`,style:{...s,...i},children:e})}function le({label:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center gap-3 ${r}`,style:i,children:[(0,b.jsx)(`span`,{style:{height:1,backgroundColor:a.border,flex:1}}),e?(0,b.jsx)(`span`,{className:`text-xs font-medium`,style:{color:a.mutedText},children:e}):null,(0,b.jsx)(`span`,{style:{height:1,backgroundColor:a.border,flex:1}})]})}function ue({title:e,description:t,actionLabel:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`rounded-xl border p-6 text-center ${a}`,style:{border:`1px dashed ${s.border}`,borderRadius:12,backgroundColor:s.surface,...o},children:[(0,b.jsx)(`p`,{className:`text-base font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`mt-2 text-sm`,style:{color:s.mutedText},children:t}):null,n?(0,b.jsx)(`span`,{className:`mt-4 inline-flex rounded-lg px-3 py-1.5 text-sm font-medium`,style:{backgroundColor:s.accent,color:s.accentText},children:n}):null]})}function C({icon:e=`•`,label:t,tone:n=`neutral`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=n===`success`?s.success:n===`warning`?s.warning:n===`danger`?s.danger:s.text;return(0,b.jsxs)(`div`,{className:`inline-flex items-center gap-2 rounded-lg px-2 py-1 ${a}`,style:{backgroundColor:s.surfaceAlt,...o},children:[(0,b.jsx)(`span`,{style:{color:c,fontWeight:700},children:e}),(0,b.jsx)(`span`,{className:`text-sm font-medium`,style:{color:s.text},children:t})]})}function de({label:e,value:t,placeholder:n,inputType:r=`text`,readOnly:i,theme:a=`light`,colorTokens:o,className:s=``,style:c,dispatch:l,widgetId:u}){let d=o??S(a,void 0),f=!!l&&i!==!0,p={width:`100%`,border:`1px solid ${d.border}`,borderRadius:10,backgroundColor:d.surface,color:d.text,padding:`10px 12px`,outline:`none`},m=u?`liquid-input-${u}`:void 0;return(0,b.jsxs)(`label`,{htmlFor:m,className:`block ${s}`,style:c,children:[(0,b.jsx)(`span`,{className:`mb-2 block text-sm font-medium`,style:{color:d.text},children:e}),(0,b.jsx)(`input`,{id:m,type:r,value:t??``,placeholder:n,readOnly:!f,onChange:t=>{f&&l?.({type:`input`,widgetId:u,payload:{value:t.target.value,inputType:r,label:e}})},style:p})]})}function fe({entries:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border p-4 ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:(0,b.jsx)(`div`,{style:{display:`grid`,gap:10},children:e.map(e=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`minmax(0, 1fr) auto`,gap:12,borderBottom:`1px solid ${a.border}`,paddingBottom:8},children:[(0,b.jsx)(`span`,{style:{color:a.mutedText,fontSize:13},children:e.key}),(0,b.jsx)(`span`,{style:{color:a.text,fontWeight:600},children:e.value})]},e.key))})})}function pe({items:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:e.map((t,n)=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`1fr auto`,gap:10,padding:`12px 14px`,borderBottom:n<e.length-1?`1px solid ${a.border}`:`none`},children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:a.text},children:t.title}),t.subtitle?(0,b.jsx)(`p`,{className:`text-xs`,style:{color:a.mutedText},children:t.subtitle}):null]}),t.meta?(0,b.jsx)(`span`,{style:{color:a.mutedText,fontSize:12},children:t.meta}):null]},`${t.title}-${n}`))})}function me({items:e,columns:t=3,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsx)(`div`,{className:i,style:{display:`grid`,gridTemplateColumns:`repeat(${Math.max(1,t)}, minmax(0, 1fr))`,gap:10,...a},children:e.map((e,t)=>{let n=e.tone===`success`?o.success:e.tone===`warning`?o.warning:e.tone===`danger`?o.danger:o.text;return(0,b.jsxs)(`div`,{style:{border:`1px solid ${o.border}`,borderRadius:10,backgroundColor:o.surface,padding:12},children:[(0,b.jsx)(`p`,{className:`text-xs`,style:{color:o.mutedText},children:e.label}),(0,b.jsx)(`p`,{className:`mt-1 text-lg font-semibold`,style:{color:n},children:e.value})]},`${e.label}-${t}`)})})}function w({title:e,value:t,max:n=100,tone:r=`neutral`,theme:i=`light`,colorTokens:a,className:o=``,style:s}){let c=a??S(i,void 0),l=Math.max(0,Math.min(100,t/Math.max(1,n)*100)),u=r===`success`?c.success:r===`warning`?c.warning:r===`danger`?c.danger:c.accent,d={border:`1px solid ${c.border}`,borderRadius:12,backgroundColor:c.surface,color:c.text,padding:16,boxShadow:`0 1px 2px ${c.shadow}`};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${o}`,style:{...d,...s},children:[(0,b.jsxs)(`div`,{className:`mb-3 flex items-center justify-between gap-3`,children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:c.mutedText},children:e}),(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:c.text},children:`${Math.round(l)}%`})]}),(0,b.jsx)(`div`,{className:`h-2 w-full rounded-full`,style:{backgroundColor:c.surfaceAlt},children:(0,b.jsx)(`div`,{className:`h-full rounded-full`,style:{width:`${l}%`,backgroundColor:u,transition:`width 200ms ease`}})}),(0,b.jsx)(`p`,{className:`mt-3 text-xs`,style:{color:c.mutedText},children:`${t} / ${n}`})]})}function he({title:e,subtitle:t,actionLabel:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center justify-between gap-3 ${a}`,style:o,children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`h3`,{className:`text-lg font-semibold`,style:{color:s.text},children:e}),t?(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:s.mutedText},children:t}):null]}),n?(0,b.jsx)(`span`,{className:`rounded-lg border px-3 py-1.5 text-sm`,style:{border:`1px solid ${s.border}`,color:s.text,backgroundColor:s.surfaceAlt},children:n}):null]})}function ge({label:e,options:t,value:n,disabled:r=!1,theme:i=`light`,colorTokens:a,className:o=``,style:s,dispatch:c,widgetId:l}){let u=a??S(i,void 0),d={width:`100%`,border:`1px solid ${u.border}`,borderRadius:10,backgroundColor:u.surface,color:u.text,padding:`10px 12px`,outline:`none`},f=l?`liquid-select-${l}`:void 0;return(0,b.jsxs)(`label`,{htmlFor:f,className:`block ${o}`,style:s,children:[(0,b.jsx)(`span`,{className:`mb-2 block text-sm font-medium`,style:{color:u.text},children:e}),(0,b.jsx)(`select`,{id:f,value:n??t[0]?.value??``,disabled:r,onChange:t=>{c?.({type:`change`,widgetId:l,payload:{value:t.target.value,label:e}})},style:d,children:t.map(e=>(0,b.jsx)(`option`,{value:e.value,children:e.label},e.value))})]})}function _e({title:e,value:t,trend:n,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c=r===`dark`,l=n==null?null:`${n>0?`+`:``}${n}%`,u=n==null?`text-slate-400`:n>=0?`text-emerald-600`:`text-rose-600`,d=n==null?{color:s.mutedText}:n>=0?{color:s.success}:{color:s.danger},f={border:c?`1px solid transparent`:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,backgroundClip:`padding-box`,overflow:`hidden`,position:`relative`,color:s.text,padding:20,boxShadow:c?`none`:`0 1px 2px ${s.shadow}`};return(0,b.jsx)(`div`,{className:`p-5 transition-shadow hover:shadow-md ${a}`,style:{...f,...o},children:(0,b.jsxs)(`div`,{className:`flex items-center justify-center`,style:{minHeight:64},children:[(0,b.jsxs)(`div`,{style:{textAlign:`center`},children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:s.mutedText},children:e}),(0,b.jsx)(`p`,{className:`mt-2 text-3xl font-semibold tracking-tight`,style:{color:s.text},children:t})]}),l?(0,b.jsx)(`span`,{className:`rounded-full px-2.5 py-1 text-sm font-medium ${u}`,style:{position:`absolute`,right:20,top:`50%`,transform:`translateY(-50%)`,backgroundColor:s.surfaceAlt,borderRadius:9999,padding:`4px 10px`,fontSize:14,fontWeight:500,...d},children:l}):null]})})}function ve({title:e,stats:t,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:[e?(0,b.jsx)(`p`,{className:`mb-3 text-sm font-semibold`,style:{color:o.text},children:e}):null,(0,b.jsx)(`div`,{style:{display:`grid`,gap:10},children:t.map((e,t)=>(0,b.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,justifyContent:`space-between`},children:[(0,b.jsx)(`span`,{style:{color:o.mutedText,fontSize:13},children:e.label}),(0,b.jsx)(`span`,{style:{color:o.text,fontWeight:600},children:e.value})]},`${e.label}-${t}`))})]})}function ye({columns:e,rows:t,theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsx)(`div`,{className:`overflow-hidden rounded-xl border ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:(0,b.jsxs)(`table`,{style:{width:`100%`,borderCollapse:`collapse`},children:[(0,b.jsx)(`thead`,{children:(0,b.jsx)(`tr`,{children:e.map(e=>(0,b.jsx)(`th`,{style:{textAlign:`left`,padding:`10px 12px`,fontSize:12,color:o.mutedText,borderBottom:`1px solid ${o.border}`},children:e},e))})}),(0,b.jsx)(`tbody`,{children:t.map((t,n)=>(0,b.jsx)(`tr`,{children:e.map(e=>(0,b.jsx)(`td`,{style:{padding:`10px 12px`,borderBottom:`1px solid ${o.border}`},children:(0,b.jsx)(`span`,{style:{color:o.text,fontSize:14},children:String(t[e]??``)})},`${n}-${e}`))},`row-${n}`))})]})})}function be({items:e,activeId:t,theme:n=`light`,colorTokens:r,className:i=``,style:a,dispatch:o,widgetId:s}){let c=r??S(n,void 0),l=t??e[0]?.id;return(0,b.jsx)(`div`,{className:`inline-flex w-full flex-wrap items-center gap-2 rounded-xl border p-2 ${i}`,style:{border:`1px solid ${c.border}`,borderRadius:12,backgroundColor:c.surface,...a},children:e.map(e=>{let t=e.id===l;return(0,b.jsx)(`button`,{type:`button`,onClick:()=>{o?.({type:`change`,widgetId:s,payload:{value:e.id,label:e.label}})},className:`rounded-lg px-3 py-1.5 text-sm font-medium`,style:{backgroundColor:t?c.accent:c.surfaceAlt,color:t?c.accentText:c.text,cursor:`pointer`},children:e.label},e.id)})})}function xe({heading:e,body:t,align:n=`left`,theme:r=`light`,colorTokens:i,className:a=``,style:o}){let s=i??S(r,void 0),c={border:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,color:s.text,padding:16,textAlign:n};return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${a}`,style:{...c,...o},children:[e?(0,b.jsx)(`p`,{className:`text-base font-semibold`,style:{color:s.text},children:e}):null,(0,b.jsx)(`p`,{className:e?`mt-2 text-sm`:`text-sm`,style:{color:s.mutedText,whiteSpace:`pre-wrap`},children:t})]})}function Se({items:e,theme:t=`light`,colorTokens:n,className:r=``,style:i}){let a=n??S(t,void 0);return(0,b.jsx)(`div`,{className:`rounded-xl border p-4 ${r}`,style:{border:`1px solid ${a.border}`,borderRadius:12,backgroundColor:a.surface,...i},children:(0,b.jsx)(`div`,{style:{display:`grid`,gap:14},children:e.map((t,n)=>(0,b.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`20px 1fr`,gap:10},children:[(0,b.jsxs)(`div`,{style:{display:`grid`,justifyItems:`center`},children:[(0,b.jsx)(`span`,{style:{width:10,height:10,borderRadius:`50%`,backgroundColor:t.tone===`success`?a.success:t.tone===`warning`?a.warning:t.tone===`danger`?a.danger:a.accent,marginTop:4}}),n<e.length-1?(0,b.jsx)(`span`,{style:{width:2,flex:1,minHeight:22,backgroundColor:a.border,marginTop:4}}):null]}),(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:a.text},children:t.title}),t.description?(0,b.jsx)(`p`,{className:`mt-1 text-sm`,style:{color:a.mutedText},children:t.description}):null,t.time?(0,b.jsx)(`p`,{className:`mt-1 text-xs`,style:{color:a.mutedText},children:t.time}):null]})]},`${t.title}-${n}`))})})}function Ce({title:e,actions:t=[],theme:n=`light`,colorTokens:r,className:i=``,style:a}){let o=r??S(n,void 0);return(0,b.jsxs)(`div`,{className:`flex items-center justify-between gap-3 rounded-xl border p-3 ${i}`,style:{border:`1px solid ${o.border}`,borderRadius:12,backgroundColor:o.surface,...a},children:[(0,b.jsx)(`p`,{className:`text-sm font-semibold`,style:{color:o.text},children:e}),(0,b.jsx)(`div`,{className:`flex items-center gap-2`,children:t.map((e,t)=>{let n=e.tone===`primary`;return(0,b.jsx)(`span`,{className:`rounded-lg px-3 py-1.5 text-xs font-medium`,style:{border:n?`none`:`1px solid ${o.border}`,backgroundColor:n?o.accent:o.surfaceAlt,color:n?o.accentText:o.text},children:e.label},`${e.label}-${t}`)})})]})}function we({title:e,current:t,previous:n,suffix:r=``,theme:i=`light`,colorTokens:a,className:o=``,style:s}){let c=a??S(i,void 0),l=n===0?0:(t-n)/Math.abs(n)*100,u=l>=0;return(0,b.jsxs)(`div`,{className:`rounded-xl border p-4 ${o}`,style:{border:`1px solid ${c.border}`,backgroundColor:c.surface,...s},children:[(0,b.jsx)(`p`,{className:`text-sm font-medium`,style:{color:c.mutedText},children:e}),(0,b.jsx)(`p`,{className:`mt-2 text-2xl font-semibold`,style:{color:c.text},children:`${t}${r}`}),(0,b.jsx)(`p`,{className:`mt-2 text-sm font-medium`,style:{color:u?c.success:c.danger},children:`${u?`+`:``}${l.toFixed(1)}% vs previous`})]})}var Te={alert:re,avatar_chip:ae,badge:oe,stat_card:_e,button:se,container:ce,divider:le,empty_state:ue,icon_label:C,input:de,key_value_list:fe,list:pe,metric_grid:me,progress_card:w,section_header:he,select:ge,stat_group:ve,table:ye,tabs:be,text_block:xe,timeline:Se,toolbar:Ce,trend_card:we},Ee=[`$global.`,`$input.`,`$page.`];function De(e){return typeof e==`string`&&Ee.some(t=>e.startsWith(t))}function Oe(e,t){return De(e)?t?.resolveDataPointer?.(e):Array.isArray(e)?e.map(e=>Oe(e,t)):e&&typeof e==`object`?Object.fromEntries(Object.entries(e).map(([e,n])=>[e,Oe(n,t)])):e}function ke(e,t){return Oe(e,t)}function Ae({type:e,id:t,theme:n,colorTokens:r}){let i=n===`dark`;return(0,b.jsxs)(`div`,{className:`rounded-xl border-2 border-red-400 bg-red-50 p-3 text-sm text-red-700`,style:{border:`2px solid ${r.danger}`,borderRadius:12,backgroundColor:i?r.surfaceAlt:`#fef2f2`,padding:12,fontSize:14,color:r.danger},children:[(0,b.jsx)(`p`,{className:`font-semibold`,children:`Unknown component type`}),(0,b.jsxs)(`p`,{className:`mt-1`,children:[`type: `,e??`undefined`]}),(0,b.jsxs)(`p`,{children:[`id: `,t??`undefined`]})]})}function je(e,t,n,r,i){let a=Te[e.type],o=ke(e.props??{},i),s=o.theme??n,c=o.colorScheme??r,l=S(s,c);if(!a)return(0,b.jsx)(Ae,{type:e.type,id:e.id,theme:s,colorTokens:l},t);let u={...o,theme:s,colorTokens:l,widgetId:e.id,dispatch:i?.dispatch},d=Array.isArray(e.children)&&e.children.length>0?e.children.map((t,n)=>je(t,`${e.id||`widget`}-child-${n}`,s,c,i)):void 0;return(0,b.jsx)(a,{...u,children:d},t)}function Me({blueprint:e,themeMode:t,runtime:n}){let r=Array.isArray(e?.widgets)?e.widgets:[],i=e?.layout,a=t??e?.theme??i?.theme??`light`,o=e?.colorScheme??i?.colorScheme,s=S(a,o),c=i?.columns??1,l=i?.gap??16,u=`grid auto-rows-fr items-start ${i?.className??``}`,d={gridTemplateColumns:`repeat(${Math.max(1,c)}, minmax(0, 1fr))`,gap:`${Math.max(0,l)}px`,backgroundColor:s.pageBackground,color:s.text,...i?.style};return r.length===0?(0,b.jsx)(`div`,{className:`rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500`,style:{border:`1px solid ${s.border}`,borderRadius:12,backgroundColor:s.surface,padding:16,fontSize:14,color:s.mutedText},children:`No widgets to render.`}):(0,b.jsx)(`div`,{className:u,style:d,children:r.map((e,t)=>{let r=e?.id||`widget-${t}`;return!e||typeof e.type!=`string`?(0,b.jsx)(Ae,{type:e?.type,id:e?.id,theme:a,colorTokens:s},r):je(e,r,a,o,n)})})}function Ne(e){let t=e.match(/'([^']+)'/);return t?t[1]:null}function Pe(e,t){return e.name===`actionId`?`${t}_action`:e.name===`label`?`Sample Label`:e.name===`title`?`Sample Title`:e.name===`body`?`Sample body text generated from source props.`:e.name===`value`?e.type.includes(`number`)?42:`Sample Value`:e.name===`options`?[{label:`Option A`,value:`a`},{label:`Option B`,value:`b`}]:e.name===`items`?t===`tabs`?[{id:`tab_overview`,label:`Overview`},{id:`tab_activity`,label:`Activity`}]:t===`list`?[{title:`List Item A`,subtitle:`Subtitle A`,meta:`Meta`},{title:`List Item B`,subtitle:`Subtitle B`,meta:`Meta`}]:t===`metric_grid`?[{label:`Users`,value:9421,tone:`success`},{label:`Errors`,value:12,tone:`warning`}]:t===`timeline`?[{title:`Created`,time:`09:00`},{title:`Updated`,time:`09:15`,tone:`success`}]:[{label:`Item A`,value:`Value A`},{label:`Item B`,value:`Value B`}]:e.name===`entries`?[{key:`CPU`,value:`42%`},{key:`RAM`,value:`68%`}]:e.name===`stats`?[{label:`Users`,value:9421},{label:`Revenue`,value:`$128k`}]:e.name===`columns`?[`Name`,`Status`]:e.name===`rows`?[{Name:`Pipeline A`,Status:`Healthy`},{Name:`Pipeline B`,Status:`Warning`}]:e.type.includes(`boolean`)?!1:e.type.includes(`number`)?1:e.type.includes(`string`)?Ne(e.type)??`Sample ${e.name}`:e.type.includes(`[]`)||e.type.includes(`Array<`)?[]:e.type.includes(`Record<`)||e.type.includes(`{`)?{}:null}function Fe(e){let t={};for(let n of e.props)!n.required&&n.name!==`value`&&n.name!==`items`&&n.name!==`options`||(t[n.name]=Pe(n,e.key));return e.key===`button`&&typeof t.actionId!=`string`&&(t.actionId=`sample_action`),t}function Ie(e){return{version:`1.0.0`,theme:`light`,layout:{columns:1,gap:16},widgets:[{id:`${e.key}_preview`,type:e.key,props:Fe(e)}]}}var Le=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidAlertProps extends LiquidWidgetProps {
+  title: string;
+  message: string;
+  tone?: 'info' | 'success' | 'warning' | 'danger';
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidAlert({
+  title,
+  message,
+  tone = 'info',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidAlertProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const accent = tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;
+
+  const defaultStyle: CSSProperties = {
+    border: \`1px solid \${tokens.border}\`,
+    borderLeft: \`4px solid \${accent}\`,
+    borderRadius: 12,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
+    padding: 14,
+  };
+
+  return (
+    <div className={\`rounded-xl border p-3 \${className}\`} style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}>
+      <p className="text-sm font-semibold" style={{ color: tokens.text }}>{title}</p>
+      <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>{message}</p>
+    </div>
+  );
+}
+`,Re=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidAvatarChipProps extends LiquidWidgetProps {
+  name: string;
+  subtitle?: string;
+  imageUrl?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join('');
+}
+
+export function LiquidAvatarChip({
+  name,
+  subtitle,
+  imageUrl,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidAvatarChipProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`inline-flex items-center gap-3 rounded-xl border px-3 py-2 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      {imageUrl ? (
+        <img src={imageUrl} alt={name} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+      ) : (
+        <span
+          style={{
+            width: 32,
+            height: 32,
+            borderRadius: '50%',
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: tokens.accent,
+            color: tokens.accentText,
+            fontSize: 12,
+            fontWeight: 700,
+          }}
+        >
+          {initials(name)}
+        </span>
+      )}
+      <span>
+        <p className="text-sm font-semibold" style={{ color: tokens.text }}>
+          {name}
+        </p>
+        {subtitle ? (
+          <p className="text-xs" style={{ color: tokens.mutedText }}>
+            {subtitle}
+          </p>
+        ) : null}
+      </span>
+    </div>
+  );
+}
+`,ze=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidBadgeProps extends LiquidWidgetProps {
+  label: string;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger';
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidBadge({
+  label,
+  tone = 'neutral',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidBadgeProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const toneColor =
+    tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;
+
+  return (
+    <span
+      className={\`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold \${className}\`}
+      style={{
+        backgroundColor: tokens.surfaceAlt,
+        color: toneColor,
+        border: \`1px solid \${tokens.border}\`,
+        ...(style as CSSProperties | undefined),
+      }}
+    >
+      {label}
+    </span>
+  );
+}
+`,Be=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidButtonProps extends LiquidWidgetProps {
+  label: string;
+  variant?: 'primary' | 'secondary';
+  actionId: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+  disabled?: boolean;
+}
+
+export function LiquidButton({
+  label,
+  variant = 'primary',
+  actionId,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+  disabled = false,
+  dispatch,
+  widgetId,
+}: LiquidButtonProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const isDark = theme === 'dark';
+  const baseStyles =
+    'inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const variantStyles =
+    variant === 'primary'
+      ? isDark
+        ? 'bg-cyan-400 text-slate-950 hover:bg-cyan-300 focus:ring-cyan-300'
+        : 'bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900'
+      : isDark
+        ? 'bg-slate-800 text-slate-100 hover:bg-slate-700 focus:ring-slate-500'
+        : 'bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-400';
+  const defaultStyle: CSSProperties = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 12,
+    padding: '8px 16px',
+    fontSize: 14,
+    fontWeight: 500,
+    border: '1px solid transparent',
+    cursor: disabled ? 'not-allowed' : 'pointer',
+    opacity: disabled ? 0.5 : 1,
+    transition: 'background-color 150ms ease, color 150ms ease',
+    boxShadow: \`0 1px 2px \${tokens.shadow}\`,
+  };
+  const variantStyle: CSSProperties =
+    variant === 'primary'
+      ? isDark
+        ? { backgroundColor: tokens.accent, color: tokens.accentText }
+        : { backgroundColor: tokens.accent, color: tokens.accentText }
+      : isDark
+        ? { backgroundColor: tokens.surfaceAlt, color: tokens.text, borderColor: tokens.border }
+        : { backgroundColor: tokens.surfaceAlt, color: tokens.text, borderColor: tokens.border };
+
+  return (
+    <button
+      type="button"
+      data-action-id={actionId}
+      disabled={disabled}
+      onClick={() => {
+        void dispatch?.({
+          type: 'action',
+          widgetId,
+          payload: { actionId, label, variant },
+        });
+      }}
+      style={{ ...defaultStyle, ...variantStyle, ...(style as CSSProperties | undefined) }}
+      className={\`\${baseStyles} \${variantStyles} disabled:cursor-not-allowed disabled:opacity-50 \${className}\`}
+    >
+      {label}
+    </button>
+  );
+}
+`,Ve=`import type { CSSProperties, ReactNode } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode } from '../../liquid.types';
+
+export interface LiquidContainerProps {
+  children: ReactNode;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidContainer({
+  children,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidContainerProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const isDark = theme === 'dark';
+  const defaultClassName = 'p-4';
+  const defaultStyle: CSSProperties = {
+    border: isDark ? '1px solid transparent' : \`1px solid \${tokens.border}\`,
+    borderRadius: 20,
+    backgroundColor: isDark ? tokens.surfaceAlt : tokens.surface,
+    backgroundClip: 'padding-box',
+    overflow: 'hidden',
+    color: tokens.text,
+    padding: 16,
+    boxShadow: isDark ? 'none' : \`0 1px 2px \${tokens.shadow}\`,
+  };
+
+  return (
+    <div
+      className={\`\${defaultClassName} \${className}\`}
+      style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}
+    >
+      {children}
+    </div>
+  );
+}
+`,He=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidDividerProps extends LiquidWidgetProps {
+  label?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidDivider({ label, theme = 'light', colorTokens, className = '', style }: LiquidDividerProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div className={\`flex items-center gap-3 \${className}\`} style={style as CSSProperties | undefined}>
+      <span style={{ height: 1, backgroundColor: tokens.border, flex: 1 }} />
+      {label ? (
+        <span className="text-xs font-medium" style={{ color: tokens.mutedText }}>
+          {label}
+        </span>
+      ) : null}
+      <span style={{ height: 1, backgroundColor: tokens.border, flex: 1 }} />
+    </div>
+  );
+}
+`,Ue=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidEmptyStateProps extends LiquidWidgetProps {
+  title: string;
+  description?: string;
+  actionLabel?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidEmptyState({
+  title,
+  description,
+  actionLabel,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidEmptyStateProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`rounded-xl border p-6 text-center \${className}\`}
+      style={{ border: \`1px dashed \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      <p className="text-base font-semibold" style={{ color: tokens.text }}>
+        {title}
+      </p>
+      {description ? (
+        <p className="mt-2 text-sm" style={{ color: tokens.mutedText }}>
+          {description}
+        </p>
+      ) : null}
+      {actionLabel ? (
+        <span
+          className="mt-4 inline-flex rounded-lg px-3 py-1.5 text-sm font-medium"
+          style={{ backgroundColor: tokens.accent, color: tokens.accentText }}
+        >
+          {actionLabel}
+        </span>
+      ) : null}
+    </div>
+  );
+}
+`,We=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidIconLabelProps extends LiquidWidgetProps {
+  icon?: string;
+  label: string;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger';
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidIconLabel({
+  icon = '•',
+  label,
+  tone = 'neutral',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidIconLabelProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const color = tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.text;
+
+  return (
+    <div className={\`inline-flex items-center gap-2 rounded-lg px-2 py-1 \${className}\`} style={{ backgroundColor: tokens.surfaceAlt, ...(style as CSSProperties | undefined) }}>
+      <span style={{ color, fontWeight: 700 }}>{icon}</span>
+      <span className="text-sm font-medium" style={{ color: tokens.text }}>
+        {label}
+      </span>
+    </div>
+  );
+}
+`,Ge=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidInputProps extends LiquidWidgetProps {
+  label: string;
+  value?: string;
+  placeholder?: string;
+  inputType?: 'text' | 'email' | 'number' | 'password';
+  readOnly?: boolean;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidInput({
+  label,
+  value,
+  placeholder,
+  inputType = 'text',
+  readOnly,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+  dispatch,
+  widgetId,
+}: LiquidInputProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const isEditable = Boolean(dispatch) && readOnly !== true;
+  const inputStyle: CSSProperties = {
+    width: '100%',
+    border: \`1px solid \${tokens.border}\`,
+    borderRadius: 10,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
+    padding: '10px 12px',
+    outline: 'none',
+  };
+
+  const inputId = widgetId ? \`liquid-input-\${widgetId}\` : undefined;
+
+  return (
+    <label htmlFor={inputId} className={\`block \${className}\`} style={style as CSSProperties | undefined}>
+      <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
+        {label}
+      </span>
+      <input
+        id={inputId}
+        type={inputType}
+        value={value ?? ''}
+        placeholder={placeholder}
+        readOnly={!isEditable}
+        onChange={(event) => {
+          if (!isEditable) {
+            return;
+          }
+
+          void dispatch?.({
+            type: 'input',
+            widgetId,
+            payload: {
+              value: event.target.value,
+              inputType,
+              label,
+            },
+          });
+        }}
+        style={inputStyle}
+      />
+    </label>
+  );
+}
+`,Ke=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidKeyValueEntry {
+  key: string;
+  value: string | number;
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidKeyValueListProps extends LiquidWidgetProps {
+  entries: LiquidKeyValueEntry[];
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidKeyValueList({
+  entries,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidKeyValueListProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`rounded-xl border p-4 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      <div style={{ display: 'grid', gap: 10 }}>
+        {entries.map((entry) => (
+          <div
+            key={entry.key}
+            style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 12, borderBottom: \`1px solid \${tokens.border}\`, paddingBottom: 8 }}
+          >
+            <span style={{ color: tokens.mutedText, fontSize: 13 }}>{entry.key}</span>
+            <span style={{ color: tokens.text, fontWeight: 600 }}>{entry.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+`,qe=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidListItem {
+  title: string;
+  subtitle?: string;
+  meta?: string;
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidListProps extends LiquidWidgetProps {
+  items: LiquidListItem[];
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidList({ items, theme = 'light', colorTokens, className = '', style }: LiquidListProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`rounded-xl border \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      {items.map((item, index) => (
+        <div
+          key={\`\${item.title}-\${index}\`}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            gap: 10,
+            padding: '12px 14px',
+            borderBottom: index < items.length - 1 ? \`1px solid \${tokens.border}\` : 'none',
+          }}
+        >
+          <div>
+            <p className="text-sm font-medium" style={{ color: tokens.text }}>
+              {item.title}
+            </p>
+            {item.subtitle ? (
+              <p className="text-xs" style={{ color: tokens.mutedText }}>
+                {item.subtitle}
+              </p>
+            ) : null}
+          </div>
+          {item.meta ? <span style={{ color: tokens.mutedText, fontSize: 12 }}>{item.meta}</span> : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+`,Je=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidMetricGridItem {
+  label: string;
+  value: string | number;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger';
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidMetricGridProps extends LiquidWidgetProps {
+  items: LiquidMetricGridItem[];
+  columns?: number;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidMetricGrid({
+  items,
+  columns = 3,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidMetricGridProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const gridStyle: CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: \`repeat(\${Math.max(1, columns)}, minmax(0, 1fr))\`,
+    gap: 10,
+    ...(style as CSSProperties | undefined),
+  };
+
+  return (
+    <div className={className} style={gridStyle}>
+      {items.map((item, index) => {
+        const color =
+          item.tone === 'success' ? tokens.success : item.tone === 'warning' ? tokens.warning : item.tone === 'danger' ? tokens.danger : tokens.text;
+        return (
+          <div key={\`\${item.label}-\${index}\`} style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 10, backgroundColor: tokens.surface, padding: 12 }}>
+            <p className="text-xs" style={{ color: tokens.mutedText }}>
+              {item.label}
+            </p>
+            <p className="mt-1 text-lg font-semibold" style={{ color }}>
+              {item.value}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+`,Ye=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidProgressCardProps extends LiquidWidgetProps {
+  title: string;
+  value: number;
+  max?: number;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger';
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidProgressCard({
+  title,
+  value,
+  max = 100,
+  tone = 'neutral',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidProgressCardProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const percent = Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100));
+  const toneColor =
+    tone === 'success' ? tokens.success : tone === 'warning' ? tokens.warning : tone === 'danger' ? tokens.danger : tokens.accent;
+
+  const containerStyle: CSSProperties = {
+    border: \`1px solid \${tokens.border}\`,
+    borderRadius: 12,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
+    padding: 16,
+    boxShadow: \`0 1px 2px \${tokens.shadow}\`,
+  };
+
+  return (
+    <div className={\`rounded-xl border p-4 \${className}\`} style={{ ...containerStyle, ...(style as CSSProperties | undefined) }}>
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>
+          {title}
+        </p>
+        <p className="text-sm font-semibold" style={{ color: tokens.text }}>{\`\${Math.round(percent)}%\`}</p>
+      </div>
+      <div className="h-2 w-full rounded-full" style={{ backgroundColor: tokens.surfaceAlt }}>
+        <div
+          className="h-full rounded-full"
+          style={{ width: \`\${percent}%\`, backgroundColor: toneColor, transition: 'width 200ms ease' }}
+        />
+      </div>
+      <p className="mt-3 text-xs" style={{ color: tokens.mutedText }}>{\`\${value} / \${max}\`}</p>
+    </div>
+  );
+}
+`,Xe=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidSectionHeaderProps extends LiquidWidgetProps {
+  title: string;
+  subtitle?: string;
+  actionLabel?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidSectionHeader({
+  title,
+  subtitle,
+  actionLabel,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidSectionHeaderProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div className={\`flex items-center justify-between gap-3 \${className}\`} style={style as CSSProperties | undefined}>
+      <div>
+        <h3 className="text-lg font-semibold" style={{ color: tokens.text }}>
+          {title}
+        </h3>
+        {subtitle ? (
+          <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>
+            {subtitle}
+          </p>
+        ) : null}
+      </div>
+      {actionLabel ? (
+        <span
+          className="rounded-lg border px-3 py-1.5 text-sm"
+          style={{ border: \`1px solid \${tokens.border}\`, color: tokens.text, backgroundColor: tokens.surfaceAlt }}
+        >
+          {actionLabel}
+        </span>
+      ) : null}
+    </div>
+  );
+}
+`,Ze=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidSelectOption {
+  label: string;
+  value: string;
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidSelectProps extends LiquidWidgetProps {
+  label: string;
+  options: LiquidSelectOption[];
+  value?: string;
+  disabled?: boolean;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidSelect({
+  label,
+  options,
+  value,
+  disabled = false,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+  dispatch,
+  widgetId,
+}: LiquidSelectProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const selectStyle: CSSProperties = {
+    width: '100%',
+    border: \`1px solid \${tokens.border}\`,
+    borderRadius: 10,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
+    padding: '10px 12px',
+    outline: 'none',
+  };
+
+  const selectId = widgetId ? \`liquid-select-\${widgetId}\` : undefined;
+
+  return (
+    <label htmlFor={selectId} className={\`block \${className}\`} style={style as CSSProperties | undefined}>
+      <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
+        {label}
+      </span>
+      <select
+        id={selectId}
+        value={value ?? options[0]?.value ?? ''}
+        disabled={disabled}
+        onChange={(event) => {
+          void dispatch?.({
+            type: 'change',
+            widgetId,
+            payload: {
+              value: event.target.value,
+              label,
+            },
+          });
+        }}
+        style={selectStyle}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+`,Qe=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidStatCardProps extends LiquidWidgetProps {
+  title: string;
+  value: string | number;
+  trend?: number;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidStatCard({
+  title,
+  value,
+  trend,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidStatCardProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const isDark = theme === 'dark';
+  const trendLabel = trend == null ? null : \`\${trend > 0 ? '+' : ''}\${trend}%\`;
+  const trendTone = trend == null ? 'text-slate-400' : trend >= 0 ? 'text-emerald-600' : 'text-rose-600';
+  const trendToneStyle =
+    trend == null ? { color: tokens.mutedText } : trend >= 0 ? { color: tokens.success } : { color: tokens.danger };
+  const defaultStyle: CSSProperties = {
+    border: isDark ? '1px solid transparent' : \`1px solid \${tokens.border}\`,
+    borderRadius: 12,
+    backgroundColor: tokens.surface,
+    backgroundClip: 'padding-box',
+    overflow: 'hidden',
+    position: 'relative',
+    color: tokens.text,
+    padding: 20,
+    boxShadow: isDark ? 'none' : \`0 1px 2px \${tokens.shadow}\`,
+  };
+
+  return (
+    <div
+      className={\`p-5 transition-shadow hover:shadow-md \${className}\`}
+      style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}
+    >
+      <div className="flex items-center justify-center" style={{ minHeight: 64 }}>
+        <div style={{ textAlign: 'center' }}>
+          <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>
+            {title}
+          </p>
+          <p className="mt-2 text-3xl font-semibold tracking-tight" style={{ color: tokens.text }}>
+            {value}
+          </p>
+        </div>
+        {trendLabel ? (
+          <span
+            className={\`rounded-full px-2.5 py-1 text-sm font-medium \${trendTone}\`}
+            style={{
+              position: 'absolute',
+              right: 20,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              backgroundColor: tokens.surfaceAlt,
+              borderRadius: 9999,
+              padding: '4px 10px',
+              fontSize: 14,
+              fontWeight: 500,
+              ...trendToneStyle,
+            }}
+          >
+            {trendLabel}
+          </span>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+`,$e=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidStatGroupItem {
+  label: string;
+  value: string | number;
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidStatGroupProps extends LiquidWidgetProps {
+  title?: string;
+  stats: LiquidStatGroupItem[];
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidStatGroup({
+  title,
+  stats,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidStatGroupProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`rounded-xl border p-4 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      {title ? (
+        <p className="mb-3 text-sm font-semibold" style={{ color: tokens.text }}>
+          {title}
+        </p>
+      ) : null}
+      <div style={{ display: 'grid', gap: 10 }}>
+        {stats.map((stat, index) => (
+          <div key={\`\${stat.label}-\${index}\`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ color: tokens.mutedText, fontSize: 13 }}>{stat.label}</span>
+            <span style={{ color: tokens.text, fontWeight: 600 }}>{stat.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+`,et=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidPrimitive, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidTableProps extends LiquidWidgetProps {
+  columns: string[];
+  rows: Array<Record<string, LiquidPrimitive>>;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidTable({
+  columns,
+  rows,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidTableProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`overflow-hidden rounded-xl border \${className}\`}
+      style={{
+        border: \`1px solid \${tokens.border}\`,
+        borderRadius: 12,
+        backgroundColor: tokens.surface,
+        ...(style as CSSProperties | undefined),
+      }}
+    >
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th
+                key={column}
+                style={{
+                  textAlign: 'left',
+                  padding: '10px 12px',
+                  fontSize: 12,
+                  color: tokens.mutedText,
+                  borderBottom: \`1px solid \${tokens.border}\`,
+                }}
+              >
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={\`row-\${index}\`}>
+              {columns.map((column) => (
+                <td key={\`\${index}-\${column}\`} style={{ padding: '10px 12px', borderBottom: \`1px solid \${tokens.border}\` }}>
+                  <span style={{ color: tokens.text, fontSize: 14 }}>{String(row[column] ?? '')}</span>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+`,tt=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidTabItem {
+  id: string;
+  label: string;
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidTabsProps extends LiquidWidgetProps {
+  items: LiquidTabItem[];
+  activeId?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidTabs({
+  items,
+  activeId,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+  dispatch,
+  widgetId,
+}: LiquidTabsProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const selectedId = activeId ?? items[0]?.id;
+
+  return (
+    <div
+      className={\`inline-flex w-full flex-wrap items-center gap-2 rounded-xl border p-2 \${className}\`}
+      style={{
+        border: \`1px solid \${tokens.border}\`,
+        borderRadius: 12,
+        backgroundColor: tokens.surface,
+        ...(style as CSSProperties | undefined),
+      }}
+    >
+      {items.map((item) => {
+        const selected = item.id === selectedId;
+        return (
+          <button
+            type="button"
+            key={item.id}
+            onClick={() => {
+              void dispatch?.({
+                type: 'change',
+                widgetId,
+                payload: {
+                  value: item.id,
+                  label: item.label,
+                },
+              });
+            }}
+            className="rounded-lg px-3 py-1.5 text-sm font-medium"
+            style={{
+              backgroundColor: selected ? tokens.accent : tokens.surfaceAlt,
+              color: selected ? tokens.accentText : tokens.text,
+              cursor: 'pointer',
+            }}
+          >
+            {item.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+`,nt=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidTextBlockProps extends LiquidWidgetProps {
+  heading?: string;
+  body: string;
+  align?: 'left' | 'center' | 'right';
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidTextBlock({
+  heading,
+  body,
+  align = 'left',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidTextBlockProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const defaultStyle: CSSProperties = {
+    border: \`1px solid \${tokens.border}\`,
+    borderRadius: 12,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
+    padding: 16,
+    textAlign: align,
+  };
+
+  return (
+    <div className={\`rounded-xl border p-4 \${className}\`} style={{ ...defaultStyle, ...(style as CSSProperties | undefined) }}>
+      {heading ? (
+        <p className="text-base font-semibold" style={{ color: tokens.text }}>
+          {heading}
+        </p>
+      ) : null}
+      <p className={heading ? 'mt-2 text-sm' : 'text-sm'} style={{ color: tokens.mutedText, whiteSpace: 'pre-wrap' }}>
+        {body}
+      </p>
+    </div>
+  );
+}
+`,rt=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidTimelineItem {
+  title: string;
+  description?: string;
+  time?: string;
+  tone?: 'neutral' | 'success' | 'warning' | 'danger';
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidTimelineProps extends LiquidWidgetProps {
+  items: LiquidTimelineItem[];
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidTimeline({
+  items,
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidTimelineProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`rounded-xl border p-4 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      <div style={{ display: 'grid', gap: 14 }}>
+        {items.map((item, index) => {
+          const dotColor =
+            item.tone === 'success'
+              ? tokens.success
+              : item.tone === 'warning'
+                ? tokens.warning
+                : item.tone === 'danger'
+                  ? tokens.danger
+                  : tokens.accent;
+
+          return (
+            <div key={\`\${item.title}-\${index}\`} style={{ display: 'grid', gridTemplateColumns: '20px 1fr', gap: 10 }}>
+              <div style={{ display: 'grid', justifyItems: 'center' }}>
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: dotColor, marginTop: 4 }} />
+                {index < items.length - 1 ? (
+                  <span style={{ width: 2, flex: 1, minHeight: 22, backgroundColor: tokens.border, marginTop: 4 }} />
+                ) : null}
+              </div>
+              <div>
+                <p className="text-sm font-semibold" style={{ color: tokens.text }}>
+                  {item.title}
+                </p>
+                {item.description ? (
+                  <p className="mt-1 text-sm" style={{ color: tokens.mutedText }}>
+                    {item.description}
+                  </p>
+                ) : null}
+                {item.time ? (
+                  <p className="mt-1 text-xs" style={{ color: tokens.mutedText }}>
+                    {item.time}
+                  </p>
+                ) : null}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+`,it=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidJsonValue, LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidToolbarAction {
+  label: string;
+  tone?: 'neutral' | 'primary';
+  [key: string]: LiquidJsonValue | undefined;
+}
+
+export interface LiquidToolbarProps extends LiquidWidgetProps {
+  title?: string;
+  actions?: LiquidToolbarAction[];
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidToolbar({
+  title,
+  actions = [],
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidToolbarProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+
+  return (
+    <div
+      className={\`flex items-center justify-between gap-3 rounded-xl border p-3 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, borderRadius: 12, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      <p className="text-sm font-semibold" style={{ color: tokens.text }}>
+        {title}
+      </p>
+      <div className="flex items-center gap-2">
+        {actions.map((action, index) => {
+          const primary = action.tone === 'primary';
+          return (
+            <span
+              key={\`\${action.label}-\${index}\`}
+              className="rounded-lg px-3 py-1.5 text-xs font-medium"
+              style={{
+                border: primary ? 'none' : \`1px solid \${tokens.border}\`,
+                backgroundColor: primary ? tokens.accent : tokens.surfaceAlt,
+                color: primary ? tokens.accentText : tokens.text,
+              }}
+            >
+              {action.label}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+`,at=`import type { CSSProperties } from 'react';
+
+import { resolveLiquidColorTokens } from '../../color-scheme';
+import type { LiquidStyleMap, LiquidThemeMode, LiquidWidgetProps } from '../../liquid.types';
+
+export interface LiquidTrendCardProps extends LiquidWidgetProps {
+  title: string;
+  current: number;
+  previous: number;
+  suffix?: string;
+  theme?: LiquidThemeMode;
+  colorTokens?: ReturnType<typeof resolveLiquidColorTokens>;
+  className?: string;
+  style?: LiquidStyleMap;
+}
+
+export function LiquidTrendCard({
+  title,
+  current,
+  previous,
+  suffix = '',
+  theme = 'light',
+  colorTokens,
+  className = '',
+  style,
+}: LiquidTrendCardProps) {
+  const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const delta = previous === 0 ? 0 : ((current - previous) / Math.abs(previous)) * 100;
+  const positive = delta >= 0;
+
+  return (
+    <div
+      className={\`rounded-xl border p-4 \${className}\`}
+      style={{ border: \`1px solid \${tokens.border}\`, backgroundColor: tokens.surface, ...(style as CSSProperties | undefined) }}
+    >
+      <p className="text-sm font-medium" style={{ color: tokens.mutedText }}>
+        {title}
+      </p>
+      <p className="mt-2 text-2xl font-semibold" style={{ color: tokens.text }}>{\`\${current}\${suffix}\`}</p>
+      <p className="mt-2 text-sm font-medium" style={{ color: positive ? tokens.success : tokens.danger }}>
+        {\`\${positive ? '+' : ''}\${delta.toFixed(1)}% vs previous\`}
+      </p>
+    </div>
+  );
+}
+`,ot=`import type { ComponentType } from 'react';
+
+import { LiquidAlert } from './components/liquid/LiquidAlert';
+import { LiquidAvatarChip } from './components/liquid/LiquidAvatarChip';
+import { LiquidBadge } from './components/liquid/LiquidBadge';
+import { LiquidButton } from './components/liquid/LiquidButton';
+import { LiquidContainer } from './components/liquid/LiquidContainer';
+import { LiquidDivider } from './components/liquid/LiquidDivider';
+import { LiquidEmptyState } from './components/liquid/LiquidEmptyState';
+import { LiquidIconLabel } from './components/liquid/LiquidIconLabel';
+import { LiquidInput } from './components/liquid/LiquidInput';
+import { LiquidKeyValueList } from './components/liquid/LiquidKeyValueList';
+import { LiquidList } from './components/liquid/LiquidList';
+import { LiquidMetricGrid } from './components/liquid/LiquidMetricGrid';
+import { LiquidProgressCard } from './components/liquid/LiquidProgressCard';
+import { LiquidSectionHeader } from './components/liquid/LiquidSectionHeader';
+import { LiquidSelect } from './components/liquid/LiquidSelect';
+import { LiquidStatCard } from './components/liquid/LiquidStatCard';
+import { LiquidStatGroup } from './components/liquid/LiquidStatGroup';
+import { LiquidTable } from './components/liquid/LiquidTable';
+import { LiquidTabs } from './components/liquid/LiquidTabs';
+import { LiquidTextBlock } from './components/liquid/LiquidTextBlock';
+import { LiquidTimeline } from './components/liquid/LiquidTimeline';
+import { LiquidToolbar } from './components/liquid/LiquidToolbar';
+import { LiquidTrendCard } from './components/liquid/LiquidTrendCard';
+
+export const ComponentRegistry: Record<string, ComponentType<any>> = {
+  alert: LiquidAlert,
+  avatar_chip: LiquidAvatarChip,
+  badge: LiquidBadge,
+  stat_card: LiquidStatCard,
+  button: LiquidButton,
+  container: LiquidContainer,
+  divider: LiquidDivider,
+  empty_state: LiquidEmptyState,
+  icon_label: LiquidIconLabel,
+  input: LiquidInput,
+  key_value_list: LiquidKeyValueList,
+  list: LiquidList,
+  metric_grid: LiquidMetricGrid,
+  progress_card: LiquidProgressCard,
+  section_header: LiquidSectionHeader,
+  select: LiquidSelect,
+  stat_group: LiquidStatGroup,
+  table: LiquidTable,
+  tabs: LiquidTabs,
+  text_block: LiquidTextBlock,
+  timeline: LiquidTimeline,
+  toolbar: LiquidToolbar,
+  trend_card: LiquidTrendCard,
 };`,st=new Set([`theme`,`colorScheme`,`colorTokens`,`className`,`style`,`children`,`widgetId`,`dispatch`]),ct=Object.assign({"../../../src/components/liquid/LiquidAlert.tsx":Le,"../../../src/components/liquid/LiquidAvatarChip.tsx":Re,"../../../src/components/liquid/LiquidBadge.tsx":ze,"../../../src/components/liquid/LiquidButton.tsx":Be,"../../../src/components/liquid/LiquidContainer.tsx":Ve,"../../../src/components/liquid/LiquidDivider.tsx":He,"../../../src/components/liquid/LiquidEmptyState.tsx":Ue,"../../../src/components/liquid/LiquidIconLabel.tsx":We,"../../../src/components/liquid/LiquidInput.tsx":Ge,"../../../src/components/liquid/LiquidKeyValueList.tsx":Ke,"../../../src/components/liquid/LiquidList.tsx":qe,"../../../src/components/liquid/LiquidMetricGrid.tsx":Je,"../../../src/components/liquid/LiquidProgressCard.tsx":Ye,"../../../src/components/liquid/LiquidSectionHeader.tsx":Xe,"../../../src/components/liquid/LiquidSelect.tsx":Ze,"../../../src/components/liquid/LiquidStatCard.tsx":Qe,"../../../src/components/liquid/LiquidStatGroup.tsx":$e,"../../../src/components/liquid/LiquidTable.tsx":et,"../../../src/components/liquid/LiquidTabs.tsx":tt,"../../../src/components/liquid/LiquidTextBlock.tsx":nt,"../../../src/components/liquid/LiquidTimeline.tsx":rt,"../../../src/components/liquid/LiquidToolbar.tsx":it,"../../../src/components/liquid/LiquidTrendCard.tsx":at}),lt=Object.assign({"../../../src/liquid.registry.tsx":ot});function ut(){let e=(Object.values(lt)[0]??``).match(/\b[a-z0-9_]+:\s*Liquid[A-Za-z0-9_]+/g)??[],t={};for(let n of e){let[e,r]=n.split(`:`).map(e=>e.trim());t[e]=r}return t}function dt(e){let t=e.match(/export interface\s+\w+Props(?:\s+extends\s+[^\{]+)?\s*\{([\s\S]*?)\n\}/m);if(!t)return[];let n=t[1].split(`
 `).map(e=>e.trim()).filter(Boolean),r=[];for(let e of n){if(e.startsWith(`[`)||e.startsWith(`//`)||e.startsWith(`*`))continue;let t=e.match(/^([A-Za-z_][A-Za-z0-9_]*)\??:\s*([^;]+);$/);if(!t)continue;let n=t[1];st.has(n)||r.push({name:n,type:t[2].trim(),required:!e.includes(`?:`)})}return r}function ft(){let e=ut();return Object.entries(e).map(([e,t])=>{let n=Object.entries(ct).find(([e])=>e.endsWith(`${t}.tsx`));if(!n)return null;let[r,i]=n;return{key:e,componentName:t,fileName:`${t}.tsx`,sourcePath:r,props:dt(i),source:i}}).filter(e=>e!==null).sort((e,t)=>e.key.localeCompare(t.key))}function pt(){let e=(0,v.useMemo)(()=>ft(),[]),[t,n]=(0,v.useState)(e[0]?.key??``),r=e.find(e=>e.key===t)??e[0],i={dispatch:e=>{console.info(`Component preview event`,e)}};if(!r)return(0,b.jsx)(`p`,{children:`No component sources found.`});let a=Ie(r),o=Fe(r);return(0,b.jsxs)(`div`,{className:`page-grid`,children:[(0,b.jsxs)(`aside`,{className:`panel side-list`,children:[(0,b.jsx)(`h2`,{children:`Components`}),(0,b.jsx)(`p`,{className:`muted`,children:`Generated directly from source files.`}),(0,b.jsx)(`ul`,{children:e.map(e=>(0,b.jsx)(`li`,{children:(0,b.jsx)(`button`,{type:`button`,className:e.key===r.key?`chip active`:`chip`,onClick:()=>n(e.key),children:e.key})},e.key))})]}),(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsxs)(`h2`,{children:[r.key,` `,(0,b.jsxs)(`span`,{className:`muted`,children:[`(`,r.fileName,`)`]})]}),(0,b.jsx)(`h3`,{children:`Props (parsed from source)`}),(0,b.jsxs)(`table`,{className:`prop-table`,children:[(0,b.jsx)(`thead`,{children:(0,b.jsxs)(`tr`,{children:[(0,b.jsx)(`th`,{children:`Name`}),(0,b.jsx)(`th`,{children:`Type`}),(0,b.jsx)(`th`,{children:`Required`})]})}),(0,b.jsx)(`tbody`,{children:r.props.map(e=>(0,b.jsxs)(`tr`,{children:[(0,b.jsx)(`td`,{children:e.name}),(0,b.jsx)(`td`,{children:e.type}),(0,b.jsx)(`td`,{children:e.required?`yes`:`no`})]},e.name))})]}),(0,b.jsx)(`h3`,{children:`Example Widget JSON`}),(0,b.jsx)(`pre`,{children:JSON.stringify({id:`${r.key}-1`,type:r.key,props:o},null,2)}),(0,b.jsx)(`h3`,{children:`Live Preview`}),(0,b.jsx)(`div`,{className:`preview-wrap`,children:(0,b.jsx)(Me,{blueprint:a,runtime:i})})]})]})}function mt(){return(0,b.jsx)(`div`,{className:`page-grid docs-page`,children:(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsx)(`h2`,{children:`Action Dispatcher Contract`}),(0,b.jsx)(`p`,{className:`muted`,children:`Interactive widgets emit normalized events. Your host-side dispatcher maps those events to state updates, navigation, API calls, or intent generation.`}),(0,b.jsx)(`h3`,{children:`Supported Event Types`}),(0,b.jsxs)(`ul`,{children:[(0,b.jsx)(`li`,{children:`action`}),(0,b.jsx)(`li`,{children:`input`}),(0,b.jsx)(`li`,{children:`change`}),(0,b.jsx)(`li`,{children:`navigation`}),(0,b.jsx)(`li`,{children:`refresh`}),(0,b.jsx)(`li`,{children:`intent`})]}),(0,b.jsx)(`h3`,{children:`Event Shape`}),(0,b.jsx)(`pre`,{children:`dispatch({
   type: 'change',
@@ -1485,7 +1491,11 @@ const blueprint: LiquidBlueprint = {
     {
       id: 'search',
       type: 'input',
-      props: { label: 'Search', value: '$input.searchQuery', placeholder: 'Type to filter' },
+      props: {
+        label: 'Search',
+        value: '$input.searchQuery',
+        placeholder: 'Type to filter',
+      },
     },
   ],
 };
@@ -1503,7 +1513,252 @@ const runtime: LiquidRendererRuntime = {
 
 export function DemoPage() {
   return <LiquidRenderer blueprint={blueprint} runtime={runtime} />;
-}`}),(0,b.jsx)(`h3`,{children:`What To Build First`}),(0,b.jsxs)(`ol`,{children:[(0,b.jsx)(`li`,{children:`Create one blueprint with 2-3 widgets.`}),(0,b.jsx)(`li`,{children:`Render it in a page using LiquidRenderer.`}),(0,b.jsx)(`li`,{children:`Add one runtime pointer.`}),(0,b.jsx)(`li`,{children:`Handle one dispatch action in your host layer.`})]})]})})}var gt={version:`1.0.0`,theme:`light`,layout:{columns:2,gap:16},widgets:[{id:`users`,type:`stat_card`,props:{title:`Active Users`,value:`$global.activeUsers`,trend:12}},{id:`query`,type:`input`,props:{label:`Search`,value:`$input.query`,placeholder:`Type and watch dispatch events`}}]};function _t(e){try{let t=JSON.parse(e);return!t||typeof t!=`object`?{value:null,error:`Blueprint must be a JSON object.`}:Array.isArray(t.widgets)?!t.layout||typeof t.layout!=`object`?{value:null,error:`Blueprint.layout is required.`}:{value:t,error:null}:{value:null,error:`Blueprint.widgets must be an array.`}}catch(e){return{value:null,error:e instanceof Error?e.message:`Invalid JSON.`}}}function vt(e,t){let n=t.split(`.`).slice(1),r=e;for(let e of n){if(!r||typeof r!=`object`)return;r=r[e]}return r}function yt(){let[e,t]=(0,v.useState)(JSON.stringify(gt,null,2)),[n,r]=(0,v.useState)({global:{activeUsers:9421,inventory:[{Name:`Keyboard`,Stock:21},{Name:`Mouse`,Stock:45}]},input:{query:``},page:{}}),[i,a]=(0,v.useState)(`No events yet.`),o=(0,v.useMemo)(()=>_t(e),[e]),s=(0,v.useMemo)(()=>ft(),[]),c={resolveDataPointer:e=>{if(e.startsWith(`$global.`))return vt(n.global,e);if(e.startsWith(`$input.`))return vt(n.input,e);if(e.startsWith(`$page.`))return vt(n.page,e)},dispatch:e=>{a(JSON.stringify(e,null,2));let t=(e.payload&&typeof e.payload==`object`?e.payload:null)?.value;(e.type===`input`||e.type===`change`)&&e.widgetId&&t!=null&&r(n=>({...n,input:{...n.input,[e.widgetId]:t,query:typeof t==`string`?t:n.input.query}}))}};function l(n){let r=_t(e);if(!r.value)return;let i=JSON.parse(JSON.stringify(r.value));n(i),t(JSON.stringify(i,null,2))}function u(e){let t=s.find(t=>t.key===e);t&&l(n=>{n.widgets.push({id:`${e}_${Date.now()}`,type:e,props:Fe(t)})})}return(0,b.jsxs)(`div`,{className:`page-grid playground-grid`,children:[(0,b.jsxs)(`section`,{className:`panel editor-panel`,children:[(0,b.jsx)(`h2`,{children:`Playground`}),(0,b.jsx)(`p`,{className:`muted`,children:`Paste JSON, edit visually, and see live UI output.`}),(0,b.jsxs)(`label`,{className:`field`,children:[(0,b.jsx)(`span`,{children:`Blueprint JSON`}),(0,b.jsx)(`textarea`,{value:e,onChange:e=>t(e.target.value),rows:20})]}),o.error?(0,b.jsx)(`p`,{className:`error`,children:o.error}):null]}),(0,b.jsxs)(`section`,{className:`panel visual-panel`,children:[(0,b.jsx)(`h2`,{children:`Visual Editor`}),(0,b.jsxs)(`div`,{className:`row`,children:[(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`stat_card`),children:`Add Stat Card`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`table`),children:`Add Table`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`button`),children:`Add Button`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`input`),children:`Add Input`})]}),o.value?(0,b.jsxs)(`div`,{className:`field-group`,children:[(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Theme`}),(0,b.jsxs)(`select`,{value:o.value.theme??`light`,onChange:e=>l(t=>{t.theme=e.target.value}),children:[(0,b.jsx)(`option`,{value:`light`,children:`light`}),(0,b.jsx)(`option`,{value:`dark`,children:`dark`})]})]}),(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Columns`}),(0,b.jsx)(`input`,{type:`number`,min:1,max:4,value:o.value.layout.columns,onChange:e=>l(t=>{t.layout.columns=Number(e.target.value||1)})})]}),(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Gap`}),(0,b.jsx)(`input`,{type:`number`,min:0,max:48,value:o.value.layout.gap,onChange:e=>l(t=>{t.layout.gap=Number(e.target.value||0)})})]})]}):null,(0,b.jsx)(`h3`,{children:`Last Dispatch Event`}),(0,b.jsx)(`pre`,{children:i})]}),(0,b.jsxs)(`section`,{className:`panel preview-panel`,children:[(0,b.jsx)(`h2`,{children:`Live Preview`}),o.value?(0,b.jsx)(Me,{blueprint:o.value,runtime:c}):(0,b.jsx)(`p`,{children:`Fix JSON errors to preview UI.`})]})]})}function bt(){return(0,b.jsx)(`div`,{className:`page-grid docs-page`,children:(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsx)(`h2`,{children:`Styling and Overrides`}),(0,b.jsx)(`p`,{className:`muted`,children:`Liquid components are default-styled out of the box. You can layer theme and palette controls globally, at layout level, or per widget.`}),(0,b.jsx)(`h3`,{children:`Styling Model`}),(0,b.jsxs)(`ol`,{children:[(0,b.jsx)(`li`,{children:`Engine defaults are always applied.`}),(0,b.jsx)(`li`,{children:`Theme and resolved palette values are applied next.`}),(0,b.jsx)(`li`,{children:`JSON className/style overrides apply last.`})]}),(0,b.jsx)(`h3`,{children:`Override Entry Points`}),(0,b.jsxs)(`ul`,{children:[(0,b.jsx)(`li`,{children:`Layout: blueprint.layout.className, blueprint.layout.style`}),(0,b.jsx)(`li`,{children:`Widget: widget.props.className, widget.props.style`})]}),(0,b.jsx)(`h3`,{children:`Theme Resolution`}),(0,b.jsx)(`pre`,{children:`Resolution order:
+}`}),(0,b.jsx)(`h3`,{children:`What To Build First`}),(0,b.jsxs)(`ol`,{children:[(0,b.jsx)(`li`,{children:`Create one blueprint with 2-3 widgets.`}),(0,b.jsx)(`li`,{children:`Render it in a page using LiquidRenderer.`}),(0,b.jsx)(`li`,{children:`Add one runtime pointer.`}),(0,b.jsx)(`li`,{children:`Handle one dispatch action in your host layer.`})]})]})})}var gt={dispatch:e=>{console.info(`Layouting page event`,e)}},_t={version:`1.0.0`,theme:`light`,layout:{columns:1,gap:16},widgets:[{id:`header`,type:`section_header`,props:{title:`Single Column Layout`,subtitle:`Widgets stack top to bottom`}},{id:`info`,type:`text_block`,props:{body:`Use columns: 1 for a simple stacked layout. Good for forms, detail views, and mobile-first designs.`}},{id:`name-input`,type:`input`,props:{label:`Full Name`,placeholder:`Enter your full name`}},{id:`email-input`,type:`input`,props:{label:`Email Address`,inputType:`email`,placeholder:`you@example.com`}}]},vt={version:`1.0.0`,theme:`light`,layout:{columns:2,gap:16},widgets:[{id:`active-users`,type:`stat_card`,props:{title:`Active Users`,value:`9,421`,trend:12}},{id:`revenue`,type:`stat_card`,props:{title:`Revenue`,value:`$128k`,trend:-3}},{id:`role-select`,type:`select`,props:{label:`Role`,options:[{label:`Admin`,value:`admin`},{label:`Editor`,value:`editor`},{label:`Viewer`,value:`viewer`}]}},{id:`search-input`,type:`input`,props:{label:`Search`,placeholder:`Filter by name…`}}]},yt={version:`1.0.0`,theme:`light`,layout:{columns:3,gap:12},widgets:[{id:`orders`,type:`stat_card`,props:{title:`Orders`,value:`3,204`}},{id:`revenue-3col`,type:`stat_card`,props:{title:`Revenue`,value:`$98k`,trend:8}},{id:`errors`,type:`stat_card`,props:{title:`Errors`,value:`14`,trend:-2}},{id:`period`,type:`select`,props:{label:`Period`,options:[{label:`Today`,value:`today`},{label:`This Week`,value:`week`},{label:`This Month`,value:`month`}]}},{id:`region`,type:`select`,props:{label:`Region`,options:[{label:`All Regions`,value:`all`},{label:`North America`,value:`na`},{label:`Europe`,value:`eu`}]}},{id:`keyword-input`,type:`input`,props:{label:`Keyword`,placeholder:`Filter results…`}}]},bt={version:`1.0.0`,theme:`light`,layout:{columns:1,gap:16},widgets:[{id:`toolbar-root`,type:`toolbar`,props:{title:`User Management`,actions:[{label:`Invite`,actionId:`invite`,tone:`primary`},{label:`Export`,actionId:`export`}]}},{id:`metric-row`,type:`container`,props:{className:`grid grid-cols-3 gap-4`},children:[{id:`total-users`,type:`stat_card`,props:{title:`Total Users`,value:`1,240`}},{id:`active-accounts`,type:`stat_card`,props:{title:`Active`,value:`982`,trend:4}},{id:`pending`,type:`stat_card`,props:{title:`Pending`,value:`17`}}]},{id:`user-table`,type:`table`,props:{columns:[{key:`name`,label:`Name`},{key:`role`,label:`Role`},{key:`status`,label:`Status`}],rows:[{name:`Alice`,role:`Admin`,status:`Active`},{name:`Bob`,role:`Editor`,status:`Pending`},{name:`Carol`,role:`Viewer`,status:`Active`}]}}]},xt={version:`1.0.0`,theme:`dark`,layout:{columns:2,gap:16},widgets:[{id:`title-dark`,type:`section_header`,props:{title:`Dark Theme Layout`,subtitle:`Set theme: "dark" at the blueprint level`}},{id:`spacer`,type:`text_block`,props:{body:`Color tokens are resolved automatically for all child widgets.`}},{id:`dark-input`,type:`input`,props:{label:`Username`,placeholder:`Enter username`}},{id:`dark-select`,type:`select`,props:{label:`Access Level`,options:[{label:`Read Only`,value:`read`},{label:`Read & Write`,value:`write`},{label:`Full Access`,value:`full`}]}}]},St=`{
+  "version": "1.0.0",
+  "theme": "light",
+  "layout": {
+    "columns": 1,
+    "gap": 16
+  },
+  "widgets": [
+    {
+      "id": "name-input",
+      "type": "input",
+      "props": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      }
+    },
+    {
+      "id": "email-input",
+      "type": "input",
+      "props": {
+        "label": "Email Address",
+        "inputType": "email",
+        "placeholder": "you@example.com"
+      }
+    }
+  ]
+}`,Ct=`{
+  "version": "1.0.0",
+  "theme": "light",
+  "layout": {
+    "columns": 2,
+    "gap": 16
+  },
+  "widgets": [
+    {
+      "id": "active-users",
+      "type": "stat_card",
+      "props": { "title": "Active Users", "value": "9,421", "trend": 12 }
+    },
+    {
+      "id": "revenue",
+      "type": "stat_card",
+      "props": { "title": "Revenue", "value": "$128k", "trend": -3 }
+    },
+    {
+      "id": "role-select",
+      "type": "select",
+      "props": {
+        "label": "Role",
+        "options": [
+          { "label": "Admin", "value": "admin" },
+          { "label": "Editor", "value": "editor" }
+        ]
+      }
+    },
+    {
+      "id": "search-input",
+      "type": "input",
+      "props": {
+        "label": "Search",
+        "placeholder": "Filter by name…"
+      }
+    }
+  ]
+}`,wt=`{
+  "version": "1.0.0",
+  "theme": "light",
+  "layout": {
+    "columns": 3,
+    "gap": 12
+  },
+  "widgets": [
+    {
+      "id": "orders",
+      "type": "stat_card",
+      "props": { "title": "Orders", "value": "3,204" }
+    },
+    {
+      "id": "revenue",
+      "type": "stat_card",
+      "props": { "title": "Revenue", "value": "$98k", "trend": 8 }
+    },
+    {
+      "id": "errors",
+      "type": "stat_card",
+      "props": { "title": "Errors", "value": "14", "trend": -2 }
+    },
+    {
+      "id": "period",
+      "type": "select",
+      "props": {
+        "label": "Period",
+        "options": [
+          { "label": "Today", "value": "today" },
+          { "label": "This Week", "value": "week" }
+        ]
+      }
+    },
+    {
+      "id": "region",
+      "type": "select",
+      "props": {
+        "label": "Region",
+        "options": [
+          { "label": "All Regions", "value": "all" },
+          { "label": "North America", "value": "na" }
+        ]
+      }
+    },
+    {
+      "id": "keyword",
+      "type": "input",
+      "props": {
+        "label": "Keyword",
+        "placeholder": "Filter results…"
+      }
+    }
+  ]
+}`,Tt=`{
+  "version": "1.0.0",
+  "theme": "light",
+  "layout": { "columns": 1, "gap": 16 },
+  "widgets": [
+    {
+      "id": "toolbar-root",
+      "type": "toolbar",
+      "props": {
+        "title": "User Management",
+        "actions": [
+          { "label": "Invite", "actionId": "invite", "tone": "primary" },
+          { "label": "Export", "actionId": "export" }
+        ]
+      }
+    },
+    {
+      "id": "metric-row",
+      "type": "container",
+      "props": { "className": "grid grid-cols-3 gap-4" },
+      "children": [
+        {
+          "id": "total-users",
+          "type": "stat_card",
+          "props": { "title": "Total Users", "value": "1,240" }
+        },
+        {
+          "id": "active-accounts",
+          "type": "stat_card",
+          "props": { "title": "Active", "value": "982", "trend": 4 }
+        },
+        {
+          "id": "pending",
+          "type": "stat_card",
+          "props": { "title": "Pending", "value": "17" }
+        }
+      ]
+    },
+    {
+      "id": "user-table",
+      "type": "table",
+      "props": {
+        "columns": [
+          { "key": "name", "label": "Name" },
+          { "key": "role", "label": "Role" },
+          { "key": "status", "label": "Status" }
+        ],
+        "rows": [
+          { "name": "Alice", "role": "Admin", "status": "Active" },
+          { "name": "Bob", "role": "Editor", "status": "Pending" }
+        ]
+      }
+    }
+  ]
+}`,Et=`{
+  "version": "1.0.0",
+  "theme": "dark",
+  "layout": {
+    "columns": 2,
+    "gap": 16
+  },
+  "widgets": [
+    {
+      "id": "title-dark",
+      "type": "section_header",
+      "props": {
+        "title": "Dark Theme Layout",
+        "subtitle": "Set theme: \\"dark\\" at the blueprint level"
+      }
+    },
+    {
+      "id": "spacer",
+      "type": "text_block",
+      "props": {
+        "body": "Color tokens are resolved automatically for all child widgets."
+      }
+    },
+    {
+      "id": "dark-input",
+      "type": "input",
+      "props": {
+        "label": "Username",
+        "placeholder": "Enter username"
+      }
+    },
+    {
+      "id": "dark-select",
+      "type": "select",
+      "props": {
+        "label": "Access Level",
+        "options": [
+          { "label": "Read Only", "value": "read" },
+          { "label": "Read & Write", "value": "write" },
+          { "label": "Full Access", "value": "full" }
+        ]
+      }
+    }
+  ]
+}`;function Dt({title:e,description:t,blueprint:n,json:r,rules:i}){return(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsx)(`h3`,{children:e}),(0,b.jsx)(`p`,{className:`muted`,children:t}),(0,b.jsx)(`h4`,{style:{marginTop:16,marginBottom:8},children:`Rules`}),(0,b.jsx)(`ul`,{children:i.map(e=>(0,b.jsx)(`li`,{children:e},e))}),(0,b.jsx)(`h4`,{style:{marginTop:16,marginBottom:8},children:`Live Preview`}),(0,b.jsx)(`div`,{className:`preview-wrap`,children:(0,b.jsx)(Me,{blueprint:n,runtime:gt})}),(0,b.jsx)(`h4`,{style:{marginTop:16,marginBottom:8},children:`JSON Blueprint`}),(0,b.jsx)(`pre`,{children:r})]})}function Ot(){return(0,b.jsxs)(`div`,{className:`page-grid docs-page`,children:[(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsx)(`h2`,{children:`Layouting Guide`}),(0,b.jsx)(`p`,{className:`muted`,children:`Learn how to structure JSON blueprints for clean, correct layouts. Each example below shows a live rendered preview alongside the exact JSON that produces it.`}),(0,b.jsx)(`h3`,{children:`Layout Rules`}),(0,b.jsxs)(`ul`,{children:[(0,b.jsxs)(`li`,{children:[(0,b.jsx)(`strong`,{children:`columns`}),` — number of equal-width grid columns (1–4 recommended).`]}),(0,b.jsxs)(`li`,{children:[(0,b.jsx)(`strong`,{children:`gap`}),` — spacing in pixels between widgets.`]}),(0,b.jsxs)(`li`,{children:[`Every `,(0,b.jsx)(`code`,{children:`input`}),` and `,(0,b.jsx)(`code`,{children:`select`}),` widget must include a `,(0,b.jsx)(`strong`,{children:`label`}),` property — it is required and must be on its own line in the JSON.`]}),(0,b.jsxs)(`li`,{children:[`Use a `,(0,b.jsx)(`code`,{children:`container`}),` widget with `,(0,b.jsx)(`code`,{children:`children`}),` to nest sub-layouts independently of the root grid.`]}),(0,b.jsxs)(`li`,{children:[`Set `,(0,b.jsx)(`code`,{children:`theme`}),` at the top-level blueprint to apply a global dark or light mode to all widgets.`]})]}),(0,b.jsx)(`h3`,{children:`Input & Select Label Rule`}),(0,b.jsxs)(`p`,{className:`muted`,children:[`Labels are `,(0,b.jsx)(`strong`,{children:`required`}),` for `,(0,b.jsx)(`code`,{children:`input`}),` and `,(0,b.jsx)(`code`,{children:`select`}),` widgets. Always write the`,` `,(0,b.jsx)(`code`,{children:`label`}),` property on its own line, before other props:`]}),(0,b.jsx)(`pre`,{children:`// ✅ Correct — label on its own line
+{
+  "id": "search",
+  "type": "input",
+  "props": {
+    "label": "Search",
+    "placeholder": "Type to filter…",
+    "value": "$input.query"
+  }
+}
+
+// ✅ Correct — select label on its own line
+{
+  "id": "role",
+  "type": "select",
+  "props": {
+    "label": "Role",
+    "options": [
+      { "label": "Admin", "value": "admin" },
+      { "label": "Viewer", "value": "viewer" }
+    ]
+  }
+}
+
+// ❌ Avoid — all props squashed on one line
+{
+  "id": "search",
+  "type": "input",
+  "props": { "label": "Search", "placeholder": "Type to filter…" }
+}`})]}),(0,b.jsx)(Dt,{title:`1 — Single Column`,description:`Widgets stack vertically. Use for forms, detail views, and mobile-first designs.`,blueprint:_t,json:St,rules:[`Set layout.columns to 1.`,`Widgets render top to bottom in declaration order.`,`Each input label appears above its field on a separate line.`]}),(0,b.jsx)(Dt,{title:`2 — Two Columns`,description:`Side-by-side pairs. Good for dashboards with stats and filters.`,blueprint:vt,json:Ct,rules:[`Set layout.columns to 2.`,`Widgets fill left-to-right, wrapping to the next row automatically.`,`Mix stat_card with input/select to pair metrics with controls.`]}),(0,b.jsx)(Dt,{title:`3 — Three Columns`,description:`Dense metric grids with filter controls underneath.`,blueprint:yt,json:wt,rules:[`Set layout.columns to 3.`,`Keep widget count a multiple of 3 for clean rows.`,`Use select with a label on its own line for each filter column.`]}),(0,b.jsx)(Dt,{title:`4 — Container with Children (Nested Layout)`,description:`Use a container widget to create independent nested grids inside the root layout.`,blueprint:bt,json:Tt,rules:[`Set the container props.className to a CSS grid class for the inner layout.`,`Children are rendered inside the container, not the root grid.`,`Nest containers as deeply as needed for complex UIs.`]}),(0,b.jsx)(Dt,{title:`5 — Dark Theme`,description:`Apply dark mode globally with theme: 'dark' at the blueprint root.`,blueprint:xt,json:Et,rules:[`Set blueprint.theme to "dark" to apply dark mode to all widgets.`,`Override per-widget with widget.props.theme if needed.`,`Input and select labels inherit the theme color tokens automatically.`]})]})}var kt={version:`1.0.0`,theme:`light`,layout:{columns:2,gap:16},widgets:[{id:`users`,type:`stat_card`,props:{title:`Active Users`,value:`$global.activeUsers`,trend:12}},{id:`query`,type:`input`,props:{label:`Search`,value:`$input.query`,placeholder:`Type and watch dispatch events`}}]};function At(e){try{let t=JSON.parse(e);return!t||typeof t!=`object`?{value:null,error:`Blueprint must be a JSON object.`}:Array.isArray(t.widgets)?!t.layout||typeof t.layout!=`object`?{value:null,error:`Blueprint.layout is required.`}:{value:t,error:null}:{value:null,error:`Blueprint.widgets must be an array.`}}catch(e){return{value:null,error:e instanceof Error?e.message:`Invalid JSON.`}}}function T(e,t){let n=t.split(`.`).slice(1),r=e;for(let e of n){if(!r||typeof r!=`object`)return;r=r[e]}return r}function jt(){let[e,t]=(0,v.useState)(JSON.stringify(kt,null,2)),[n,r]=(0,v.useState)({global:{activeUsers:9421,inventory:[{Name:`Keyboard`,Stock:21},{Name:`Mouse`,Stock:45}]},input:{query:``},page:{}}),[i,a]=(0,v.useState)(`No events yet.`),o=(0,v.useMemo)(()=>At(e),[e]),s=(0,v.useMemo)(()=>ft(),[]),c={resolveDataPointer:e=>{if(e.startsWith(`$global.`))return T(n.global,e);if(e.startsWith(`$input.`))return T(n.input,e);if(e.startsWith(`$page.`))return T(n.page,e)},dispatch:e=>{a(JSON.stringify(e,null,2));let t=(e.payload&&typeof e.payload==`object`?e.payload:null)?.value;(e.type===`input`||e.type===`change`)&&e.widgetId&&t!=null&&r(n=>({...n,input:{...n.input,[e.widgetId]:t,query:typeof t==`string`?t:n.input.query}}))}};function l(n){let r=At(e);if(!r.value)return;let i=JSON.parse(JSON.stringify(r.value));n(i),t(JSON.stringify(i,null,2))}function u(e){let t=s.find(t=>t.key===e);t&&l(n=>{n.widgets.push({id:`${e}_${Date.now()}`,type:e,props:Fe(t)})})}return(0,b.jsxs)(`div`,{className:`page-grid playground-grid`,children:[(0,b.jsxs)(`section`,{className:`panel editor-panel`,children:[(0,b.jsx)(`h2`,{children:`Playground`}),(0,b.jsx)(`p`,{className:`muted`,children:`Paste JSON, edit visually, and see live UI output.`}),(0,b.jsxs)(`label`,{className:`field`,children:[(0,b.jsx)(`span`,{children:`Blueprint JSON`}),(0,b.jsx)(`textarea`,{value:e,onChange:e=>t(e.target.value),rows:20})]}),o.error?(0,b.jsx)(`p`,{className:`error`,children:o.error}):null]}),(0,b.jsxs)(`section`,{className:`panel visual-panel`,children:[(0,b.jsx)(`h2`,{children:`Visual Editor`}),(0,b.jsxs)(`div`,{className:`row`,children:[(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`stat_card`),children:`Add Stat Card`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`table`),children:`Add Table`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`button`),children:`Add Button`}),(0,b.jsx)(`button`,{type:`button`,onClick:()=>u(`input`),children:`Add Input`})]}),o.value?(0,b.jsxs)(`div`,{className:`field-group`,children:[(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Theme`}),(0,b.jsxs)(`select`,{value:o.value.theme??`light`,onChange:e=>l(t=>{t.theme=e.target.value}),children:[(0,b.jsx)(`option`,{value:`light`,children:`light`}),(0,b.jsx)(`option`,{value:`dark`,children:`dark`})]})]}),(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Columns`}),(0,b.jsx)(`input`,{type:`number`,min:1,max:4,value:o.value.layout.columns,onChange:e=>l(t=>{t.layout.columns=Number(e.target.value||1)})})]}),(0,b.jsxs)(`label`,{className:`field-inline`,children:[(0,b.jsx)(`span`,{children:`Gap`}),(0,b.jsx)(`input`,{type:`number`,min:0,max:48,value:o.value.layout.gap,onChange:e=>l(t=>{t.layout.gap=Number(e.target.value||0)})})]})]}):null,(0,b.jsx)(`h3`,{children:`Last Dispatch Event`}),(0,b.jsx)(`pre`,{children:i})]}),(0,b.jsxs)(`section`,{className:`panel preview-panel`,children:[(0,b.jsx)(`h2`,{children:`Live Preview`}),o.value?(0,b.jsx)(Me,{blueprint:o.value,runtime:c}):(0,b.jsx)(`p`,{children:`Fix JSON errors to preview UI.`})]})]})}function Mt(){return(0,b.jsx)(`div`,{className:`page-grid docs-page`,children:(0,b.jsxs)(`section`,{className:`panel main-panel`,children:[(0,b.jsx)(`h2`,{children:`Styling and Overrides`}),(0,b.jsx)(`p`,{className:`muted`,children:`Liquid components are default-styled out of the box. You can layer theme and palette controls globally, at layout level, or per widget.`}),(0,b.jsx)(`h3`,{children:`Styling Model`}),(0,b.jsxs)(`ol`,{children:[(0,b.jsx)(`li`,{children:`Engine defaults are always applied.`}),(0,b.jsx)(`li`,{children:`Theme and resolved palette values are applied next.`}),(0,b.jsx)(`li`,{children:`JSON className/style overrides apply last.`})]}),(0,b.jsx)(`h3`,{children:`Override Entry Points`}),(0,b.jsxs)(`ul`,{children:[(0,b.jsx)(`li`,{children:`Layout: blueprint.layout.className, blueprint.layout.style`}),(0,b.jsx)(`li`,{children:`Widget: widget.props.className, widget.props.style`})]}),(0,b.jsx)(`h3`,{children:`Theme Resolution`}),(0,b.jsx)(`pre`,{children:`Resolution order:
 1) renderer prop themeMode
 2) blueprint.theme
 3) blueprint.layout.theme
@@ -1561,4 +1816,4 @@ shadow`}),(0,b.jsx)(`h3`,{children:`Color Scheme Resolution`}),(0,b.jsx)(`pre`,{
       }
     }
   ]
-}`})]})})}function xt(){let[e,t]=(0,v.useState)(`home`);return(0,b.jsxs)(`div`,{className:`app-shell`,children:[(0,b.jsxs)(`header`,{className:`topbar`,children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`h1`,{children:`Liquid Renderer Docs`}),(0,b.jsx)(`p`,{children:`Install, author, style, and ship blueprint-driven UI`})]}),(0,b.jsxs)(`nav`,{className:`nav-tabs`,children:[(0,b.jsx)(`button`,{type:`button`,className:e===`home`?`active`:``,onClick:()=>t(`home`),children:`Home`}),(0,b.jsx)(`button`,{type:`button`,className:e===`playground`?`active`:``,onClick:()=>t(`playground`),children:`Playground`}),(0,b.jsx)(`button`,{type:`button`,className:e===`components`?`active`:``,onClick:()=>t(`components`),children:`Components`}),(0,b.jsx)(`button`,{type:`button`,className:e===`blueprint`?`active`:``,onClick:()=>t(`blueprint`),children:`Blueprint`}),(0,b.jsx)(`button`,{type:`button`,className:e===`dispatch`?`active`:``,onClick:()=>t(`dispatch`),children:`Dispatch`}),(0,b.jsx)(`button`,{type:`button`,className:e===`styling`?`active`:``,onClick:()=>t(`styling`),children:`Styling`}),(0,b.jsx)(`button`,{type:`button`,className:e===`ai`?`active`:``,onClick:()=>t(`ai`),children:`AI Authoring`})]})]}),(0,b.jsxs)(`main`,{children:[e===`home`?(0,b.jsx)(ht,{}):null,e===`playground`?(0,b.jsx)(yt,{}):null,e===`components`?(0,b.jsx)(pt,{}):null,e===`blueprint`?(0,b.jsx)(te,{}):null,e===`dispatch`?(0,b.jsx)(mt,{}):null,e===`styling`?(0,b.jsx)(bt,{}):null,e===`ai`?(0,b.jsx)(ee,{}):null]})]})}(0,y.createRoot)(document.getElementById(`root`)).render((0,b.jsx)(v.StrictMode,{children:(0,b.jsx)(xt,{})}));
+}`})]})})}function Nt(){let[e,t]=(0,v.useState)(`home`);return(0,b.jsxs)(`div`,{className:`app-shell`,children:[(0,b.jsxs)(`header`,{className:`topbar`,children:[(0,b.jsxs)(`div`,{children:[(0,b.jsx)(`h1`,{children:`Liquid Renderer Docs`}),(0,b.jsx)(`p`,{children:`Install, author, style, and ship blueprint-driven UI`})]}),(0,b.jsxs)(`nav`,{className:`nav-tabs`,children:[(0,b.jsx)(`button`,{type:`button`,className:e===`home`?`active`:``,onClick:()=>t(`home`),children:`Home`}),(0,b.jsx)(`button`,{type:`button`,className:e===`playground`?`active`:``,onClick:()=>t(`playground`),children:`Playground`}),(0,b.jsx)(`button`,{type:`button`,className:e===`components`?`active`:``,onClick:()=>t(`components`),children:`Components`}),(0,b.jsx)(`button`,{type:`button`,className:e===`blueprint`?`active`:``,onClick:()=>t(`blueprint`),children:`Blueprint`}),(0,b.jsx)(`button`,{type:`button`,className:e===`dispatch`?`active`:``,onClick:()=>t(`dispatch`),children:`Dispatch`}),(0,b.jsx)(`button`,{type:`button`,className:e===`styling`?`active`:``,onClick:()=>t(`styling`),children:`Styling`}),(0,b.jsx)(`button`,{type:`button`,className:e===`ai`?`active`:``,onClick:()=>t(`ai`),children:`AI Authoring`}),(0,b.jsx)(`button`,{type:`button`,className:e===`layouting`?`active`:``,onClick:()=>t(`layouting`),children:`Layouting`})]})]}),(0,b.jsxs)(`main`,{children:[e===`home`?(0,b.jsx)(ht,{}):null,e===`playground`?(0,b.jsx)(jt,{}):null,e===`components`?(0,b.jsx)(pt,{}):null,e===`blueprint`?(0,b.jsx)(te,{}):null,e===`dispatch`?(0,b.jsx)(mt,{}):null,e===`styling`?(0,b.jsx)(Mt,{}):null,e===`ai`?(0,b.jsx)(ee,{}):null,e===`layouting`?(0,b.jsx)(Ot,{}):null]})]})}(0,y.createRoot)(document.getElementById(`root`)).render((0,b.jsx)(v.StrictMode,{children:(0,b.jsx)(Nt,{})}));

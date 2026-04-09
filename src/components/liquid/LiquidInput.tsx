@@ -40,12 +40,15 @@ export function LiquidInput({
     outline: 'none',
   };
 
+  const inputId = widgetId ? `liquid-input-${widgetId}` : undefined;
+
   return (
-    <label className={`block ${className}`} style={style as CSSProperties | undefined}>
+    <label htmlFor={inputId} className={`block ${className}`} style={style as CSSProperties | undefined}>
       <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
         {label}
       </span>
       <input
+        id={inputId}
         type={inputType}
         value={value ?? ''}
         placeholder={placeholder}

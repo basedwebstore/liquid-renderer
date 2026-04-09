@@ -43,12 +43,15 @@ export function LiquidSelect({
     outline: 'none',
   };
 
+  const selectId = widgetId ? `liquid-select-${widgetId}` : undefined;
+
   return (
-    <label className={`block ${className}`} style={style as CSSProperties | undefined}>
+    <label htmlFor={selectId} className={`block ${className}`} style={style as CSSProperties | undefined}>
       <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
         {label}
       </span>
       <select
+        id={selectId}
         value={value ?? options[0]?.value ?? ''}
         disabled={disabled}
         onChange={(event) => {
