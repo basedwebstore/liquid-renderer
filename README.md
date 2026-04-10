@@ -116,26 +116,7 @@ If you need deep customization, use `className`/`style` overrides, but they are 
 
 - Local docs app: `npm run docs:dev`
 - Production docs build: `npm run docs:build`
-- Live docs: https://basedwebstore.github.io/liquid-renderer/
-
-## Public API
-
-- LiquidRenderer
-- ComponentRegistry
-- LiquidBlueprint
-- LiquidWidget
-- LiquidWidgetProps
-- LiquidThemeMode
-- LiquidColorScheme
-- LiquidColorTokens
-- LiquidLayout
-- LiquidPrimitive
-- LiquidStyleMap
-- LiquidRendererRuntime
-- LiquidDispatch
-- LiquidDispatchEvent
-- LiquidDataPointer
-- LiquidDispatchType
+- Live docs: https://liquidui.basedweb.store/
 
 ## Development
 
