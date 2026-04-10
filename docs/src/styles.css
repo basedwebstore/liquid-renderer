@@ -12,7 +12,6 @@
   --accent-warm: #ff8383;
   --accent-cool: #005899;
   --accent-silver: #c6ccd6;
-  --glow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -82,25 +81,25 @@ body {
 .chip,
 .row button {
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, #121212, #0d0d0d);
+  background: #0d0d0d;
   color: var(--text);
-  border-radius: 999px;
+  border-radius: 0;
   padding: 8px 14px;
   cursor: pointer;
-  transition: border-color 160ms ease, transform 160ms ease, background 200ms ease;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
 }
 
 .nav-tabs button:hover,
 .chip:hover,
 .row button:hover {
-  border-color: var(--line);
-  transform: translateY(-1px);
+  border-color: var(--accent-silver);
+  background: #101010;
 }
 
 .nav-tabs button.active,
 .chip.active {
-  background: linear-gradient(90deg, rgba(255, 131, 131, 0.22), rgba(198, 204, 214, 0.2) 55%, rgba(0, 88, 153, 0.26));
-  border-color: var(--line);
+  background: linear-gradient(90deg, rgba(255, 131, 131, 0.14), rgba(198, 204, 214, 0.1) 55%, rgba(0, 88, 153, 0.16));
+  border-color: var(--accent-silver);
   color: #ffffff;
 }
 
@@ -119,13 +118,10 @@ body {
 }
 
 .panel {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
-    var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 18px;
-  box-shadow: var(--glow);
   position: relative;
 }
 
@@ -190,7 +186,7 @@ body {
 .field-inline select {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 10px;
   font: inherit;
   background: var(--surface-soft);
@@ -232,7 +228,7 @@ pre {
     #080808;
   color: #e8ebef;
   border: 1px solid #262a31;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px;
   overflow: auto;
   font-size: 12px;
@@ -241,9 +237,9 @@ pre {
 
 .preview-wrap {
   border: 1px solid var(--line-soft);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+  background: #0a0a0a;
 }
 
 .side-list ul {
