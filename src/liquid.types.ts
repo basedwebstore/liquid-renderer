@@ -70,8 +70,13 @@ export interface LiquidWidget {
 }
 
 export interface LiquidLayout {
-  columns: number;
-  gap: number;
+  columns?: number;
+  rows?: number;
+  gap?: number;
+  rowGap?: number;
+  columnGap?: number;
+  padding?: LiquidStyleValue;
+  margin?: LiquidStyleValue;
   theme?: LiquidThemeMode;
   colorScheme?: LiquidColorScheme;
   className?: string;

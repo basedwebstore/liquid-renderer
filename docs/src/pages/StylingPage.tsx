@@ -2,23 +2,58 @@ export function StylingPage() {
   return (
     <div className="page-grid docs-page">
       <section className="panel main-panel">
-        <h2>Styling and Overrides</h2>
+        <h2>Styling and Layout (Low Effort)</h2>
         <p className="muted">
-          Liquid components are default-styled out of the box. You can layer theme and palette controls globally, at layout
-          level, or per widget.
+          Liquid ships with built-in spacing, surface, and layout defaults so you can build usable UI from JSON without writing
+          manual CSS.
         </p>
 
-        <h3>Styling Model</h3>
+        <h3>Default-First Model</h3>
         <ol>
-          <li>Engine defaults are always applied.</li>
-          <li>Theme and resolved palette values are applied next.</li>
-          <li>JSON className/style overrides apply last.</li>
+          <li>Renderer layout defaults are applied first (columns, gaps, padding).</li>
+          <li>Container defaults are applied next (surface, border, spacing, internal layout).</li>
+          <li>Theme and color tokens are resolved.</li>
+          <li>JSON style/className overrides apply last.</li>
         </ol>
 
-        <h3>Override Entry Points</h3>
+        <h3>Layout Controls You Can Use Today</h3>
+        <pre>{`blueprint.layout:
+  columns?: number (default 1)
+  rows?: number
+  gap?: number (default 16)
+  rowGap?: number (default gap)
+  columnGap?: number (default gap)
+  padding?: number | string (default 12)
+  margin?: number | string (default 0)
+  theme?: 'light' | 'dark'
+  colorScheme?: { light?: tokens, dark?: tokens }
+  className?: string
+  style?: object`}</pre>
+
+        <h3>Container Built-ins (No CSS Required)</h3>
+        <pre>{`container.props:
+  columns?: number
+  rows?: number
+  gap?: number (default 12)
+  rowGap?: number (default gap)
+  columnGap?: number (default gap)
+  direction?: 'row' | 'column' (default 'column')
+  wrap?: boolean (default false)
+  align?: 'start' | 'center' | 'end' | 'stretch' (default 'stretch')
+  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly' (default 'start')
+  padding?: number | string (default 16)
+  margin?: number | string (default 0)
+  radius?: number (default 20)
+  shadow?: 'none' | 'sm' | 'md' (default 'sm')
+  borderless?: boolean (default false)
+  className?: string
+  style?: object`}</pre>
+
+        <h3>Where To Override</h3>
         <ul>
-          <li>Layout: blueprint.layout.className, blueprint.layout.style</li>
-          <li>Widget: widget.props.className, widget.props.style</li>
+          <li>Global grid: blueprint.layout</li>
+          <li>Local grouping/layout: container.props</li>
+          <li>Fine tuning: widget.props.style or widget.props.className</li>
         </ul>
 
         <h3>Theme Resolution</h3>
@@ -58,14 +93,33 @@ shadow`}</pre>
           <li>colorScheme: {`{ light?: tokens, dark?: tokens }`}</li>
         </ul>
 
-        <h3>Style Object Example</h3>
+        <h3>Minimal No-CSS Example</h3>
         <pre>{`{
-  "borderColor": "#86efac",
-  "padding": 24,
-  "letterSpacing": "0.01em"
+  "version": "1.0.0",
+  "theme": "light",
+  "layout": {
+    "columns": 2,
+    "gap": 16,
+    "padding": 16
+  },
+  "widgets": [
+    {
+      "id": "left",
+      "type": "container",
+      "props": {
+        "gap": 12,
+        "padding": 16,
+        "radius": 18
+      },
+      "children": [
+        { "id": "search", "type": "input", "props": { "label": "Search", "placeholder": "Type here" } },
+        { "id": "region", "type": "select", "props": { "label": "Region", "options": [{"label":"US","value":"us"}] } }
+      ]
+    }
+  ]
 }`}</pre>
 
-        <h3>Blueprint Example</h3>
+        <h3>Advanced Override Example</h3>
         <pre>{`{
   "theme": "dark",
   "colorScheme": {
@@ -85,8 +139,12 @@ shadow`}</pre>
     }
   },
   "layout": {
-    "columns": 1,
+    "columns": 2,
+    "rows": 2,
     "gap": 16,
+    "rowGap": 20,
+    "columnGap": 14,
+    "padding": 20,
     "theme": "dark",
     "style": { "alignItems": "stretch" }
   },
@@ -95,7 +153,11 @@ shadow`}</pre>
       "id": "root-container",
       "type": "container",
       "props": {
-        "className": "grid grid-cols-1 gap-4",
+        "columns": 1,
+        "gap": 14,
+        "padding": 18,
+        "radius": 16,
+        "shadow": "md",
         "style": { "backgroundColor": "#0f172a" }
       }
     }

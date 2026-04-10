@@ -197,6 +197,17 @@ pre {
   vertical-align: top;
 }
 
+.layout-example-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.layout-example-grid h4 {
+  margin: 0 0 8px;
+}
+
 @media (max-width: 980px) {
   .playground-grid {
     grid-template-columns: 1fr;
@@ -207,6 +218,10 @@ pre {
   }
 
   .field-group {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-example-grid {
     grid-template-columns: 1fr;
   }
 }

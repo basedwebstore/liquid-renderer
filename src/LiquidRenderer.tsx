@@ -104,14 +104,22 @@ export function LiquidRenderer({ blueprint, themeMode, runtime }: LiquidRenderer
   const resolvedColorScheme = blueprint?.colorScheme ?? layout?.colorScheme;
   const resolvedColorTokens = resolveLiquidColorTokens(resolvedTheme, resolvedColorScheme);
   const columns = layout?.columns ?? 1;
+  const rows = layout?.rows;
   const gap = layout?.gap ?? 16;
-  const defaultLayoutClassName = 'grid auto-rows-fr items-start';
+  const rowGap = layout?.rowGap ?? gap;
+  const columnGap = layout?.columnGap ?? gap;
+  const defaultLayoutClassName = 'grid items-start';
   const layoutClassName = `${defaultLayoutClassName} ${layout?.className ?? ''}`;
   const layoutStyle: CSSProperties = {
+    display: 'grid',
     gridTemplateColumns: `repeat(${Math.max(1, columns)}, minmax(0, 1fr))`,
-    gap: `${Math.max(0, gap)}px`,
+    ...(typeof rows === 'number' ? { gridTemplateRows: `repeat(${Math.max(1, rows)}, minmax(0, 1fr))` } : {}),
+    rowGap: `${Math.max(0, rowGap)}px`,
+    columnGap: `${Math.max(0, columnGap)}px`,
     backgroundColor: resolvedColorTokens.pageBackground,
     color: resolvedColorTokens.text,
+    padding: layout?.padding ?? 12,
+    margin: layout?.margin ?? 0,
     ...(layout?.style as CSSProperties | undefined),
   };
 

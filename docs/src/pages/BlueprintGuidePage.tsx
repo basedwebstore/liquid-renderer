@@ -18,8 +18,9 @@ stat_card, stat_group, table, tabs, text_block, timeline, toolbar, trend_card`}<
 
         <h3>Layout Contract</h3>
         <ul>
-          <li>Required: columns (number), gap (number)</li>
-          <li>Optional: theme, colorScheme, className, style</li>
+          <li>Recommended: columns, gap</li>
+          <li>Supported: rows, rowGap, columnGap, padding, margin</li>
+          <li>Also supported: theme, colorScheme, className, style</li>
         </ul>
 
         <h3>Widget Contract</h3>
@@ -37,6 +38,7 @@ stat_card, stat_group, table, tabs, text_block, timeline, toolbar, trend_card`}<
 
         <h3>Quick Prop Reference</h3>
         <pre>{`button: { label, actionId, variant?, disabled? }
+      container: { columns?, rows?, gap?, rowGap?, columnGap?, direction?, wrap?, align?, justify?, padding?, margin?, radius?, shadow?, borderless? }
 input: { label, value?, placeholder?, inputType?, readOnly? }
 select: { label, options, value?, disabled? }
 tabs: { items, activeId? }
@@ -53,14 +55,22 @@ toolbar: { title?, actions? }`}</pre>
   "theme": "dark",
   "layout": {
     "columns": 1,
-    "gap": 16
+    "rows": 2,
+    "gap": 16,
+    "rowGap": 18,
+    "columnGap": 16,
+    "padding": 16
   },
   "widgets": [
     {
       "id": "root",
       "type": "container",
       "props": {
-        "className": "grid grid-cols-1 gap-4"
+        "columns": 1,
+        "gap": 12,
+        "padding": 16,
+        "radius": 18,
+        "shadow": "sm"
       },
       "children": [
         {

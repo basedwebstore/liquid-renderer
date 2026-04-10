@@ -90,6 +90,28 @@ Your host app is responsible for:
 - routing and navigation behavior
 - LLM or intent generation flows
 
+## Low-Effort Styling Defaults
+
+You can build usable UIs from JSON without manual CSS.
+
+Renderer layout supports built-in spacing and grid control:
+
+- `layout.columns` (default `1`)
+- `layout.rows` (optional)
+- `layout.gap` (default `16`)
+- `layout.rowGap` and `layout.columnGap` (optional, fallback to `gap`)
+- `layout.padding` (default `12`)
+- `layout.margin` (default `0`)
+
+`container` widgets support built-in layout primitives:
+
+- grid: `columns`, `rows`, `gap`, `rowGap`, `columnGap`
+- flex: `direction`, `wrap`, `align`, `justify`
+- spacing and shape: `padding`, `margin`, `radius`
+- appearance: `shadow`, `borderless`
+
+If you need deep customization, use `className`/`style` overrides, but they are optional for most dashboards.
+
 ## Documentation
 
 - Local docs app: `npm run docs:dev`

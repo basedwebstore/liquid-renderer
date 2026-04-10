@@ -33,6 +33,19 @@ export function LiquidSelect({
   widgetId,
 }: LiquidSelectProps) {
   const tokens = colorTokens ?? resolveLiquidColorTokens(theme, undefined);
+  const containerStyle: CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+    ...(style as CSSProperties | undefined),
+  };
+  const labelStyle: CSSProperties = {
+    display: 'block',
+    color: tokens.text,
+    fontSize: 14,
+    fontWeight: 600,
+    lineHeight: 1.3,
+  };
   const selectStyle: CSSProperties = {
     width: '100%',
     border: `1px solid ${tokens.border}`,
@@ -44,8 +57,8 @@ export function LiquidSelect({
   };
 
   return (
-    <label className={`block ${className}`} style={style as CSSProperties | undefined}>
-      <span className="mb-2 block text-sm font-medium" style={{ color: tokens.text }}>
+    <label className={className} style={containerStyle}>
+      <span style={labelStyle}>
         {label}
       </span>
       <select

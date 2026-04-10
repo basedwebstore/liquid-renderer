@@ -5,10 +5,11 @@ import { BlueprintGuidePage } from './pages/BlueprintGuidePage';
 import { ComponentsPage } from './pages/ComponentsPage';
 import { DispatchGuidePage } from './pages/DispatchGuidePage';
 import { HomePage } from './pages/HomePage';
+import { LayoutingPage } from './pages/LayoutingPage';
 import { PlaygroundPage } from './pages/PlaygroundPage';
 import { StylingPage } from './pages/StylingPage';
 
-type RouteKey = 'home' | 'playground' | 'components' | 'blueprint' | 'dispatch' | 'styling' | 'ai';
+type RouteKey = 'home' | 'playground' | 'components' | 'blueprint' | 'dispatch' | 'styling' | 'layouting' | 'ai';
 
 export function App() {
   const [route, setRoute] = useState<RouteKey>('home');
@@ -39,6 +40,9 @@ export function App() {
           <button type="button" className={route === 'styling' ? 'active' : ''} onClick={() => setRoute('styling')}>
             Styling
           </button>
+          <button type="button" className={route === 'layouting' ? 'active' : ''} onClick={() => setRoute('layouting')}>
+            Layouting
+          </button>
           <button type="button" className={route === 'ai' ? 'active' : ''} onClick={() => setRoute('ai')}>
             AI Authoring
           </button>
@@ -52,6 +56,7 @@ export function App() {
         {route === 'blueprint' ? <BlueprintGuidePage /> : null}
         {route === 'dispatch' ? <DispatchGuidePage /> : null}
         {route === 'styling' ? <StylingPage /> : null}
+        {route === 'layouting' ? <LayoutingPage /> : null}
         {route === 'ai' ? <AIAuthoringPage /> : null}
       </main>
     </div>
