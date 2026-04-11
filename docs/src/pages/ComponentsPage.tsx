@@ -38,7 +38,7 @@ export function ComponentsPage() {
   const exampleProps = createPropsFromSource(selected);
 
   return (
-    <div className="page-grid">
+    <div className="page-grid component-browser-grid">
       <aside className="panel side-list component-browser-panel">
         <h2>Components</h2>
         <p className="muted">Generated directly from source files with parsed prop metadata.</p>

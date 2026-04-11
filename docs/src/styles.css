@@ -383,6 +383,11 @@ pre {
   max-width: 380px;
 }
 
+.component-browser-grid {
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  align-items: start;
+}
+
 .component-browser-search-wrap {
   margin-top: 12px;
 }
@@ -517,6 +522,10 @@ pre {
 
   .component-browser-panel {
     max-width: none;
+  }
+
+  .component-browser-grid {
+    grid-template-columns: 1fr;
   }
 
   .component-browser-list {
