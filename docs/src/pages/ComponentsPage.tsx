@@ -8,6 +8,19 @@ import { getComponentDocs } from '../lib/source-docs';
 export function ComponentsPage() {
   const docs = useMemo(() => getComponentDocs(), []);
   const [selectedKey, setSelectedKey] = useState(docs[0]?.key ?? '');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredDocs = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) {
+      return docs;
+    }
+
+    return docs.filter((doc) => {
+      const haystack = `${doc.key} ${doc.fileName} ${doc.componentName}`.toLowerCase();
+      return haystack.includes(query);
+    });
+  }, [docs, searchQuery]);
 
   const selected = docs.find((doc) => doc.key === selectedKey) ?? docs[0];
 
@@ -26,21 +39,43 @@ export function ComponentsPage() {
 
   return (
     <div className="page-grid">
-      <aside className="panel side-list">
+      <aside className="panel side-list component-browser-panel">
         <h2>Components</h2>
-        <p className="muted">Generated directly from source files.</p>
-        <ul>
-          {docs.map((doc) => (
-            <li key={doc.key}>
-              <button
-                type="button"
-                className={doc.key === selected.key ? 'chip active' : 'chip'}
-                onClick={() => setSelectedKey(doc.key)}
-              >
-                {doc.key}
-              </button>
-            </li>
-          ))}
+        <p className="muted">Generated directly from source files with parsed prop metadata.</p>
+        <div className="field component-browser-search-wrap">
+          <label htmlFor="component-search" className="muted">
+            Search components
+          </label>
+          <input
+            id="component-search"
+            className="component-browser-search"
+            type="text"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder="Filter by key or filename"
+          />
+        </div>
+        <p className="muted component-browser-count">
+          Showing {filteredDocs.length} of {docs.length}
+        </p>
+        <ul className="component-browser-list">
+          {filteredDocs.length === 0 ? (
+            <li className="component-browser-empty">No components match your search.</li>
+          ) : (
+            filteredDocs.map((doc) => (
+              <li key={doc.key}>
+                <button
+                  type="button"
+                  className={doc.key === selected.key ? 'component-browser-row active' : 'component-browser-row'}
+                  onClick={() => setSelectedKey(doc.key)}
+                >
+                  <span className="component-browser-row-main">{doc.key}</span>
+                  <span className="component-browser-row-meta">{doc.fileName}</span>
+                  <span className="component-browser-row-meta">{doc.props.length} props</span>
+                </button>
+              </li>
+            ))
+          )}
         </ul>
       </aside>
 
@@ -48,6 +83,7 @@ export function ComponentsPage() {
         <h2>
           {selected.key} <span className="muted">({selected.fileName})</span>
         </h2>
+        <p className="muted">Component: {selected.componentName}</p>
 
         <h3>Props (parsed from source)</h3>
         <table className="prop-table">
